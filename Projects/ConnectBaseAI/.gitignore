@@ -45,3 +45,8 @@ ENV/
 __pycache__/
 *.pyc
 >>>>>>> clean
+.DS_Store
+__pycache__/
+*.pyc
+tools/*.txt
+tools/*.txt

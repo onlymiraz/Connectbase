@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connectbase Demo UI</title>
+  <style>
+    body { font-family:sans-serif; max-width:600px; margin:2rem auto; }
+    label { display:block; margin-top:1em; }
+    textarea, select, input { width:100%; padding:0.5em; margin-top:0.5em; }
+    button { margin-top:1em; padding:0.7em 1.5em; }
+    pre { background:#f4f4f4; padding:1em; white-space:pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Connectbase Demo</h1>
+
+  <label>Locations
+    <button onclick="call('locations')">Load</button>
+    <pre id="out_locations"></pre>
+  </label>
+
+  <label>Products
+    <button onclick="call('products')">Load</button>
+    <pre id="out_products"></pre>
+  </label>
+
+  <label>Quote Generator
+    <textarea id="quote_input">{"address":"456 Fiber Blvd, Austin, TX","product":"Fiber 1G"}</textarea>
+    <button onclick="post('quote', 'quote_input')">Generate Quote</button>
+    <pre id="out_quote"></pre>
+  </label>
+
+  <label>Code Search
+    <input id="search_q" placeholder="Where is the quote logic?">
+    <button onclick="q('code-search','search_q')">Search Code</button>
+    <pre id="out_code-search"></pre>
+  </label>
+
+  <label>Address Validate
+    <input id="addr_raw" placeholder="123 Main St; 456 Elm St">
+    <button onclick="q('address-validate','addr_raw')">Validate</button>
+    <pre id="out_address-validate"></pre>
+  </label>
+
+<script>
+  const base = window.location.origin + '/cb/';
+  function call(ep) {
+    fetch(base + ep).then(r=>r.json()).then(j=>document.getElementById('out_'+ep).textContent=JSON.stringify(j,null,2));
+  }
+  function post(ep, inpId) {
+    const v = document.getElementById(inpId).value;
+    fetch(base + ep, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:v
+    }).then(r=>r.json()).then(j=>document.getElementById('out_'+ep).textContent=JSON.stringify(j,null,2));
+  }
+  function q(ep, inpId) {
+    const v = encodeURIComponent(document.getElementById(inpId).value);
+    fetch(base + ep + '?question=' + v).then(r=>r.json()).then(j=>document.getElementById('out_'+ep).textContent=JSON.stringify(j,null,2));
+  }
+</script>
+</body>
+</html>

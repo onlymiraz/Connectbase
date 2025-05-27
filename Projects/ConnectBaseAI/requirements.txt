@@ -1,6 +1,8 @@
 fastapi
 langchain
+langchain-community
 openai
 faiss-cpu
 uvicorn
 python-dotenv
+pyodbc

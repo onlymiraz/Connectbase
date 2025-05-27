@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+from backend.agent.rag_agent import dummy_rag
+
 router = APIRouter(prefix='/cb')
 
 @router.get('/locations')
@@ -11,3 +13,8 @@ def get_products():
 @router.post("/quote")
 def create_quote(request: dict):
     return {"quote_id": "Q123", "status": "generated"}
+
+@router.get("/rag-test")
+def rag_test():
+    result = dummy_rag()
+    return {"rag_output": result}
