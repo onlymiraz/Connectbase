@@ -1,0 +1,11 @@
+﻿CREATE ROLE [RSExecRole]
+    AUTHORIZATION [dbo];
+
+
+GO
+ALTER ROLE [RSExecRole] ADD MEMBER [CORP\s_wad];
+
+
+GO
+ALTER ROLE [RSExecRole] ADD MEMBER [NT SERVICE\PowerBIReportServer];
+

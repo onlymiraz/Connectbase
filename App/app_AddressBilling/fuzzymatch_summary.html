@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Fuzzymatch Summary - {{ batch_id }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Fuzzymatch Summary for Batch: {{ batch_id }}</h1>
+  <hr />
+
+  <!-- If we have a notice (like "no data yet"), show it. -->
+  {% if notice %}
+  <p class="text-danger text-center">
+    {{ notice }}
+  </p>
+  {% endif %}
+
+  <!-- Insert the pivot table HTML (already generated in Python) -->
+  <div class="table-responsive">
+    {{ pivot_html|safe }}
+  </div>
+
+  <div class="mt-3 text-center">
+    <!-- Link back to results or upload -->
+    <a href="{{ url_for('show_fuzzymatch_results', batch_id=batch_id) }}" class="btn btn-primary me-3">
+      View Full Results
+    </a>
+    <a href="{{ url_for('upload') }}" class="btn btn-secondary">
+      Upload Another File
+    </a>
+  </div>
+</div>
+{% endblock %}

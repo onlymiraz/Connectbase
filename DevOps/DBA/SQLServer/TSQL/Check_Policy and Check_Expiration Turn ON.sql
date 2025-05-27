@@ -1,0 +1,7 @@
+USE Master
+GO
+ALTER LOGIN username WITH PASSWORD = 'password'
+GO
+ALTER LOGIN username WITH
+      CHECK_POLICY = OFF,
+      CHECK_EXPIRATION = OFF;

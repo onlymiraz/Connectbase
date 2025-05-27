@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "ENDDR_FEEDS", "ENDDR_FEEDS.dtproj", "{55D45F14-7A9E-484C-80E0-5826AF279613}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55D45F14-7A9E-484C-80E0-5826AF279613}.Development|Default.ActiveCfg = Development
+		{55D45F14-7A9E-484C-80E0-5826AF279613}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8283E151-68FB-43CC-B8D3-2FA3485A0587}
+	EndGlobalSection
+EndGlobal

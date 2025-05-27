@@ -1,0 +1,22 @@
+﻿CREATE TABLE [QBR].[TBL_MTTR] (
+    [TICKET_ID]   VARCHAR (25)  NULL,
+    [STATE]       VARCHAR (2)   NULL,
+    [REGION]      VARCHAR (10)  NULL,
+    [CLEC_ID]     VARCHAR (10)  NULL,
+    [CKT_ID]      VARCHAR (255) NULL,
+    [PRODUCT]     VARCHAR (10)  NULL,
+    [PROD2]       VARCHAR (10)  NULL,
+    [BDW]         VARCHAR (10)  NULL,
+    [CREATE_DATE] DATETIME      NULL,
+    [CLEARED_DT]  DATETIME      NULL,
+    [CLOSED_DT]   DATETIME      NULL,
+    [TTR]         FLOAT (53)    NULL,
+    [REPAIR_CODE] VARCHAR (255) NULL,
+    [DISP]        VARCHAR (255) NULL,
+    [CABLE_CUT]   VARCHAR (255) NULL,
+    [FOUND]       VARCHAR (1)   NULL,
+    [CAUSE_CD]    VARCHAR (255) NULL,
+    [MON]         VARCHAR (2)   NULL,
+    [UPDATE_DT]   DATE          NULL
+);
+

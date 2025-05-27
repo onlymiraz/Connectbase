@@ -1,0 +1,788 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/18/2024 10:31:32 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG3052BR6"
+  DTS:CreatorName="CORP\crr173"
+  DTS:DTSID="{20100BF3-A04C-42D9-B90B-CA5F5C60D06E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{7319C265-423C-4A4C-9DDA-1360A3A411BC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D7B1FBD3-D05C-4F64-9158-50900CBBCB60}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CALENDAR]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{8ECB2DF3-C2E8-4A97-8DD8-50C3B18CF07D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WADINFWWAPV02.WAD_PRD_02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RPT_YR]"
+                      cachedDataType="dbDate"
+                      cachedName="RPT_YR"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RPT_YR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[RPT_YR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RPT_MTH]"
+                      cachedDataType="dbDate"
+                      cachedName="RPT_MTH"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RPT_MTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[RPT_MTH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[calendar_date]"
+                      cachedDataType="dbDate"
+                      cachedName="calendar_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CALENDAR_DATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[calendar_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_week]"
+                      cachedDataType="i4"
+                      cachedName="day_of_week"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DAY_OF_WEEK]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_week]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_month]"
+                      cachedDataType="i4"
+                      cachedName="day_of_month"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DAY_OF_MONTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_year]"
+                      cachedDataType="i4"
+                      cachedName="day_of_year"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DAY_OF_YEAR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weekday_of_month]"
+                      cachedDataType="i4"
+                      cachedName="weekday_of_month"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WEEKDAY_OF_MONTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[weekday_of_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[week_of_month]"
+                      cachedDataType="i4"
+                      cachedName="week_of_month"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WEEK_OF_MONTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[week_of_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[week_of_year]"
+                      cachedDataType="i4"
+                      cachedName="week_of_year"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WEEK_OF_YEAR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[week_of_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_of_quarter]"
+                      cachedDataType="i4"
+                      cachedName="month_of_quarter"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONTH_OF_QUARTER]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[month_of_quarter]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_of_year]"
+                      cachedDataType="i4"
+                      cachedName="month_of_year"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONTH_OF_YEAR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[month_of_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quarter_of_year]"
+                      cachedDataType="i4"
+                      cachedName="quarter_of_year"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QUARTER_OF_YEAR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[quarter_of_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year_of_calendar]"
+                      cachedDataType="i4"
+                      cachedName="year_of_calendar"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR_OF_CALENDAR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[year_of_calendar]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RPT_YR]"
+                      dataType="dbDate"
+                      name="RPT_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RPT_MTH]"
+                      dataType="dbDate"
+                      name="RPT_MTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CALENDAR_DATE]"
+                      dataType="dbDate"
+                      name="CALENDAR_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DAY_OF_WEEK]"
+                      dataType="i4"
+                      name="DAY_OF_WEEK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DAY_OF_MONTH]"
+                      dataType="i4"
+                      name="DAY_OF_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DAY_OF_YEAR]"
+                      dataType="i4"
+                      name="DAY_OF_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WEEKDAY_OF_MONTH]"
+                      dataType="i4"
+                      name="WEEKDAY_OF_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WEEK_OF_MONTH]"
+                      dataType="i4"
+                      name="WEEK_OF_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WEEK_OF_YEAR]"
+                      dataType="i4"
+                      name="WEEK_OF_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONTH_OF_QUARTER]"
+                      dataType="i4"
+                      name="MONTH_OF_QUARTER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MONTH_OF_YEAR]"
+                      dataType="i4"
+                      name="MONTH_OF_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QUARTER_OF_YEAR]"
+                      dataType="i4"
+                      name="QUARTER_OF_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YEAR_OF_CALENDAR]"
+                      dataType="i4"
+                      name="YEAR_OF_CALENDAR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[THURSDAY_WEEKEND_DATE]"
+                      dataType="dbDate"
+                      name="THURSDAY_WEEKEND_DATE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Teradata Source"
+              componentClassID="Microsoft.SSISTeradataSrc"
+              contactInfo="Teradata Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Teradata Source"
+              name="Teradata Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select td_YEAR_begin(calendar_date) as RPT_YR,td_month_begin(calendar_date) as RPT_MTH,CALENDAR_DATE,DAY_OF_WEEK,DAY_OF_MONTH,DAY_OF_YEAR,WEEKDAY_OF_MONTH,WEEK_OF_MONTH,WEEK_OF_YEAR,MONTH_OF_QUARTER,MONTH_OF_YEAR,QUARTER_OF_YEAR,YEAR_OF_CALENDAR from sys_calendar.calendar a WHERE YEAR(CALENDAR_DATE) BETWEEN 2018 AND 2050</property>
+                <property
+                  dataType="System.Int32"
+                  description="Data transfer block size."
+                  expressionType="Notify"
+                  name="BlockSize">1048576</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum size of a data buffer when 'Buffer mode' is applied. Value must be large enough to hold at least one data row (including 8 overhead bytes per row at most)."
+                  expressionType="Notify"
+                  name="BufferMaxSize">16775552</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates which type of Load method is used. True stands for 'Progress Buffered Rows'. False indicates 'Progress Row By Row'."
+                  expressionType="Notify"
+                  name="BufferMode">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="SQL requests and responses data encryption."
+                  expressionType="Notify"
+                  name="DataEncryption">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.String"
+                  description="A trace file name. Setting a value for this property enables TPT detailed tracing."
+                  expressionType="Notify"
+                  name="DetailedTracingFile"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the types of diagnostic messages written by each instance of the dirver to an external log file. The diagnostic trace function provides more detailed information (including the version number) in the log file to aid in problem tracking and diagnosis."
+                  name="DetailedTracingLevel"
+                  typeConverter="DetailedTracingLevel">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Whether or not to discard large rows."
+                  expressionType="Notify"
+                  name="DiscardLargeRow">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Use maximal character buffers allocation factor. Used when 'Export Width Table ID' = 'Maximum Defaults'."
+                  expressionType="Notify"
+                  name="ExtendedStringColumnsAllocation">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum row size (kb) it can support in export. Valid values are: 64, 1024."
+                  name="JobMaxRowSize"
+                  typeConverter="JobMaxRowSize">64</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum number of sessions to log on."
+                  expressionType="Notify"
+                  name="MaxSessions">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Minimum number of sessions required."
+                  expressionType="Notify"
+                  name="MinSessions">1</property>
+                <property
+                  dataType="System.String"
+                  description="A user-defined query band expression."
+                  expressionType="Notify"
+                  name="QueryBandSessionInfo"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies whether to use spool or not while running the current Export job."
+                  name="SpoolMode"
+                  typeConverter="SpoolMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of hours to continue trying to log on when the maximum number of load jobs is already running on the Teradata Database."
+                  expressionType="Notify"
+                  name="TenacityHours">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of minutes to pause before retrying to log on when the maximum number of load jobs is already running on the Teradata Database."
+                  expressionType="Notify"
+                  name="TenacitySleep">6</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Whether to allow Pass Through Characters (PTCs) to be exported from Teradata."
+                  expressionType="Notify"
+                  name="UnicodePassThrough">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Teradata Source.Connections[TeradataConnection]"
+                  connectionManagerID="{C6E32F02-0A8C-4690-84CF-C532E6C25399}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[s_WAD3]"
+                  description="The Teradata runtime connection used to access the database."
+                  name="TeradataConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="Teradata Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[RPT_YR]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[RPT_YR]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[RPT_YR]"
+                      name="RPT_YR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[RPT_MTH]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[RPT_MTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[RPT_MTH]"
+                      name="RPT_MTH" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[calendar_date]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[calendar_date]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[calendar_date]"
+                      name="calendar_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_week]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[day_of_week]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_week]"
+                      name="day_of_week" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_month]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[day_of_month]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_month]"
+                      name="day_of_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_year]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[day_of_year]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[day_of_year]"
+                      name="day_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[weekday_of_month]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[weekday_of_month]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[weekday_of_month]"
+                      name="weekday_of_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[week_of_month]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[week_of_month]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[week_of_month]"
+                      name="week_of_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[week_of_year]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[week_of_year]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[week_of_year]"
+                      name="week_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[month_of_quarter]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[month_of_quarter]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[month_of_quarter]"
+                      name="month_of_quarter" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[month_of_year]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[month_of_year]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[month_of_year]"
+                      name="month_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[quarter_of_year]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[quarter_of_year]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[quarter_of_year]"
+                      name="quarter_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[year_of_calendar]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[year_of_calendar]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[year_of_calendar]"
+                      name="year_of_calendar" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[RPT_YR]"
+                      dataType="dbDate"
+                      name="RPT_YR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[RPT_MTH]"
+                      dataType="dbDate"
+                      name="RPT_MTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[calendar_date]"
+                      dataType="dbDate"
+                      name="calendar_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[day_of_week]"
+                      dataType="i4"
+                      name="day_of_week" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[day_of_month]"
+                      dataType="i4"
+                      name="day_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[day_of_year]"
+                      dataType="i4"
+                      name="day_of_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[weekday_of_month]"
+                      dataType="i4"
+                      name="weekday_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[week_of_month]"
+                      dataType="i4"
+                      name="week_of_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[week_of_year]"
+                      dataType="i4"
+                      name="week_of_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[month_of_quarter]"
+                      dataType="i4"
+                      name="month_of_quarter" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[month_of_year]"
+                      dataType="i4"
+                      name="month_of_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[quarter_of_year]"
+                      dataType="i4"
+                      name="quarter_of_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[year_of_calendar]"
+                      dataType="i4"
+                      name="year_of_calendar" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output]"
+                  isErrorOut="true"
+                  name="Teradata Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[RPT_YR]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[RPT_YR]"
+                      name="RPT_YR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[RPT_MTH]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[RPT_MTH]"
+                      name="RPT_MTH" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[calendar_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[calendar_date]"
+                      name="calendar_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[day_of_week]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[day_of_week]"
+                      name="day_of_week" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[day_of_month]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[day_of_month]"
+                      name="day_of_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[day_of_year]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[day_of_year]"
+                      name="day_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[weekday_of_month]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[weekday_of_month]"
+                      name="weekday_of_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[week_of_month]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[week_of_month]"
+                      name="week_of_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[week_of_year]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[week_of_year]"
+                      name="week_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[month_of_quarter]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[month_of_quarter]"
+                      name="month_of_quarter" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[month_of_year]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[month_of_year]"
+                      name="month_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[quarter_of_year]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[quarter_of_year]"
+                      name="quarter_of_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[year_of_calendar]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[year_of_calendar]"
+                      name="year_of_calendar" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Teradata Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Teradata Source Output"
+              startId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BA08344D-1B53-497D-B212-FE61166D66C0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8ECB2DF3-C2E8-4A97-8DD8-50C3B18CF07D}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.CALENDAR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{65756516-3F31-4BE2-A614-670CA83B328A}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.666666666667,41.3333333333334"
+          Id="Package\Data Flow Task"
+          TopLeft="210,123" />
+        <NodeLayout
+          Size="169.333333333334,41.3333333333334"
+          Id="Package\Execute SQL Task"
+          TopLeft="254,42" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="339,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.5,39"
+              Start="0,0"
+              End="-51.5,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="-4,19.5" />
+                  <mssgle:LineSegment
+                    End="-47.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.5,19.5"
+                    Point2="-51.5,19.5"
+                    Point3="-51.5,23.5" />
+                  <mssgle:LineSegment
+                    End="-51.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161.333333333334,41.3333333333334"
+          Id="Package\Data Flow Task\Teradata Source"
+          TopLeft="170.791672967581,227.435087806727" />
+        <NodeLayout
+          Size="177.333333333334,41.3333333333334"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="337,313" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Teradata Source Output]"
+          TopLeft="251.591672967581,269.035087806727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.208327032419,43.9649121932726"
+              Start="0,0"
+              End="174.208327032419,36.4649121932726">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9824560966363" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9824560966363"
+                    Point2="0,21.9824560966363"
+                    Point3="4,21.9824560966363" />
+                  <mssgle:LineSegment
+                    End="170.208327032419,21.9824560966363" />
+                  <mssgle:CubicBezierSegment
+                    Point1="170.208327032419,21.9824560966363"
+                    Point2="174.208327032419,21.9824560966363"
+                    Point3="174.208327032419,25.9824560966363" />
+                  <mssgle:LineSegment
+                    End="174.208327032419,36.4649121932726" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Teradata Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

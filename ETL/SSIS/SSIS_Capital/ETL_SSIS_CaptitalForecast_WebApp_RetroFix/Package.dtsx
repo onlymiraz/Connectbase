@@ -1,0 +1,799 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/17/2023 1:33:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{D2B17BCA-CEAF-414A-8E42-F9748A5EC763}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{BFDF9489-D8CE-43E4-B607-9919FF3A1914}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C1643885-6A32-40DC-A1C1-4502D63FBE6D}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalForecast">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalForecast;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{017F8A87-0844-49B0-9199-C1B51D9C1D82}"
+      DTS:ObjectName="CAPINFWWWPV01.CapitalForecastStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWWPV01;Initial Catalog=CapitalForecastStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AD89DAE0-DE6D-4DFD-BE5D-E53E433396D1}"
+      DTS:ObjectName="CAPINFWWWPV01.CapitalForecastStaging 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWWPV01;Initial Catalog=CapitalForecastStaging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{306B31B7-CD04-4566-98AB-9E3EB5438B64}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dest_CapitalForecastStaging_webapp"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdates]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[SubmittedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SubmittedBy"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[SubmittedBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[SubmitttedDtm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SubmitttedDtm"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[SubmitttedDtm]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[SubmitttedDtm]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Username (Frontier CORP ID)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Username (Frontier CORP ID)"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Username (Frontier CORP ID)]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Project Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Number"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Project Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Project Sub Number(s)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Sub Number(s)"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Spending Not Needed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Spending Not Needed"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Spending Not Needed]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Spending Not Needed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Future Spending]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Future Spending"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Future Spending]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Future Spending]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Current Project Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Current Project Status"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Current Project Status]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Current Project Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].Columns[Analyst Notes]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Analyst Notes"
+                      externalMetadataColumnId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Analyst Notes]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Analyst Notes]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmitttedDtm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Username (Frontier CORP ID)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Spending Not Needed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Future Spending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Project Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input].ExternalColumns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Analyst Notes" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\src_CapitalForecast_webapp"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="src_CapitalForecast_webapp"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdates]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\src_CapitalForecast_webapp.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      name="SubmittedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[SubmitttedDtm]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[SubmitttedDtm]"
+                      name="SubmitttedDtm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Username (Frontier CORP ID)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]"
+                      name="Username (Frontier CORP ID)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      name="Project Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Spending Not Needed]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Spending Not Needed]"
+                      name="Spending Not Needed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Future Spending]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Future Spending]"
+                      name="Future Spending"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Current Project Status]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Current Project Status]"
+                      name="Current Project Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Analyst Notes]"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].Columns[Analyst Notes]"
+                      name="Analyst Notes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmitttedDtm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Username (Frontier CORP ID)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Spending Not Needed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Future Spending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Project Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output].ExternalColumns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Analyst Notes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      name="SubmittedBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[SubmitttedDtm]"
+                      name="SubmitttedDtm" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Username (Frontier CORP ID)]"
+                      name="Username (Frontier CORP ID)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      name="Project Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Spending Not Needed]"
+                      name="Spending Not Needed" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Future Spending]"
+                      name="Future Spending" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Current Project Status]"
+                      name="Current Project Status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[Analyst Notes]"
+                      name="Analyst Notes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\dest_CapitalForecastStaging_webapp.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\src_CapitalForecast_webapp.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate dest_webapp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B23BA680-7CE4-4101-9ECD-B6B5BD6EC705}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate dest_webapp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{017F8A87-0844-49B0-9199-C1B51D9C1D82}"
+          SQLTask:SqlStatementSource="truncate table webapp.msformsanalystupdates" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{31A3E2A2-A744-4703-9F24-3197316176CD}"
+      DTS:From="Package\truncate dest_webapp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="239,250" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\truncate dest_webapp"
+          TopLeft="266,71" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="359.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43,137"
+              Start="0,0"
+              End="-43,129.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.5"
+                    Point2="0,68.5"
+                    Point3="-4,68.5" />
+                  <mssgle:LineSegment
+                    End="-39,68.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39,68.5"
+                    Point2="-43,68.5"
+                    Point3="-43,72.5" />
+                  <mssgle:LineSegment
+                    End="-43,129.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Data Flow Task\src_CapitalForecast_webapp"
+          TopLeft="106,113" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\Data Flow Task\dest_CapitalForecastStaging_webapp"
+          TopLeft="453,116" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="327,135.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126,0"
+              Start="0,0"
+              End="118.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="118.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\src_CapitalForecast_webapp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\dest_CapitalForecastStaging_webapp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

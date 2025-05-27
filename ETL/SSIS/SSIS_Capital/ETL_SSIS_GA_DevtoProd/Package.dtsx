@@ -1,0 +1,1679 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/2/2021 6:35:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{660E94AA-6354-43DC-9F0B-C91803225D5F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{A156791C-90EA-46C3-8DD1-A9DA9A556A2D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.FTTH.sql_CapMgtIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{77297FCB-3FA2-486D-8E18-D839D678CE35}"
+      DTS:ObjectName="CAPINFWWAPV01.FTTH.sql_CapMgtIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=FTTH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{77297FCB-3FA2-486D-8E18-D839D678CE35}CAPINFWWAPV01.FTTH.sql_CapMgtIT;"
+          DTS:ConnectByProxy="True" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F42E5435-571C-4998-B6C4-6AC292756DBC}"
+      DTS:ObjectName="SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SQLINFWWDVD205\DCDEV205;Initial Catalog=CapitalManagementDevelopment;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9902E5B1-4E00-4727-8B95-A06D4038206F}"
+      DTS:ObjectName="SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7172925B-3BEC-4E40-97DD-B3A920A2BF8C}"
+      DTS:ObjectName="SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{7172925B-3BEC-4E40-97DD-B3A920A2BF8C}SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean Source_Dev"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8ba708d6-1b91-45c6-a3ca-1ad51c8b54c2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean Source_Dev"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F42E5435-571C-4998-B6C4-6AC292756DBC}"
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS [forecast].[GrossAddsDirect2021]&#xA;&#xA;DROP TABLE IF EXISTS [forecast].[GrossAddsInDirect2021]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ingestion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{446539C1-698F-4D8E-BFBC-7719DB0DDB7C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ingestion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ingestion\Source_Dev_GA_Direct"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source_Dev_GA_Direct"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[forecast].[GrossAddsDirect2021]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ingestion\Source_Dev_GA_Direct.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[ProjectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[ProjectNumber]"
+                      length="15"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[ProjectNumber]"
+                      name="ProjectNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[SubprojectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[SubprojectNumber]"
+                      length="5"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[SubprojectNumber]"
+                      name="SubprojectNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[January]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[January]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[January]"
+                      name="January"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[February]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[February]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[February]"
+                      name="February"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[March]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[March]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[March]"
+                      name="March"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[April]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[April]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[April]"
+                      name="April"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[May]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[May]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[May]"
+                      name="May"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[June]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[June]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[June]"
+                      name="June"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[July]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[July]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[July]"
+                      name="July"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[August]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[August]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[August]"
+                      name="August"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[September]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[September]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[September]"
+                      name="September"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[October]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[October]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[October]"
+                      name="October"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[November]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[November]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[November]"
+                      name="November"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[December]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[December]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[December]"
+                      name="December"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[ProjectNumber]"
+                      dataType="i4"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[SubprojectNumber]"
+                      dataType="i2"
+                      name="SubprojectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i2"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[January]"
+                      dataType="cy"
+                      name="January" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[February]"
+                      dataType="cy"
+                      name="February" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[March]"
+                      dataType="cy"
+                      name="March" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[April]"
+                      dataType="cy"
+                      name="April" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[May]"
+                      dataType="cy"
+                      name="May" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[June]"
+                      dataType="cy"
+                      name="June" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[July]"
+                      dataType="cy"
+                      name="July" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[August]"
+                      dataType="cy"
+                      name="August" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[September]"
+                      dataType="cy"
+                      name="September" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[October]"
+                      dataType="cy"
+                      name="October" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[November]"
+                      dataType="cy"
+                      name="November" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].ExternalColumns[December]"
+                      dataType="cy"
+                      name="December" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[ProjectNumber]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[ProjectNumber]"
+                      name="ProjectNumber" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[SubprojectNumber]"
+                      dataType="i2"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[SubprojectNumber]"
+                      name="SubprojectNumber" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i2"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[January]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[January]"
+                      name="January" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[February]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[February]"
+                      name="February" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[March]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[March]"
+                      name="March" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[April]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[April]"
+                      name="April" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[May]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[May]"
+                      name="May" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[June]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[June]"
+                      name="June" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[July]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[July]"
+                      name="July" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[August]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[August]"
+                      name="August" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[September]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[September]"
+                      name="September" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[October]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[October]"
+                      name="October" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[November]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[November]"
+                      name="November" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[December]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[December]"
+                      name="December" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ingestion\Source_Dev_GA_InDirect"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source_Dev_GA_InDirect"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[forecast].[GrossAddsInDirect2021]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ingestion\Source_Dev_GA_InDirect.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[ProjectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[ProjectNumber]"
+                      length="15"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[ProjectNumber]"
+                      name="ProjectNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[SubprojectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[SubprojectNumber]"
+                      length="5"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[SubprojectNumber]"
+                      name="SubprojectNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[January]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[January]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[January]"
+                      name="January"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[February]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[February]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[February]"
+                      name="February"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[March]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[March]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[March]"
+                      name="March"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[April]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[April]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[April]"
+                      name="April"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[May]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[May]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[May]"
+                      name="May"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[June]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[June]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[June]"
+                      name="June"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[July]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[July]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[July]"
+                      name="July"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[August]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[August]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[August]"
+                      name="August"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[September]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[September]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[September]"
+                      name="September"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[October]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[October]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[October]"
+                      name="October"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[November]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[November]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[November]"
+                      name="November"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[December]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[December]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[December]"
+                      name="December"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[ProjectNumber]"
+                      dataType="i4"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[SubprojectNumber]"
+                      dataType="i2"
+                      name="SubprojectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i2"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[January]"
+                      dataType="cy"
+                      name="January" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[February]"
+                      dataType="cy"
+                      name="February" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[March]"
+                      dataType="cy"
+                      name="March" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[April]"
+                      dataType="cy"
+                      name="April" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[May]"
+                      dataType="cy"
+                      name="May" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[June]"
+                      dataType="cy"
+                      name="June" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[July]"
+                      dataType="cy"
+                      name="July" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[August]"
+                      dataType="cy"
+                      name="August" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[September]"
+                      dataType="cy"
+                      name="September" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[October]"
+                      dataType="cy"
+                      name="October" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[November]"
+                      dataType="cy"
+                      name="November" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].ExternalColumns[December]"
+                      dataType="cy"
+                      name="December" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[ProjectNumber]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[ProjectNumber]"
+                      name="ProjectNumber" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[SubprojectNumber]"
+                      dataType="i2"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[SubprojectNumber]"
+                      name="SubprojectNumber" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i2"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[January]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[January]"
+                      name="January" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[February]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[February]"
+                      name="February" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[March]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[March]"
+                      name="March" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[April]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[April]"
+                      name="April" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[May]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[May]"
+                      name="May" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[June]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[June]"
+                      name="June" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[July]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[July]"
+                      name="July" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[August]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[August]"
+                      name="August" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[September]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[September]"
+                      name="September" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[October]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[October]"
+                      name="October" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[November]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[November]"
+                      name="November" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[December]"
+                      dataType="cy"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[December]"
+                      name="December" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ingestion\Source_Prod_GA_Direct"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Source_Prod_GA_Direct"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[forecast].[GrossAddsDirect]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ingestion\Source_Prod_GA_Direct.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[ProjectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ProjectNumber"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[ProjectNumber]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[ProjectNumber]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[SubprojectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="SubprojectNumber"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[SubprojectNumber]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[SubprojectNumber]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i2"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[January]"
+                      cachedDataType="cy"
+                      cachedName="January"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[January]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[January]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[February]"
+                      cachedDataType="cy"
+                      cachedName="February"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[February]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[February]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[March]"
+                      cachedDataType="cy"
+                      cachedName="March"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[March]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[March]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[April]"
+                      cachedDataType="cy"
+                      cachedName="April"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[April]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[April]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[May]"
+                      cachedDataType="cy"
+                      cachedName="May"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[May]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[May]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[June]"
+                      cachedDataType="cy"
+                      cachedName="June"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[June]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[June]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[July]"
+                      cachedDataType="cy"
+                      cachedName="July"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[July]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[July]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[August]"
+                      cachedDataType="cy"
+                      cachedName="August"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[August]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[August]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[September]"
+                      cachedDataType="cy"
+                      cachedName="September"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[September]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[September]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[October]"
+                      cachedDataType="cy"
+                      cachedName="October"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[October]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[October]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[November]"
+                      cachedDataType="cy"
+                      cachedName="November"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[November]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[November]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].Columns[December]"
+                      cachedDataType="cy"
+                      cachedName="December"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[December]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output].Columns[December]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[ProjectNumber]"
+                      dataType="i4"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[SubprojectNumber]"
+                      dataType="i2"
+                      name="SubprojectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i2"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[January]"
+                      dataType="cy"
+                      name="January" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[February]"
+                      dataType="cy"
+                      name="February" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[March]"
+                      dataType="cy"
+                      name="March" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[April]"
+                      dataType="cy"
+                      name="April" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[May]"
+                      dataType="cy"
+                      name="May" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[June]"
+                      dataType="cy"
+                      name="June" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[July]"
+                      dataType="cy"
+                      name="July" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[August]"
+                      dataType="cy"
+                      name="August" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[September]"
+                      dataType="cy"
+                      name="September" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[October]"
+                      dataType="cy"
+                      name="October" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[November]"
+                      dataType="cy"
+                      name="November" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input].ExternalColumns[December]"
+                      dataType="cy"
+                      name="December" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ingestion\Source_Prod_GA_Direct.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Prod_GA_Direct.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_Direct.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Prod_GA_Direct.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ingestion\Source_Prod_GA_InDirect"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Source_Prod_GA_InDirect"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[forecast].[GrossAddsIndirect]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ingestion\Source_Prod_GA_InDirect.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[ProjectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ProjectNumber"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[ProjectNumber]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[ProjectNumber]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[SubprojectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="SubprojectNumber"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[SubprojectNumber]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[SubprojectNumber]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i2"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[January]"
+                      cachedDataType="cy"
+                      cachedName="January"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[January]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[January]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[February]"
+                      cachedDataType="cy"
+                      cachedName="February"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[February]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[February]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[March]"
+                      cachedDataType="cy"
+                      cachedName="March"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[March]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[March]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[April]"
+                      cachedDataType="cy"
+                      cachedName="April"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[April]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[April]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[May]"
+                      cachedDataType="cy"
+                      cachedName="May"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[May]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[May]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[June]"
+                      cachedDataType="cy"
+                      cachedName="June"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[June]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[June]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[July]"
+                      cachedDataType="cy"
+                      cachedName="July"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[July]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[July]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[August]"
+                      cachedDataType="cy"
+                      cachedName="August"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[August]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[August]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[September]"
+                      cachedDataType="cy"
+                      cachedName="September"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[September]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[September]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[October]"
+                      cachedDataType="cy"
+                      cachedName="October"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[October]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[October]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[November]"
+                      cachedDataType="cy"
+                      cachedName="November"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[November]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[November]" />
+                    <inputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].Columns[December]"
+                      cachedDataType="cy"
+                      cachedName="December"
+                      externalMetadataColumnId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[December]"
+                      lineageId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output].Columns[December]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[ProjectNumber]"
+                      dataType="i4"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[SubprojectNumber]"
+                      dataType="i2"
+                      name="SubprojectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i2"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[January]"
+                      dataType="cy"
+                      name="January" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[February]"
+                      dataType="cy"
+                      name="February" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[March]"
+                      dataType="cy"
+                      name="March" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[April]"
+                      dataType="cy"
+                      name="April" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[May]"
+                      dataType="cy"
+                      name="May" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[June]"
+                      dataType="cy"
+                      name="June" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[July]"
+                      dataType="cy"
+                      name="July" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[August]"
+                      dataType="cy"
+                      name="August" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[September]"
+                      dataType="cy"
+                      name="September" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[October]"
+                      dataType="cy"
+                      name="October" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[November]"
+                      dataType="cy"
+                      name="November" />
+                    <externalMetadataColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input].ExternalColumns[December]"
+                      dataType="cy"
+                      name="December" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ingestion\Source_Prod_GA_InDirect.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Prod_GA_InDirect.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ingestion\Source_Prod_GA_InDirect.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ingestion\Source_Prod_GA_InDirect.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ingestion.Paths[OLE DB Source Output]"
+              endId="Package\Ingestion\Source_Prod_GA_Direct.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ingestion\Source_Dev_GA_Direct.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Ingestion.Paths[OLE DB Source Output1]"
+              endId="Package\Ingestion\Source_Prod_GA_InDirect.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ingestion\Source_Dev_GA_InDirect.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prep Source_Dev"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CBE16EF6-20D3-42E2-A3EC-1B2806396FC3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prep Source_Dev"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F42E5435-571C-4998-B6C4-6AC292756DBC}"
+          SQLTask:SqlStatementSource="DROP TABLE IF EXISTS [forecast].[GrossAddsDirect2021]&#xA;SELECT * INTO [forecast].[GrossAddsDirect2021]&#xA;FROM [forecast].[GrossAddsDirect]&#xA;WHERE [YEAR]=2021&#xA;&#xA;DROP TABLE IF EXISTS [forecast].[GrossAddsInDirect2021]&#xA;SELECT * INTO [forecast].[GrossAddsInDirect2021]&#xA;FROM [forecast].[GrossAddsInDirect]&#xA;WHERE [YEAR]=2021" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prod_Fix Prior Year"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8d0aef71-b14c-4fff-aff0-962e165957ab}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prod_Fix Prior Year"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9902E5B1-4E00-4727-8B95-A06D4038206F}"
+          SQLTask:SqlStatementSource="EXEC [forecast].[usp_PriorYearNew]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE Destination_Prod"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DC7F9E97-2D86-4D4B-B3F2-D16D8D24B481}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE Destination_Prod"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9902E5B1-4E00-4727-8B95-A06D4038206F}"
+          SQLTask:SqlStatementSource="DELETE FROM [forecast].[GrossAddsDirect]&#xA;WHERE [YEAR]=2021&#xA;&#xA;DELETE FROM [forecast].[GrossAddsInDirect]&#xA;WHERE [YEAR]=2021&#xA;&#xA;UPDATE [forecast].[GrossAddsDirect]&#xA;SET December=0&#xA;WHERE [YEAR]=2022&#xA;&#xA;UPDATE [forecast].[GrossAddsInDirect]&#xA;SET December=0&#xA;WHERE [YEAR]=2022" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3FAA64E5-9D2D-4E8B-9B71-6A237FF6AD13}"
+      DTS:From="Package\TRUNCATE Destination_Prod"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Prep Source_Dev" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{91851D93-9A2C-4C57-9416-1E545C55FE17}"
+      DTS:From="Package\Ingestion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Clean Source_Dev" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{ABE0EE65-3812-4AA2-8C9F-474BD79DEAB3}"
+      DTS:From="Package\Prep Source_Dev"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Ingestion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{26EAAA81-4DA2-45E2-8E10-C740F9DD2EB3}"
+      DTS:From="Package\Clean Source_Dev"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Prod_Fix Prior Year" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Clean Source_Dev"
+          TopLeft="480.333326445686,129.6" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Ingestion"
+          TopLeft="503.166671269469,28" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Prep Source_Dev"
+          TopLeft="271.666655871604,23.7333334504231" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Prod_Fix Prior Year"
+          TopLeft="172.000005364418,134.133332561917" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\TRUNCATE Destination_Prod"
+          TopLeft="40.3333439297142,23.9333332851194" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="237.133343929714,44.6333333677713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.5333119418902,0"
+              Start="0,0"
+              End="27.0333119418902,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.0333119418902,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="562.799999205271,69.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="470.066655871604,46.6666667252116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.1000153978648,0"
+              Start="0,0"
+              End="25.6000153978648,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.6000153978648,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="480.333326445686,152.666666280958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-138.733321081268,0"
+              Start="0,0"
+              End="-131.233321081268,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-131.233321081268,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ingestion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Ingestion\Source_Dev_GA_InDirect"
+          TopLeft="73.3333304193286,173.333334710863" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Ingestion\Source_Prod_GA_Direct"
+          TopLeft="315.833320783245,39.8666669834985" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Ingestion\Source_Dev_GA_Direct"
+          TopLeft="71.6666638188893,35.5333336157269" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Ingestion\Source_Prod_GA_InDirect"
+          TopLeft="338.333319889175,175.066668057972" />
+        <EdgeLayout
+          Id="Package\Ingestion.Paths[OLE DB Source Output]"
+          TopLeft="261.266663818889,58.5000002996127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.5666569643557,0"
+              Start="0,0"
+              End="47.0666569643557,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47.0666569643557,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Ingestion.Paths[OLE DB Source Output1]"
+          TopLeft="270.933330419329,195.000001384417">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.3999894698467,0"
+              Start="0,0"
+              End="59.8999894698467,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.8999894698467,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ingestion\Source_Dev_GA_InDirect">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ingestion\Source_Prod_GA_Direct">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ingestion\Source_Dev_GA_Direct">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ingestion\Source_Prod_GA_InDirect">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Circuit Inventory - Views{% endblock %}
+{% block content %}
+<div class="inventory-container">
+    <h2 class="inventory-title">Available Views</h2>
+    <div class="table-responsive">
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>View Name</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for view in views %}
+                <tr>
+                    <td class="view-name">{{ view }}</td>
+                    <td class="text-center">
+                        <a href="{{ url_for('circuit_inventory.view_data', view_name=view) }}" 
+                           class="btn-small">View Data</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div>
+    <h3>Debug Information</h3>
+    <pre>{{ views }}</pre>
+</div>
+{% endblock %}

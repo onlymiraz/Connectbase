@@ -1,0 +1,2125 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/27/2022 3:17:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{FC8B0BDC-26D8-4C77-B11A-C6442025C282}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{32D95F94-14C6-4D88-973E-93D1BA03487A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E9066420-067C-4362-8DB9-23E7448CF3D2}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalManagementProduction">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{97533DDF-6A81-4C35-82B6-2E94AC1BFFAF}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalManagementProduction 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWWPV01.MaterialsStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6A902826-67F0-4EDB-80DB-405872724FC6}"
+      DTS:ObjectName="CAPINFWWWPV01.MaterialsStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWWPV01;Initial Catalog=MaterialsStaging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{779EA9B7-D0BF-4558-96CE-6DFAEF3D2E12}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\IAM_Prod"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="IAM_Prod"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FTTH].[BulkReelUsage_UserAD]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\IAM_Prod.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Corp ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Corp ID"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Corp ID]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Corp ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Phone_Mobile]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Phone_Mobile"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Mobile]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Mobile]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Phone_Work]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Phone_Work"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Work]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Work]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Phone_Home]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Phone_Home"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Home]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Home]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Address_Street]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Address_Street"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_Street]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_Street]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Address_City]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Address_City"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_City]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_City]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Address_State]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Address_State"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_State]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Address_ZIP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Address_ZIP"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_ZIP]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_ZIP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Manager]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Manager"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Manager]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Manager]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[EmploymentType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmploymentType"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[EmploymentType]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[EmploymentType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[AD]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AD"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[AD]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[AD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[PW]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PW"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[PW]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[PW]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[SecurityQuestion1]"
+                      cachedDataType="nText"
+                      cachedName="SecurityQuestion1"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityQuestion1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityQuestion1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[SecurityAnswer1]"
+                      cachedDataType="nText"
+                      cachedName="SecurityAnswer1"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityAnswer1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityAnswer1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[SecurityQuestion2]"
+                      cachedDataType="nText"
+                      cachedName="SecurityQuestion2"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityQuestion2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityQuestion2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[SecurityAnswer2]"
+                      cachedDataType="nText"
+                      cachedName="SecurityAnswer2"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityAnswer2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityAnswer2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Comments]"
+                      cachedDataType="nText"
+                      cachedName="Comments"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Comments]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Comments]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[RequestStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RequestStatus"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[RequestStatus]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[RequestStatus]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[DeviceType1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DeviceType1"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[DeviceType2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DeviceType2"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[DeviceType3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DeviceType3"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType3]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType3]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[DeviceType4]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DeviceType4"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType4]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType4]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[DeviceType5]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DeviceType5"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType5]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType5]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[DeviceType6]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DeviceType6"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType6]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType6]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State1"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State2"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State3"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State3]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State3]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State4]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State4"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State4]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State4]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State5]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State5"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State5]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State5]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State6]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State6"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State6]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State6]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State7]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State7"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State7]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State7]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State8]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State8"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State8]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State8]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State9]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State9"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State9]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State9]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[State10]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State10"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State10]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State10]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode1"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode2"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode3"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode3]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode3]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode4]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode4"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode4]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode4]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode5]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode5"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode5]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode5]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode6]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode6"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode6]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode6]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode7]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode7"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode7]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode7]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode8]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode8"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode8]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode8]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode9]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode9"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode9]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode9]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[WarehouseCode10]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="WarehouseCode10"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode10]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode10]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[SubmittedBy]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SubmittedBy"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SubmittedBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[SubmittedDtm]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SubmittedDtm"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedDtm]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SubmittedDtm]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].Columns[Employer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Employer"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Employer]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Employer]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Corp ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="Corp ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Mobile]"
+                      dataType="wstr"
+                      length="50"
+                      name="Phone_Mobile" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Work]"
+                      dataType="wstr"
+                      length="50"
+                      name="Phone_Work" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Phone_Home]"
+                      dataType="wstr"
+                      length="50"
+                      name="Phone_Home" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_Street]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_Street" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_City]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_State]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Address_ZIP]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_ZIP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="50"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Manager]"
+                      dataType="wstr"
+                      length="50"
+                      name="Manager" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[EmploymentType]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmploymentType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[AD]"
+                      dataType="wstr"
+                      length="50"
+                      name="AD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[PW]"
+                      dataType="wstr"
+                      length="50"
+                      name="PW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityQuestion1]"
+                      dataType="nText"
+                      name="SecurityQuestion1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityAnswer1]"
+                      dataType="nText"
+                      name="SecurityAnswer1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityQuestion2]"
+                      dataType="nText"
+                      name="SecurityQuestion2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SecurityAnswer2]"
+                      dataType="nText"
+                      name="SecurityAnswer2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Comments]"
+                      dataType="nText"
+                      name="Comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[RequestStatus]"
+                      dataType="wstr"
+                      length="50"
+                      name="RequestStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType1]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType2]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType3]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType4]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType5]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[DeviceType6]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State1]"
+                      dataType="wstr"
+                      length="50"
+                      name="State1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State2]"
+                      dataType="wstr"
+                      length="50"
+                      name="State2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State3]"
+                      dataType="wstr"
+                      length="50"
+                      name="State3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State4]"
+                      dataType="wstr"
+                      length="50"
+                      name="State4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State5]"
+                      dataType="wstr"
+                      length="50"
+                      name="State5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State6]"
+                      dataType="wstr"
+                      length="50"
+                      name="State6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State7]"
+                      dataType="wstr"
+                      length="50"
+                      name="State7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State8]"
+                      dataType="wstr"
+                      length="50"
+                      name="State8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State9]"
+                      dataType="wstr"
+                      length="50"
+                      name="State9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[State10]"
+                      dataType="wstr"
+                      length="50"
+                      name="State10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode1]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode2]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode3]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode4]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode5]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode6]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode7]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode8]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode9]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[WarehouseCode10]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      dataType="wstr"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedDtm]"
+                      dataType="wstr"
+                      length="50"
+                      name="SubmittedDtm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input].ExternalColumns[Employer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Employer" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\IAM_Prod.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IAM_Prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IAM_Prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\IAM_Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="IAM_Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FTTH].[BulkReelUsage_UserAD]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\IAM_Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWWPV01.MaterialsStaging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWWPV01.MaterialsStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Corp ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Corp ID]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Corp ID]"
+                      name="Corp ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[FullName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[FullName]"
+                      name="FullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Mobile]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Phone_Mobile]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Mobile]"
+                      name="Phone_Mobile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Work]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Phone_Work]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Work]"
+                      name="Phone_Work"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Home]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Phone_Home]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Phone_Home]"
+                      name="Phone_Home"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_Street]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_Street]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_Street]"
+                      name="Address_Street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_City]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_City]"
+                      name="Address_City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_State]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_State]"
+                      name="Address_State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_ZIP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_ZIP]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Address_ZIP]"
+                      name="Address_ZIP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Manager]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Manager]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Manager]"
+                      name="Manager"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[EmploymentType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[EmploymentType]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[EmploymentType]"
+                      name="EmploymentType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[AD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[AD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[AD]"
+                      name="AD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[PW]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[PW]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[PW]"
+                      name="PW"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityQuestion1]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityQuestion1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityQuestion1]"
+                      name="SecurityQuestion1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityAnswer1]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityAnswer1]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityAnswer1]"
+                      name="SecurityAnswer1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityQuestion2]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityQuestion2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityQuestion2]"
+                      name="SecurityQuestion2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityAnswer2]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityAnswer2]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SecurityAnswer2]"
+                      name="SecurityAnswer2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Comments]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Comments]"
+                      name="Comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[RequestStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[RequestStatus]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[RequestStatus]"
+                      name="RequestStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType1]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType1]"
+                      name="DeviceType1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType2]"
+                      name="DeviceType2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType3]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType3]"
+                      name="DeviceType3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType4]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType4]"
+                      name="DeviceType4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType5]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType5]"
+                      name="DeviceType5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType6]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[DeviceType6]"
+                      name="DeviceType6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State1]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State1]"
+                      name="State1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State2]"
+                      name="State2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State3]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State3]"
+                      name="State3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State4]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State4]"
+                      name="State4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State5]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State5]"
+                      name="State5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State6]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State6]"
+                      name="State6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State7]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State7]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State7]"
+                      name="State7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State8]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State8]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State8]"
+                      name="State8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State9]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State9]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State9]"
+                      name="State9"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State10]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State10]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[State10]"
+                      name="State10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode1]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode1]"
+                      name="WarehouseCode1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode2]"
+                      name="WarehouseCode2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode3]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode3]"
+                      name="WarehouseCode3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode4]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode4]"
+                      name="WarehouseCode4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode5]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode5]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode5]"
+                      name="WarehouseCode5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode6]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode6]"
+                      name="WarehouseCode6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode7]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode7]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode7]"
+                      name="WarehouseCode7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode8]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode8]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode8]"
+                      name="WarehouseCode8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode9]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode9]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode9]"
+                      name="WarehouseCode9"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode10]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode10]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[WarehouseCode10]"
+                      name="WarehouseCode10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      name="SubmittedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SubmittedDtm]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SubmittedDtm]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[SubmittedDtm]"
+                      name="SubmittedDtm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Employer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Employer]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].Columns[Employer]"
+                      name="Employer"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Corp ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="Corp ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Phone_Mobile]"
+                      dataType="wstr"
+                      length="50"
+                      name="Phone_Mobile" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Phone_Work]"
+                      dataType="wstr"
+                      length="50"
+                      name="Phone_Work" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Phone_Home]"
+                      dataType="wstr"
+                      length="50"
+                      name="Phone_Home" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_Street]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_Street" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_City]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_State]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Address_ZIP]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address_ZIP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="50"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Manager]"
+                      dataType="wstr"
+                      length="50"
+                      name="Manager" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[EmploymentType]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmploymentType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[AD]"
+                      dataType="wstr"
+                      length="50"
+                      name="AD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[PW]"
+                      dataType="wstr"
+                      length="50"
+                      name="PW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityQuestion1]"
+                      dataType="nText"
+                      name="SecurityQuestion1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityAnswer1]"
+                      dataType="nText"
+                      name="SecurityAnswer1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityQuestion2]"
+                      dataType="nText"
+                      name="SecurityQuestion2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SecurityAnswer2]"
+                      dataType="nText"
+                      name="SecurityAnswer2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
+                      dataType="nText"
+                      name="Comments" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[RequestStatus]"
+                      dataType="wstr"
+                      length="50"
+                      name="RequestStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType1]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType2]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType3]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType4]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType5]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[DeviceType6]"
+                      dataType="wstr"
+                      length="50"
+                      name="DeviceType6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State1]"
+                      dataType="wstr"
+                      length="50"
+                      name="State1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State2]"
+                      dataType="wstr"
+                      length="50"
+                      name="State2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State3]"
+                      dataType="wstr"
+                      length="50"
+                      name="State3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State4]"
+                      dataType="wstr"
+                      length="50"
+                      name="State4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State5]"
+                      dataType="wstr"
+                      length="50"
+                      name="State5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State6]"
+                      dataType="wstr"
+                      length="50"
+                      name="State6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State7]"
+                      dataType="wstr"
+                      length="50"
+                      name="State7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State8]"
+                      dataType="wstr"
+                      length="50"
+                      name="State8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State9]"
+                      dataType="wstr"
+                      length="50"
+                      name="State9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[State10]"
+                      dataType="wstr"
+                      length="50"
+                      name="State10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode1]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode2]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode3]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode4]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode5]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode6]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode7]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode8]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode9]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[WarehouseCode10]"
+                      dataType="wstr"
+                      length="50"
+                      name="WarehouseCode10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      dataType="wstr"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[SubmittedDtm]"
+                      dataType="wstr"
+                      length="50"
+                      name="SubmittedDtm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output].ExternalColumns[Employer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Employer" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Corp ID]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Corp ID]"
+                      name="Corp ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      name="FullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Phone_Mobile]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Phone_Mobile]"
+                      name="Phone_Mobile" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Phone_Work]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Phone_Work]"
+                      name="Phone_Work" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Phone_Home]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Phone_Home]"
+                      name="Phone_Home" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_Street]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_Street]"
+                      name="Address_Street" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_City]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_City]"
+                      name="Address_City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_State]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_State]"
+                      name="Address_State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_ZIP]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Address_ZIP]"
+                      name="Address_ZIP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Manager]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Manager]"
+                      name="Manager" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[EmploymentType]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[EmploymentType]"
+                      name="EmploymentType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[AD]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[AD]"
+                      name="AD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[PW]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[PW]"
+                      name="PW" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityQuestion1]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityQuestion1]"
+                      name="SecurityQuestion1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityAnswer1]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityAnswer1]"
+                      name="SecurityAnswer1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityQuestion2]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityQuestion2]"
+                      name="SecurityQuestion2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityAnswer2]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SecurityAnswer2]"
+                      name="SecurityAnswer2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Comments]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Comments]"
+                      name="Comments" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[RequestStatus]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[RequestStatus]"
+                      name="RequestStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType1]"
+                      name="DeviceType1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType2]"
+                      name="DeviceType2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType3]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType3]"
+                      name="DeviceType3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType4]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType4]"
+                      name="DeviceType4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType5]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType5]"
+                      name="DeviceType5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType6]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[DeviceType6]"
+                      name="DeviceType6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State1]"
+                      name="State1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State2]"
+                      name="State2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State3]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State3]"
+                      name="State3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State4]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State4]"
+                      name="State4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State5]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State5]"
+                      name="State5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State6]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State6]"
+                      name="State6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State7]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State7]"
+                      name="State7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State8]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State8]"
+                      name="State8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State9]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State9]"
+                      name="State9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State10]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[State10]"
+                      name="State10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode1]"
+                      name="WarehouseCode1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode2]"
+                      name="WarehouseCode2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode3]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode3]"
+                      name="WarehouseCode3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode4]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode4]"
+                      name="WarehouseCode4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode5]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode5]"
+                      name="WarehouseCode5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode6]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode6]"
+                      name="WarehouseCode6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode7]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode7]"
+                      name="WarehouseCode7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode8]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode8]"
+                      name="WarehouseCode8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode9]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode9]"
+                      name="WarehouseCode9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode10]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[WarehouseCode10]"
+                      name="WarehouseCode10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      name="SubmittedBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SubmittedDtm]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[SubmittedDtm]"
+                      name="SubmittedDtm" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Employer]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[Employer]"
+                      name="Employer" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\IAM_Prod.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\IAM_Staging.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE Destination_IAM_Prod"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8D5C3076-87AC-43CF-B57D-A23BA486AF9E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE Destination_IAM_Prod"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E9066420-067C-4362-8DB9-23E7448CF3D2}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [FTTH].[BulkReelUsage_UserAD]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1A39649-F261-4314-9655-B17CD3E6B214}"
+      DTS:From="Package\TRUNCATE Destination_IAM_Prod"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\TRUNCATE Destination_IAM_Prod"
+          TopLeft="137,69" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="575.5,62.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="389,86.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="186.5,0"
+              Start="0,0"
+              End="179,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="179,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Data Flow Task\IAM_Staging"
+          TopLeft="199,76" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Data Flow Task\IAM_Prod"
+          TopLeft="504,73" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="341,95.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163,0"
+              Start="0,0"
+              End="155.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="155.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\IAM_Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\IAM_Prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

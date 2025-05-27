@@ -1,0 +1,2 @@
+﻿CREATE USER [CORP\WAD_DevOps] FOR LOGIN [CORP\WAD_DevOps];
+

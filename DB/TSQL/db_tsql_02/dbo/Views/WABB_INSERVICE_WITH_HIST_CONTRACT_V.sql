@@ -1,0 +1,30 @@
+﻿CREATE VIEW [dbo].[WABB_INSERVICE_WITH_HIST_CONTRACT_V] AS
+SELECT distinct
+wabb.*
+,ci.SUBLSN
+,ci.SUBFRN
+,ci.SUBCDT
+,ci.SUBDDT
+,ci.CONTRACT_ID
+,ci.DESCRIPTION
+,ci.CONTRACT_TYPE
+,ci.OFFER_DATE
+,ci.EFFECTIVE_DATE
+,ci.EXPIRATION_DATE
+,ci.TERM
+,ci.STATUS
+,row_number() over(partition by wabb.WTN,wabb.BTN,wabb.BILL_MONTH ORDER BY STATUS,CONTRACT_ID DESC) AS ROW_NUM
+FROM dbo.TBL_CM_WABB_INSERVICE wabb
+
+LEFT JOIN dbo.TBL_CONTRACT_INFORMATION ci
+on wabb.WTN = ci.WTN
+AND wabb.BTN = ci.BTN
+--AND wabb.BILL_MONTH between ci.EFFECTIVE_DATE and ci.EXPIRATION_DATE
+
+where 1=1
+and BILL_MONTH = (select max(BILL_MONTH) from dbo.TBL_CM_WABB_INSERVICE)
+--AND wabb.WTN = '8603441892'
+--AND wabb.BTN = '8603441892'
+--AND wabb.BILL_MONTH = '2024-03-01'
+
+--order by wabb.WTN,wabb.BTN,wabb.STN,wabb.BILL_MONTH desc,ci.CONTRACT_ID desc

@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Divyatest]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [DIVYA] NCHAR(10) NULL
+)

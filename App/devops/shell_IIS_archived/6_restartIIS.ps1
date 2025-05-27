@@ -1,0 +1,2 @@
+# Restart IIS
+iisreset

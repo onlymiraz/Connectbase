@@ -1,0 +1,559 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/4/2023 3:17:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG1283K5P"
+  DTS:CreatorName="CORP\kff491"
+  DTS:DTSID="{F8548BB5-2C76-4FF6-8810-EE21D3C53EBB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package_Staging"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{2C5F92EC-3049-40AC-A148-22F6C375B325}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6E88CDD6-13A0-4158-8E0A-18E7E74CF947}"
+      DTS:ObjectName="CAPINFWWWPV01.CapitalForecastStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWWPV01;Initial Catalog=CapitalForecastStaging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlinfwwdvp07\dcprd07.Varasset.sql_NetTrans]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CABC4204-BFBB-4C91-8AEE-5529CE10CA7C}"
+      DTS:ObjectName="sqlinfwwdvp07\dcprd07.Varasset.sql_NetTrans">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlinfwwdvp07\dcprd07;Initial Catalog=Varasset;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package_Staging-{CABC4204-BFBB-4C91-8AEE-5529CE10CA7C}sqlinfwwdvp07\dcprd07.Varasset.sql_NetTrans;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ingest"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3E38AFF1-DE70-4870-811D-244F8B9A1035}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ingest"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ingest\PushPull_Feeder_Distribution"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="PushPull_Feeder_Distribution"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[PushPull].[LZ_Varasset_Feeder_Distribution]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ingest\PushPull_Feeder_Distribution.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWWPV01.CapitalForecastStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input].Columns[_resFinancialProject]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="_resFinancialProject"
+                      externalMetadataColumnId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input].ExternalColumns[Project]"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[_resFinancialProject]" />
+                    <inputColumn
+                      refId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input].Columns[Feed or Distribution Project]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Feed or Distribution Project"
+                      externalMetadataColumnId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input].ExternalColumns[Feeder_Distribution]"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[Feed or Distribution Project]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input].ExternalColumns[Project]"
+                      dataType="wstr"
+                      length="20"
+                      name="Project" />
+                    <externalMetadataColumn
+                      refId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input].ExternalColumns[Feeder_Distribution]"
+                      dataType="wstr"
+                      length="50"
+                      name="Feeder_Distribution" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ingest\PushPull_Feeder_Distribution.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingest\PushPull_Feeder_Distribution.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ingest\PushPull_Feeder_Distribution.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ingest\PushPull_Feeder_Distribution.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ingest\PushPull_Feeder_Distribution.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ingest\Varasset_Feeder_Distribution"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Varasset_Feeder_Distribution"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+wo.WorkOrderId,
+wo._resFinancialProject 
+,p1.name as[Feed or Distribution Project]
+
+ 
+
+from dbo.workorder_nonfiltered wo
+inner join dbo.cd_PMDBRecords_nonfiltered pmdb
+on pmdb.cd_workorder=wo.id 
+left join dbo.specification feeddist
+on feeddist.instance_instanceid=wo.id 
+and 
+feeddist.attribute='F6AD2AD4-63FC-4A74-94B7-DE82D1551ACF'-- name='feeddist'
+left join dbo.picklistitem p1
+on feeddist.picklistvalue=p1.id
+--where wo.IsActive=1</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ingest\Varasset_Feeder_Distribution.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlinfwwdvp07\dcprd07.Varasset.sql_NetTrans]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlinfwwdvp07\dcprd07.Varasset.sql_NetTrans]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[WorkOrderId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderId]"
+                      length="50"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[WorkOrderId]"
+                      name="WorkOrderId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[_resFinancialProject]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].ExternalColumns[_resFinancialProject]"
+                      length="30"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[_resFinancialProject]"
+                      name="_resFinancialProject"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[Feed or Distribution Project]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].ExternalColumns[Feed or Distribution Project]"
+                      length="100"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].Columns[Feed or Distribution Project]"
+                      name="Feed or Distribution Project"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].ExternalColumns[WorkOrderId]"
+                      dataType="wstr"
+                      length="50"
+                      name="WorkOrderId" />
+                    <externalMetadataColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].ExternalColumns[_resFinancialProject]"
+                      dataType="wstr"
+                      length="30"
+                      name="_resFinancialProject" />
+                    <externalMetadataColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output].ExternalColumns[Feed or Distribution Project]"
+                      dataType="wstr"
+                      length="100"
+                      name="Feed or Distribution Project" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[WorkOrderId]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[WorkOrderId]"
+                      name="WorkOrderId" />
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[_resFinancialProject]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[_resFinancialProject]"
+                      name="_resFinancialProject" />
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[Feed or Distribution Project]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[Feed or Distribution Project]"
+                      name="Feed or Distribution Project" />
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ingest.Paths[OLE DB Source Output]"
+              endId="Package\Ingest\PushPull_Feeder_Distribution.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ingest\Varasset_Feeder_Distribution.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Remove null in destination"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{656f98ec-54a6-4f4a-80f4-56b45a4394e7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Remove null in destination"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6E88CDD6-13A0-4158-8E0A-18E7E74CF947}"
+          SQLTask:SqlStatementSource="delete from [PushPull].[LZ_Varasset_Feeder_Distribution]&#xA;where project is null and Feeder_Distribution is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Destination"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{536600B4-D8B9-4D9F-88E7-AAD32F357272}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Destination"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6E88CDD6-13A0-4158-8E0A-18E7E74CF947}"
+          SQLTask:SqlStatementSource="Truncate table PushPull.LZ_Varasset_Feeder_Distribution" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E46CD34-4FA0-4F04-9324-D20A338132F7}"
+      DTS:From="Package\Truncate Destination"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Ingest" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8E9B436D-5CA3-41AA-A684-FBD89B04FEC6}"
+      DTS:From="Package\Ingest"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Remove null in destination" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="109,42"
+          Id="Package\Ingest"
+          TopLeft="274,15" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Remove null in destination"
+          TopLeft="52,119" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Truncate Destination"
+          TopLeft="52,17" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="232,37">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,0"
+              Start="0,0"
+              End="34.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="328.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-172.5,62"
+              Start="0,0"
+              End="-172.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-168.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-168.5,31"
+                    Point2="-172.5,31"
+                    Point3="-172.5,35" />
+                  <mssgle:LineSegment
+                    End="-172.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ingest">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Ingest\Varasset_Feeder_Distribution"
+          TopLeft="100,17" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Ingest\PushPull_Feeder_Distribution"
+          TopLeft="96,142" />
+        <EdgeLayout
+          Id="Package\Ingest.Paths[OLE DB Source Output]"
+          TopLeft="210.5,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ingest\PushPull_Feeder_Distribution">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ingest\Varasset_Feeder_Distribution">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

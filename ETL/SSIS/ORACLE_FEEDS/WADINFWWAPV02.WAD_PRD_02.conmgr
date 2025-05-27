@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="WADINFWWAPV02.WAD_PRD_02"
+  DTS:DTSID="{B2AD75CD-7BF6-49FB-9186-1D253E0F046B}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=WADINFWWAPV02;Initial Catalog=WAD_PRD_02;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-APV01_M6_to_TBL_SR_EMBEDDED_BASE-{B2AD75CD-7BF6-49FB-9186-1D253E0F046B}WADINFWWAPV02.WAD_PRD_02;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

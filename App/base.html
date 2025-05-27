@@ -1,0 +1,91 @@
+<!-- /App/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontier - {% block title %}{% endblock %}</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  {% block styles %}
+  <style>
+  body {
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f8f9fa;
+  }
+  header {
+      background-color: #007bff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  header img {
+      height: 40px;
+  }
+  .nav-header {
+      display: flex;
+      align-items: center;
+  }
+  .home-link {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+  }
+  .home-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+  }
+  .stats-container {
+      margin: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .stats-message {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: monospace;
+  }
+  </style>
+  {% endblock %}
+</head>
+<body>
+<header>
+  <img src="/Frontier.png" alt="Frontier Logo">
+  <nav class="nav-header">
+    <a href="{{ url_for('index') }}" class="home-link">Home</a>
+  </nav>
+</header>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="stats-container">
+  {% for message in messages %}
+  <pre class="stats-message">{{ message }}</pre>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+<!-- Core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Select2 JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

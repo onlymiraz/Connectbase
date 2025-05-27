@@ -1,0 +1,28 @@
+<h3>{{ selected_view }}</h3>
+<form action="{{ url_for('circuit_inventory.filter_view', view_name=selected_view) }}" method="POST">
+    {% for column in view_data.columns %}
+        <input type="text" name="{{ column }}" placeholder="{{ column }}">
+    {% endfor %}
+    <input type="submit" value="Filter">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            {% for column in view_data.columns %}
+                <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in view_data.data %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('circuit_inventory.download_view', view_name=selected_view) }}">Download Excel</a>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="0d8a9916-67c7-405c-ba12-9223550d00da" ChangeDateTime="02/07/2024 22:44:18">
+    <Property Name="ElementName" Value="[dbo].[joeltest].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[joeltest]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="joelID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="91af15ba-c998-44fa-a2d8-32b94bbda318" ChangeDateTime="02/12/2024 19:45:27">
+    <Property Name="ElementName" Value="[dbo].[tbl_test_20240212].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbl_test_20240212]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="emp_id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1199ff48-5b06-4e48-82c0-21f2c5886170" ChangeDateTime="04/24/2024 19:46:46">
+    <Property Name="ElementName" Value="[dbo].[dbo_WAD-233].[company]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[dbo_WAD-233]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Company" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="67bdbf1b-572c-421a-b34e-fa0a3f07b1dd" ChangeDateTime="04/26/2024 19:56:44">
+    <Property Name="ElementName" Value="[dbo].[tbl_BoilerPlate].[name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbl_BoilerPlate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="not_name" />
+  </Operation>
+</Operations>

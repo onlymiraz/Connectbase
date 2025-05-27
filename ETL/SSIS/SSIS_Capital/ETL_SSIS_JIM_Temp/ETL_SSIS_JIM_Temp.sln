@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "ETL_SSIS_JIM_Temp", "ETL_SSIS_JIM_Temp.dtproj", "{AF4084F8-337C-43EE-9800-05B4791029DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF4084F8-337C-43EE-9800-05B4791029DB}.Development|Default.ActiveCfg = Development
+		{AF4084F8-337C-43EE-9800-05B4791029DB}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2A9BFF3-B0DD-4730-AC7B-7D18DBF8DFC1}
+	EndGlobalSection
+EndGlobal

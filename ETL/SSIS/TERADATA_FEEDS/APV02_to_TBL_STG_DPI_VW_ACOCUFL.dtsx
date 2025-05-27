@@ -1,0 +1,2349 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/23/2024 2:10:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG3052BR6"
+  DTS:CreatorName="CORP\crr173"
+  DTS:DTSID="{CF8DBE1A-0436-4B2C-A243-B3ABEC8B1A8E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{3C470687-984D-4D4A-A6A6-AB186110D3BB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C321B5B3-C4F5-4FC3-BA59-F4DD622B47E1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LZ].[TBL_STG_DPI_VW_ACOCUFL]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{8ECB2DF3-C2E8-4A97-8DD8-50C3B18CF07D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WADINFWWAPV02.WAD_PRD_02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="CO"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CO]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[CO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IXC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IXC"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IXC]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[IXC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ACCTTYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ACCTTYPE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ACCTTYPE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[ACCTTYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FACTYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="FACTYPE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FACTYPE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FACTYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OCCDATE]"
+                      cachedDataType="numeric"
+                      cachedName="OCCDATE"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCCDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCDATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="SO"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SO]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CIRCUIT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="47"
+                      cachedName="CIRCUIT"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CIRCUIT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[CIRCUIT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LEG]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="LEG"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LEG]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[LEG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AZIND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="AZIND"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AZIND]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[AZIND]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OCN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="OCN"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCN]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SWSPL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="SWSPL"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SWSPL]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SWSPL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OCCTYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="OCCTYPE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCCTYPE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCTYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="USOC"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOC]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[JURIS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="JURIS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JURIS]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[JURIS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FROMDATE]"
+                      cachedDataType="numeric"
+                      cachedName="FROMDATE"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FROMDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FROMDATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[THRUDATE]"
+                      cachedDataType="numeric"
+                      cachedName="THRUDATE"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[THRUDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[THRUDATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OCUIND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="OCUIND"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCUIND]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCUIND]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BILLDATE]"
+                      cachedDataType="numeric"
+                      cachedName="BILLDATE"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BILLDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BILLDATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BEENAPPL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="BEENAPPL"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BEENAPPL]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BEENAPPL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[STATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="STATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[STATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PHRASECODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="PHRASECODE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PHRASECODE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PHRASECODE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BIP]"
+                      cachedDataType="numeric"
+                      cachedName="BIP"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BIP]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BIP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BIP2]"
+                      cachedDataType="numeric"
+                      cachedName="BIP2"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BIP2]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BIP2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PERMONTH]"
+                      cachedDataType="numeric"
+                      cachedName="PERMONTH"
+                      cachedPrecision="11"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PERMONTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PERMONTH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AMOUNT]"
+                      cachedDataType="numeric"
+                      cachedName="AMOUNT"
+                      cachedPrecision="11"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[AMOUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SURCHARGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="SURCHARGE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SURCHARGE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SURCHARGE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TAX]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="TAX"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TAX]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAX]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OCCDAYS]"
+                      cachedDataType="numeric"
+                      cachedName="OCCDAYS"
+                      cachedPrecision="5"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCCDAYS]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCDAYS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOCDESIG]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="USOCDESIG"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOCDESIG]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCDESIG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LEC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="LEC"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LEC]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[LEC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QTY]"
+                      cachedDataType="numeric"
+                      cachedName="QTY"
+                      cachedPrecision="6"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[QTY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TETQTYL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TETQTYL"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TETQTYL]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TETQTYL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TETREVL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TETREVL"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TETREVL]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TETREVL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FLEXBAND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="FLEXBAND"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLEXBAND]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FLEXBAND]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MILERDT]"
+                      cachedDataType="numeric"
+                      cachedName="MILERDT"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MILERDT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[MILERDT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GEOCODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="GEOCODE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GEOCODE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[GEOCODE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TAXCAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="TAXCAT"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TAXCAT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAXCAT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TAXSER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="TAXSER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TAXSER]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAXSER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SPLITPCT]"
+                      cachedDataType="numeric"
+                      cachedName="SPLITPCT"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SPLITPCT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SPLITPCT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SPLITGEO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="SPLITGEO"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SPLITGEO]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SPLITGEO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PLANLVL]"
+                      cachedDataType="numeric"
+                      cachedName="PLANLVL"
+                      cachedPrecision="1"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PLANLVL]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PLANLVL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USORATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="USORATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USORATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USORATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOCOS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="USOCOS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOCOS]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCOS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOCOMP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="USOCOMP"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOCOMP]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCOMP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOTIER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="USOTIER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOTIER]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOTIER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOSEQ]"
+                      cachedDataType="numeric"
+                      cachedName="USOSEQ"
+                      cachedPrecision="9"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOSEQ]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOSEQ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOFAC]"
+                      cachedDataType="numeric"
+                      cachedName="USOFAC"
+                      cachedPrecision="11"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOFAC]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOFAC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USOMON]"
+                      cachedDataType="numeric"
+                      cachedName="USOMON"
+                      cachedPrecision="11"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOMON]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOMON]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FILLER1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="38"
+                      cachedName="FILLER1"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FILLER1]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FILLER1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UPDFUNC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="UPDFUNC"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDFUNC]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDFUNC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UPDDATE]"
+                      cachedDataType="numeric"
+                      cachedName="UPDDATE"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDDATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UPDTIME]"
+                      cachedDataType="numeric"
+                      cachedName="UPDTIME"
+                      cachedPrecision="6"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDTIME]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDTIME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UPDOPID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="UPDOPID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDOPID]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDOPID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DW_USER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="DW_USER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DW_USER]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[DW_USER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DW_LOAD_TIMESTAMP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="26"
+                      cachedName="DW_LOAD_TIMESTAMP"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DW_LOAD_TIMESTAMP]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[DW_LOAD_TIMESTAMP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BILL_SUBSYS_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="BILL_SUBSYS_CD"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BILL_SUBSYS_CD]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BILL_SUBSYS_CD]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IXC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="IXC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ACCTTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ACCTTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FACTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="FACTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCCDATE]"
+                      dataType="numeric"
+                      name="OCCDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="SO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CIRCUIT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      name="CIRCUIT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LEG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="LEG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AZIND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="AZIND" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="OCN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SWSPL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SWSPL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCCTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="OCCTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="USOC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JURIS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="JURIS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FROMDATE]"
+                      dataType="numeric"
+                      name="FROMDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[THRUDATE]"
+                      dataType="numeric"
+                      name="THRUDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCUIND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="OCUIND" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BILLDATE]"
+                      dataType="numeric"
+                      name="BILLDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BEENAPPL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BEENAPPL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PHRASECODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="PHRASECODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BIP]"
+                      dataType="numeric"
+                      name="BIP"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BIP2]"
+                      dataType="numeric"
+                      name="BIP2"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PERMONTH]"
+                      dataType="numeric"
+                      name="PERMONTH"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT]"
+                      dataType="numeric"
+                      name="AMOUNT"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SURCHARGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SURCHARGE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TAX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TAX" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OCCDAYS]"
+                      dataType="numeric"
+                      name="OCCDAYS"
+                      precision="5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOCDESIG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="USOCDESIG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="LEC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QTY]"
+                      dataType="numeric"
+                      name="QTY"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TETQTYL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TETQTYL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TETREVL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TETREVL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FLEXBAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="FLEXBAND" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MILERDT]"
+                      dataType="numeric"
+                      name="MILERDT"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GEOCODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="GEOCODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TAXCAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="TAXCAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TAXSER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="TAXSER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SPLITPCT]"
+                      dataType="numeric"
+                      name="SPLITPCT"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SPLITGEO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="SPLITGEO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PLANLVL]"
+                      dataType="numeric"
+                      name="PLANLVL"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USORATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="USORATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOCOS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="USOCOS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOCOMP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="USOCOMP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOTIER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="USOTIER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOSEQ]"
+                      dataType="numeric"
+                      name="USOSEQ"
+                      precision="9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOFAC]"
+                      dataType="numeric"
+                      name="USOFAC"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USOMON]"
+                      dataType="numeric"
+                      name="USOMON"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FILLER1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="38"
+                      name="FILLER1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDFUNC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="UPDFUNC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDDATE]"
+                      dataType="numeric"
+                      name="UPDDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDTIME]"
+                      dataType="numeric"
+                      name="UPDTIME"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UPDOPID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="UPDOPID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DW_USER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="DW_USER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DW_LOAD_TIMESTAMP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      name="DW_LOAD_TIMESTAMP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BILL_SUBSYS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="BILL_SUBSYS_CD" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Teradata Source"
+              componentClassID="Microsoft.SSISTeradataSrc"
+              contactInfo="Teradata Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Teradata Source"
+              name="Teradata Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from stg_dpi_vw.acocufl</property>
+                <property
+                  dataType="System.Int32"
+                  description="Data transfer block size."
+                  expressionType="Notify"
+                  name="BlockSize">1048576</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum size of a data buffer when 'Buffer mode' is applied. Value must be large enough to hold at least one data row (including 8 overhead bytes per row at most)."
+                  expressionType="Notify"
+                  name="BufferMaxSize">16775552</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates which type of Load method is used. True stands for 'Progress Buffered Rows'. False indicates 'Progress Row By Row'."
+                  expressionType="Notify"
+                  name="BufferMode">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="SQL requests and responses data encryption."
+                  expressionType="Notify"
+                  name="DataEncryption">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.String"
+                  description="A trace file name. Setting a value for this property enables TPT detailed tracing."
+                  expressionType="Notify"
+                  name="DetailedTracingFile"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the types of diagnostic messages written by each instance of the dirver to an external log file. The diagnostic trace function provides more detailed information (including the version number) in the log file to aid in problem tracking and diagnosis."
+                  name="DetailedTracingLevel"
+                  typeConverter="DetailedTracingLevel">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Whether or not to discard large rows."
+                  expressionType="Notify"
+                  name="DiscardLargeRow">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Use maximal character buffers allocation factor. Used when 'Export Width Table ID' = 'Maximum Defaults'."
+                  expressionType="Notify"
+                  name="ExtendedStringColumnsAllocation">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum row size (kb) it can support in export. Valid values are: 64, 1024."
+                  name="JobMaxRowSize"
+                  typeConverter="JobMaxRowSize">64</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum number of sessions to log on."
+                  expressionType="Notify"
+                  name="MaxSessions">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Minimum number of sessions required."
+                  expressionType="Notify"
+                  name="MinSessions">1</property>
+                <property
+                  dataType="System.String"
+                  description="A user-defined query band expression."
+                  expressionType="Notify"
+                  name="QueryBandSessionInfo"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies whether to use spool or not while running the current Export job."
+                  name="SpoolMode"
+                  typeConverter="SpoolMode">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of hours to continue trying to log on when the maximum number of load jobs is already running on the Teradata Database."
+                  expressionType="Notify"
+                  name="TenacityHours">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of minutes to pause before retrying to log on when the maximum number of load jobs is already running on the Teradata Database."
+                  expressionType="Notify"
+                  name="TenacitySleep">6</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Whether to allow Pass Through Characters (PTCs) to be exported from Teradata."
+                  expressionType="Notify"
+                  name="UnicodePassThrough">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Teradata Source.Connections[TeradataConnection]"
+                  connectionManagerID="{C6E32F02-0A8C-4690-84CF-C532E6C25399}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[s_WAD3]"
+                  description="The Teradata runtime connection used to access the database."
+                  name="TeradataConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="Teradata Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[CO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[CO]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[CO]"
+                      name="CO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[IXC]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[IXC]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[IXC]"
+                      name="IXC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[ACCTTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[ACCTTYPE]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[ACCTTYPE]"
+                      name="ACCTTYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FACTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FACTYPE]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FACTYPE]"
+                      name="FACTYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCDATE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCCDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCDATE]"
+                      name="OCCDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SO]"
+                      length="12"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SO]"
+                      name="SO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[CIRCUIT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[CIRCUIT]"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[CIRCUIT]"
+                      name="CIRCUIT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[LEG]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[LEG]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[LEG]"
+                      name="LEG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[AZIND]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[AZIND]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[AZIND]"
+                      name="AZIND" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCN]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCN]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCN]"
+                      name="OCN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SWSPL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SWSPL]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SWSPL]"
+                      name="SWSPL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCCTYPE]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCTYPE]"
+                      name="OCCTYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOC]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOC]"
+                      length="8"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOC]"
+                      name="USOC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[JURIS]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[JURIS]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[JURIS]"
+                      name="JURIS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FROMDATE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FROMDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FROMDATE]"
+                      name="FROMDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[THRUDATE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[THRUDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[THRUDATE]"
+                      name="THRUDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCUIND]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCUIND]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCUIND]"
+                      name="OCUIND" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BILLDATE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BILLDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BILLDATE]"
+                      name="BILLDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BEENAPPL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BEENAPPL]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BEENAPPL]"
+                      name="BEENAPPL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[STATE]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[STATE]"
+                      name="STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PHRASECODE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[PHRASECODE]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PHRASECODE]"
+                      name="PHRASECODE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BIP]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BIP]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BIP]"
+                      name="BIP"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BIP2]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BIP2]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BIP2]"
+                      name="BIP2"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PERMONTH]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[PERMONTH]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PERMONTH]"
+                      name="PERMONTH"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[AMOUNT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[AMOUNT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[AMOUNT]"
+                      name="AMOUNT"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SURCHARGE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SURCHARGE]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SURCHARGE]"
+                      name="SURCHARGE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAX]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TAX]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAX]"
+                      name="TAX" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCDAYS]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCCDAYS]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[OCCDAYS]"
+                      name="OCCDAYS"
+                      precision="5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCDESIG]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOCDESIG]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCDESIG]"
+                      name="USOCDESIG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[LEC]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[LEC]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[LEC]"
+                      name="LEC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[QTY]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[QTY]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[QTY]"
+                      name="QTY"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TETQTYL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TETQTYL]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TETQTYL]"
+                      name="TETQTYL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TETREVL]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TETREVL]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TETREVL]"
+                      name="TETREVL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FLEXBAND]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FLEXBAND]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FLEXBAND]"
+                      name="FLEXBAND" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[MILERDT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[MILERDT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[MILERDT]"
+                      name="MILERDT"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[GEOCODE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[GEOCODE]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[GEOCODE]"
+                      name="GEOCODE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAXCAT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TAXCAT]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAXCAT]"
+                      name="TAXCAT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAXSER]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TAXSER]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[TAXSER]"
+                      name="TAXSER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SPLITPCT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SPLITPCT]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SPLITPCT]"
+                      name="SPLITPCT"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SPLITGEO]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SPLITGEO]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[SPLITGEO]"
+                      name="SPLITGEO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PLANLVL]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[PLANLVL]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[PLANLVL]"
+                      name="PLANLVL"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USORATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USORATE]"
+                      length="6"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USORATE]"
+                      name="USORATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCOS]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOCOS]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCOS]"
+                      name="USOCOS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCOMP]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOCOMP]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOCOMP]"
+                      name="USOCOMP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOTIER]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOTIER]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOTIER]"
+                      name="USOTIER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOSEQ]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOSEQ]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOSEQ]"
+                      name="USOSEQ"
+                      precision="9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOFAC]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOFAC]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOFAC]"
+                      name="USOFAC"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOMON]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOMON]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[USOMON]"
+                      name="USOMON"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FILLER1]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FILLER1]"
+                      length="38"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[FILLER1]"
+                      name="FILLER1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDFUNC]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDFUNC]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDFUNC]"
+                      name="UPDFUNC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDDATE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDDATE]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDDATE]"
+                      name="UPDDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDTIME]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDTIME]"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDTIME]"
+                      name="UPDTIME"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDOPID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDOPID]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[UPDOPID]"
+                      name="UPDOPID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[DW_USER]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[DW_USER]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[DW_USER]"
+                      name="DW_USER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[DW_LOAD_TIMESTAMP]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[DW_LOAD_TIMESTAMP]"
+                      length="26"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[DW_LOAD_TIMESTAMP]"
+                      name="DW_LOAD_TIMESTAMP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BILL_SUBSYS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BILL_SUBSYS_CD]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].Columns[BILL_SUBSYS_CD]"
+                      name="BILL_SUBSYS_CD" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[CO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[IXC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="IXC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[ACCTTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ACCTTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FACTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="FACTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCCDATE]"
+                      dataType="numeric"
+                      name="OCCDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="SO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[CIRCUIT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      name="CIRCUIT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[LEG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="LEG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[AZIND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="AZIND" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="OCN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SWSPL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SWSPL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCCTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="OCCTYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="USOC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[JURIS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="JURIS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FROMDATE]"
+                      dataType="numeric"
+                      name="FROMDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[THRUDATE]"
+                      dataType="numeric"
+                      name="THRUDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCUIND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="OCUIND" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BILLDATE]"
+                      dataType="numeric"
+                      name="BILLDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BEENAPPL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="BEENAPPL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[PHRASECODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="PHRASECODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BIP]"
+                      dataType="numeric"
+                      name="BIP"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BIP2]"
+                      dataType="numeric"
+                      name="BIP2"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[PERMONTH]"
+                      dataType="numeric"
+                      name="PERMONTH"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[AMOUNT]"
+                      dataType="numeric"
+                      name="AMOUNT"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SURCHARGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SURCHARGE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TAX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TAX" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[OCCDAYS]"
+                      dataType="numeric"
+                      name="OCCDAYS"
+                      precision="5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOCDESIG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="USOCDESIG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[LEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="LEC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[QTY]"
+                      dataType="numeric"
+                      name="QTY"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TETQTYL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TETQTYL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TETREVL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TETREVL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FLEXBAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="FLEXBAND" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[MILERDT]"
+                      dataType="numeric"
+                      name="MILERDT"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[GEOCODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="GEOCODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TAXCAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="TAXCAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[TAXSER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="TAXSER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SPLITPCT]"
+                      dataType="numeric"
+                      name="SPLITPCT"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[SPLITGEO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="SPLITGEO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[PLANLVL]"
+                      dataType="numeric"
+                      name="PLANLVL"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USORATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="USORATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOCOS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="USOCOS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOCOMP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="USOCOMP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOTIER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="USOTIER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOSEQ]"
+                      dataType="numeric"
+                      name="USOSEQ"
+                      precision="9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOFAC]"
+                      dataType="numeric"
+                      name="USOFAC"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[USOMON]"
+                      dataType="numeric"
+                      name="USOMON"
+                      precision="11"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[FILLER1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="38"
+                      name="FILLER1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDFUNC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="UPDFUNC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDDATE]"
+                      dataType="numeric"
+                      name="UPDDATE"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDTIME]"
+                      dataType="numeric"
+                      name="UPDTIME"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[UPDOPID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="UPDOPID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[DW_USER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="DW_USER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[DW_LOAD_TIMESTAMP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      name="DW_LOAD_TIMESTAMP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output].ExternalColumns[BILL_SUBSYS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="BILL_SUBSYS_CD" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output]"
+                  isErrorOut="true"
+                  name="Teradata Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[CO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[CO]"
+                      name="CO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[IXC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[IXC]"
+                      name="IXC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ACCTTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ACCTTYPE]"
+                      name="ACCTTYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FACTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FACTYPE]"
+                      name="FACTYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCCDATE]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCCDATE]"
+                      name="OCCDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SO]"
+                      name="SO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[CIRCUIT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="47"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[CIRCUIT]"
+                      name="CIRCUIT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[LEG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[LEG]"
+                      name="LEG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[AZIND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[AZIND]"
+                      name="AZIND" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCN]"
+                      name="OCN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SWSPL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SWSPL]"
+                      name="SWSPL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCCTYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCCTYPE]"
+                      name="OCCTYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOC]"
+                      name="USOC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[JURIS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[JURIS]"
+                      name="JURIS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FROMDATE]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FROMDATE]"
+                      name="FROMDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[THRUDATE]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[THRUDATE]"
+                      name="THRUDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCUIND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCUIND]"
+                      name="OCUIND" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BILLDATE]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BILLDATE]"
+                      name="BILLDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BEENAPPL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BEENAPPL]"
+                      name="BEENAPPL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[STATE]"
+                      name="STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[PHRASECODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[PHRASECODE]"
+                      name="PHRASECODE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BIP]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BIP]"
+                      name="BIP"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BIP2]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BIP2]"
+                      name="BIP2"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[PERMONTH]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[PERMONTH]"
+                      name="PERMONTH"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[AMOUNT]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[AMOUNT]"
+                      name="AMOUNT"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SURCHARGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SURCHARGE]"
+                      name="SURCHARGE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TAX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TAX]"
+                      name="TAX" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCCDAYS]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[OCCDAYS]"
+                      name="OCCDAYS"
+                      precision="5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOCDESIG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOCDESIG]"
+                      name="USOCDESIG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[LEC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[LEC]"
+                      name="LEC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[QTY]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[QTY]"
+                      name="QTY"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TETQTYL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TETQTYL]"
+                      name="TETQTYL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TETREVL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TETREVL]"
+                      name="TETREVL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FLEXBAND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FLEXBAND]"
+                      name="FLEXBAND" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[MILERDT]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[MILERDT]"
+                      name="MILERDT"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[GEOCODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[GEOCODE]"
+                      name="GEOCODE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TAXCAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TAXCAT]"
+                      name="TAXCAT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TAXSER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[TAXSER]"
+                      name="TAXSER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SPLITPCT]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SPLITPCT]"
+                      name="SPLITPCT"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SPLITGEO]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[SPLITGEO]"
+                      name="SPLITGEO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[PLANLVL]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[PLANLVL]"
+                      name="PLANLVL"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USORATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USORATE]"
+                      name="USORATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOCOS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOCOS]"
+                      name="USOCOS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOCOMP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOCOMP]"
+                      name="USOCOMP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOTIER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOTIER]"
+                      name="USOTIER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOSEQ]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOSEQ]"
+                      name="USOSEQ"
+                      precision="9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOFAC]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOFAC]"
+                      name="USOFAC"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOMON]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[USOMON]"
+                      name="USOMON"
+                      precision="11"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FILLER1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="38"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[FILLER1]"
+                      name="FILLER1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDFUNC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDFUNC]"
+                      name="UPDFUNC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDDATE]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDDATE]"
+                      name="UPDDATE"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDTIME]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDTIME]"
+                      name="UPDTIME"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDOPID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[UPDOPID]"
+                      name="UPDOPID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[DW_USER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[DW_USER]"
+                      name="DW_USER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[DW_LOAD_TIMESTAMP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[DW_LOAD_TIMESTAMP]"
+                      name="DW_LOAD_TIMESTAMP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BILL_SUBSYS_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[BILL_SUBSYS_CD]"
+                      name="BILL_SUBSYS_CD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Teradata Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Teradata Source Output"
+              startId="Package\Data Flow Task\Teradata Source.Outputs[Teradata Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5F4664DA-4006-483A-9C93-5C054BE1529B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8ECB2DF3-C2E8-4A97-8DD8-50C3B18CF07D}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE LZ.TBL_STG_DPI_VW_ACOCUFL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{912CDD10-BF95-4BA0-9B21-214A7FDB5407}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.666666666667,42"
+          Id="Package\Data Flow Task"
+          TopLeft="322,156" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="345,71" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="430,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.5,43"
+              Start="0,0"
+              End="-30.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-26.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.5,21.5"
+                    Point2="-30.5,21.5"
+                    Point3="-30.5,25.5" />
+                  <mssgle:LineSegment
+                    End="-30.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161.333333333334,42"
+          Id="Package\Data Flow Task\Teradata Source"
+          TopLeft="577,297" />
+        <NodeLayout
+          Size="177.333333333334,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="597,417" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Teradata Source Output]"
+          TopLeft="657.5,339">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,78"
+              Start="0,0"
+              End="28,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="4,39" />
+                  <mssgle:LineSegment
+                    End="24,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,39"
+                    Point2="28,39"
+                    Point3="28,43" />
+                  <mssgle:LineSegment
+                    End="28,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Teradata Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

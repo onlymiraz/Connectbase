@@ -1,0 +1,18 @@
+<!-- /App/app_AddressBilling/select_sheet.html -->
+{% extends "base.html" %}
+{% block title %}Select Sheet{% endblock %}
+{% block content %}
+<div class="center-container">
+    <h1>Select a Sheet to Map</h1>
+    <!-- We POST back to /select_sheet (same route) OR you could go directly to /mapping.
+         But in this solution, we store sheet_name in session on POST, then redirect to mapping. -->
+    <form action="{{ url_for('select_sheet') }}" method="post" class="form-group">
+        <select name="sheet_name" required class="select-small">
+            {% for sheet in sheet_names %}
+            <option value="{{ sheet }}">{{ sheet }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Continue" class="btn-small">
+    </form>
+</div>
+{% endblock %}

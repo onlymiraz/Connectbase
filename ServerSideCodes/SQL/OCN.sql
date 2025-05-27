@@ -1,0 +1,6 @@
+--UNE P MTTR BY DAC:
+SELECT	distinct DM_OCN_LONG_NAME, DM_OCN_CCNA_CD, DM_OCN_CD
+FROM	DM_WST_APP.NMPW_DM_OCN_LU
+where dm_ocn_cd = '0069A' 
+order by 1,2,3
+

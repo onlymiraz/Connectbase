@@ -1,0 +1,1 @@
+This is where all the apps can sit. For every new app, create a folder in the root with the naming convention beginning with "app_"

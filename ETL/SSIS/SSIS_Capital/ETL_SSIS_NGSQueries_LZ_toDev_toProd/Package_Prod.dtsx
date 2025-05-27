@@ -1,0 +1,704 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/2/2021 6:35:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{660E94AA-6354-43DC-9F0B-C91803225D5F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{A7CB593E-C1E9-46F2-AE68-AF367C6ACD14}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B604FC7C-108D-40A1-9586-48735EE9D936}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalForecast">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalForecast;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8ADE167D-BDE8-4AF6-8336-51D562F4A5C7}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalManagementProduction">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.FTTH.sql_CapMgtIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{77297FCB-3FA2-486D-8E18-D839D678CE35}"
+      DTS:ObjectName="CAPINFWWAPV01.FTTH.sql_CapMgtIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=FTTH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{77297FCB-3FA2-486D-8E18-D839D678CE35}CAPINFWWAPV01.FTTH.sql_CapMgtIT;"
+          DTS:ConnectByProxy="True" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F42E5435-571C-4998-B6C4-6AC292756DBC}"
+      DTS:ObjectName="SQLINFWWDVD205\DCDEV205.CapitalManagementDevelopment">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SQLINFWWDVD205\DCDEV205;Initial Catalog=CapitalManagementDevelopment;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9902E5B1-4E00-4727-8B95-A06D4038206F}"
+      DTS:ObjectName="SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7172925B-3BEC-4E40-97DD-B3A920A2BF8C}"
+      DTS:ObjectName="SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{7172925B-3BEC-4E40-97DD-B3A920A2BF8C}SQLINFWWDVP302\DCPRD302.CapitalManagementProduction.sql_CapMgtIT 1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{446539C1-698F-4D8E-BFBC-7719DB0DDB7C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL\Destination_Prod_Authorized"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination_Prod_Authorized"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[AUTHORIZED]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Destination_Prod_Authorized.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].Columns[ProjectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ProjectNumber"
+                      externalMetadataColumnId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[ProjectNumber]"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[ProjectNumber]" />
+                    <inputColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].Columns[SubprojectNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="SubprojectNumber"
+                      externalMetadataColumnId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[SubprojectNumber]"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[SubprojectNumber]" />
+                    <inputColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].Columns[CostCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CostCode"
+                      externalMetadataColumnId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[CostCode]"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[CostCode]" />
+                    <inputColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].Columns[BudgetDollars]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="BudgetDollars"
+                      externalMetadataColumnId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[BudgetDollars]"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[BudgetDollars]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[ProjectNumber]"
+                      dataType="i4"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[SubprojectNumber]"
+                      dataType="i2"
+                      name="SubprojectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[CostCode]"
+                      dataType="i2"
+                      name="CostCode" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input].ExternalColumns[BudgetDollars]"
+                      dataType="r8"
+                      name="BudgetDollars" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Destination_Prod_Authorized.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Destination_Prod_Authorized.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Destination_Prod_Authorized.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Destination_Prod_Authorized.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Source_LZ_Authorized"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source_LZ_Authorized"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LZ].[AUTHORIZED]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Source_LZ_Authorized.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.FTTH.sql_CapMgtIT]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.FTTH.sql_CapMgtIT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[ProjectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[ProjectNumber]"
+                      length="15"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[ProjectNumber]"
+                      name="ProjectNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[SubprojectNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[SubprojectNumber]"
+                      length="5"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[SubprojectNumber]"
+                      name="SubprojectNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[CostCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[CostCode]"
+                      length="15"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[CostCode]"
+                      name="CostCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[BudgetDollars]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[BudgetDollars]"
+                      length="25"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].Columns[BudgetDollars]"
+                      name="BudgetDollars"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[ProjectNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="ProjectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[SubprojectNumber]"
+                      dataType="wstr"
+                      length="5"
+                      name="SubprojectNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[CostCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="CostCode" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output].ExternalColumns[BudgetDollars]"
+                      dataType="wstr"
+                      length="25"
+                      name="BudgetDollars" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[ProjectNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[ProjectNumber]"
+                      name="ProjectNumber" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[SubprojectNumber]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[SubprojectNumber]"
+                      name="SubprojectNumber" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[CostCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[CostCode]"
+                      name="CostCode" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[BudgetDollars]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[BudgetDollars]"
+                      name="BudgetDollars" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL.Paths[OLE DB Source Output]"
+              endId="Package\ETL\Destination_Prod_Authorized.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\ETL\Source_LZ_Authorized.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate and BulkLoad Source"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B19E966A-A060-4D02-85C8-EFF3EE44FC37}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate and BulkLoad Source"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{77297FCB-3FA2-486D-8E18-D839D678CE35}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE LZ.[AUTHORIZED]&#xA;&#xA;BULK INSERT LZ.[AUTHORIZED]&#xA;FROM 'D:\Datadump\FFAUTHDTLZ.csv'&#xA;WITH&#xA;(&#xA;FIELDTERMINATOR='&quot;|'&#xA;)&#xA;&#xA;UPDATE LZ.[AUTHORIZED]&#xA;SET [ProjectNumber]=REPLACE([ProjectNumber],'&quot;','')&#xA;, [SubprojectNumber]=REPLACE([SubprojectNumber],'&quot;','')&#xA;, [CostCode]=REPLACE([CostCode],'&quot;','')&#xA;&#xA;&#xA;UPDATE LZ.[AUTHORIZED]&#xA;SET [ProjectNumber]=CAST([ProjectNumber] AS int)&#xA;, [SubprojectNumber]=CAST([SubprojectNumber] AS smallint)&#xA;, [CostCode]=CAST([CostCode] AS smallint)&#xA;, [BudgetDollars] = CAST([BudgetDollars] AS FLOAT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Destination_Dev"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{CBE16EF6-20D3-42E2-A3EC-1B2806396FC3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Destination_Dev"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F42E5435-571C-4998-B6C4-6AC292756DBC}"
+          SQLTask:SqlStatementSource="truncate table authorized" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE Destination_Prod"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DC7F9E97-2D86-4D4B-B3F2-D16D8D24B481}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE Destination_Prod"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B604FC7C-108D-40A1-9586-48735EE9D936}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].AUTHORIZED" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3FAA64E5-9D2D-4E8B-9B71-6A237FF6AD13}"
+      DTS:From="Package\TRUNCATE Destination_Prod"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate Destination_Dev" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{79312E88-4E1D-48C3-8D66-DAC0DFF7F70C}"
+      DTS:From="Package\Truncate and BulkLoad Source"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TRUNCATE Destination_Prod" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{ABE0EE65-3812-4AA2-8C9F-474BD79DEAB3}"
+      DTS:From="Package\Truncate Destination_Dev"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\ETL" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="98.6666666666667,42"
+          Id="Package\ETL"
+          TopLeft="263.166680806212,305.000002272924" />
+        <NodeLayout
+          Size="226.666666666667,42.6666666666667"
+          Id="Package\Truncate and BulkLoad Source"
+          TopLeft="39.7083332101918,19.8175438656401" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\Truncate Destination_Dev"
+          TopLeft="166.249993424864,202.43508934299" />
+        <NodeLayout
+          Size="197.333333333334,42"
+          Id="Package\TRUNCATE Destination_Prod"
+          TopLeft="79.0833424209716,105.568421739603" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="177.750009087638,147.568421739603">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.4999843372253,54.866667603387"
+              Start="0,0"
+              End="87.4999843372253,47.366667603387">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4333338016935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4333338016935"
+                    Point2="0,27.4333338016935"
+                    Point3="4,27.4333338016935" />
+                  <mssgle:LineSegment
+                    End="83.4999843372253,27.4333338016935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.4999843372253,27.4333338016935"
+                    Point2="87.4999843372253,27.4333338016935"
+                    Point3="87.4999843372253,31.4333338016935" />
+                  <mssgle:LineSegment
+                    End="87.4999843372253,47.366667603387" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="153.041666543525,62.4842105323067">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.7083425441131,43.084211207296"
+              Start="0,0"
+              End="24.7083425441131,35.584211207296">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.542105603648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.542105603648"
+                    Point2="0,21.542105603648"
+                    Point3="4,21.542105603648" />
+                  <mssgle:LineSegment
+                    End="20.7083425441131,21.542105603648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.7083425441131,21.542105603648"
+                    Point2="24.7083425441131,21.542105603648"
+                    Point3="24.7083425441131,25.542105603648" />
+                  <mssgle:LineSegment
+                    End="24.7083425441131,35.584211207296" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="265.249993424864,244.43508934299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.2500207146818,60.5649129299343"
+              Start="0,0"
+              End="47.2500207146818,53.0649129299343">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2824564649671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2824564649671"
+                    Point2="0,30.2824564649671"
+                    Point3="4,30.2824564649671" />
+                  <mssgle:LineSegment
+                    End="43.2500207146818,30.2824564649671" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.2500207146818,30.2824564649671"
+                    Point2="47.2500207146818,30.2824564649671"
+                    Point3="47.2500207146818,34.2824564649671" />
+                  <mssgle:LineSegment
+                    End="47.2500207146818,53.0649129299343" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190.666666666667,42"
+          Id="Package\ETL\Source_LZ_Authorized"
+          TopLeft="73.3333304193286,173.333334710863" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\ETL\Destination_Prod_Authorized"
+          TopLeft="376.999987085661,178.933334834841" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[OLE DB Source Output]"
+          TopLeft="264.333330419329,197.133334772852">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.666656666332,0"
+              Start="0,0"
+              End="105.166656666332,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="105.166656666332,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Destination_Prod_Authorized">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "ETL_SSIS_Safety_SigmaConsulting", "ETL_SSIS_Safety_SigmaConsulting.dtproj", "{7EA0E943-FAA1-4724-A03F-8E38C57FE603}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EA0E943-FAA1-4724-A03F-8E38C57FE603}.Development|Default.ActiveCfg = Development
+		{7EA0E943-FAA1-4724-A03F-8E38C57FE603}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03D10306-F95B-4779-975F-A853F2536174}
+	EndGlobalSection
+EndGlobal

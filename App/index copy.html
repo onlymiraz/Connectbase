@@ -1,0 +1,94 @@
+<!-- /App/index.html -->
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="nav-container">
+    <h1 class="mb-4">Welcome to Frontier Communications Wholesale</h1>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Maps</h2>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('all_locations_map') }}" class="btn btn-primary btn-block mb-2">
+                        View All Locations Map
+                    </a>
+                    <a href="{{ url_for('all_locations_map_v2') }}" class="btn btn-primary btn-block">
+                        View Locations Map V2
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Tools</h2>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('upload') }}" class="btn btn-primary btn-block mb-2">
+                        Address Billing Upload
+                    </a>
+                    <!-- REMOVED the "Address Billing Inventory" link previously added -->
+                    <a href="{{ url_for('circuit_inventory.circuit_inventory') }}" class="btn btn-primary btn-block mb-2">
+                        Circuit Inventory
+                    </a>
+                    <a href="https://wad-pbi.ftr.com/Reports/browse/WAD" class="btn btn-primary btn-block">
+                        Wholesale Power BI
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Resources</h2>
+                </div>
+                <div class="card-body">
+                    <a href="https://frontiercorp1.sharepoint.com/sites/WAD"
+                       class="btn btn-primary btn-block mb-2">
+                        Wholesale SharePoint
+                    </a>
+                    <a href="https://frontiercorp1.sharepoint.com/sites/External/FTR_WAD_External"
+                       class="btn btn-primary btn-block mb-2">
+                        Wholesale SharePoint External
+                    </a>
+                    <a href="https://ftrjira.ftr.com/projects/WAD/summary"
+                       class="btn btn-primary btn-block mb-2">
+                        Wholesale Jira
+                    </a>
+                    <a href="https://wiki.ftr.com/pages/viewpage.action?spaceKey=WAD&title=Wholesale+Analytics+and+Data+Home"
+                       class="btn btn-primary btn-block">
+                        Wholesale Confluence
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Development</h2>
+                </div>
+                <div class="card-body">
+                    <a href="https://github.com/frontier-devops/WAD" class="btn btn-primary btn-block mb-2">
+                        Wholesale Git Repo
+                    </a>
+                    <a href="https://azuredevops.ftr.com/WAD/WAD" class="btn btn-primary btn-block mb-2">
+                        Wholesale CICD
+                    </a>
+                    <a href="https://ftrjira.ftr.com/plugins/servlet/desk/portal/33" class="btn btn-primary btn-block mb-2">
+                        Wholesale Intake Request
+                    </a>
+                    <a href="https://d-9067696a3b.awsapps.com/start/#/?tab=accounts"
+                       class="btn btn-primary btn-block">
+                        Wholesale AWS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

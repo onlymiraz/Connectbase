@@ -1,0 +1,13 @@
+USE CapitalManagementProduction
+GO
+
+EXEC(
+	'ALTER TABLE CapitalManagementProduction.forecast.GrossAddsDirect CHECK CONSTRAINT FK_GrossAddsDirect_Subproject
+	ALTER TABLE CapitalManagementProduction.forecast.GrossAddsIndirect CHECK CONSTRAINT FK_GrossAddsIndirect_Project
+	ALTER TABLE CapitalManagementProduction.forecast.GrossAddsIndirect CHECK CONSTRAINT FK_GrossAddsIndirect_Subproject
+	ALTER TABLE CapitalManagementProduction.forecast.SubprojectAuthorized CHECK CONSTRAINT FK_SubprojectAuthorized_Subproject
+	ALTER TABLE CapitalManagementProduction.forecast.SubprojectCIAC NOCHECK CONSTRAINT FK_SubprojectCIAC_Subproject
+	ALTER TABLE CapitalManagementProduction.forecast.SubprojectFinancial CHECK CONSTRAINT FK_SubprojectFinancial_Subproject
+	ALTER TABLE CapitalManagementProduction.forecast.SubprojectFutureYear CHECK CONSTRAINT FK_SubprojectFutureYear_Subproject
+	ALTER TABLE CapitalManagementProduction.forecast.SubprojectPriorYear CHECK CONSTRAINT FK_SubprojectPriorYear_Subproject'
+) AT [DBFarm304]

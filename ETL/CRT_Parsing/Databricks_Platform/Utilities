@@ -1,0 +1,37 @@
+# View BLOB #
+%sql
+SELECT * FROM `wholesale`.`bronze`.`crt_document`;
+
+
+# Count BLOBs #
+%sql
+SELECT count(*) FROM `wholesale`.`bronze`.`crt_document`;
+
+
+# Count output files #
+import os
+
+def count_files_by_directory(root_path):
+    dir_counts = {}
+    total_files = 0
+
+    # Get immediate subdirectories and count files
+    for item in os.listdir(root_path):
+        full_path = os.path.join(root_path, item)
+        if os.path.isdir(full_path):
+            count = sum(len(files) for _, _, files in os.walk(full_path))
+            dir_counts[full_path] = count
+            total_files += count
+
+    # Print formatted output
+    print("\nFile Count by Directory:")
+    print("-" * 80)
+    for path, count in sorted(dir_counts.items()):
+        print(f"{path:<60} | {count:>8,} files")
+    print("-" * 80)
+    print(f"{'Total Files:':<60} | {total_files:>8,}")
+
+    return dir_counts, total_files
+
+count_files_by_directory(f"/Volumes/wholesale/bronze/crt_output/{str(run_date)}/)
+

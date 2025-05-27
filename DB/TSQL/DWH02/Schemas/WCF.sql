@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [WCF]
+    AUTHORIZATION [dbo];
+

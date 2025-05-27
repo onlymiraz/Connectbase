@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [CORP\sbb217]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
+

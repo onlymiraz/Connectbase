@@ -1,0 +1,27 @@
+﻿CREATE TABLE LZ.[TBL_ROUTE_MILEAGE]
+(
+[RPT_MTH] [datetime] NULL,
+	[State] [nvarchar](255) NULL,
+	[WC Name] [nvarchar](255) NULL,
+	[WC CLLI] [nvarchar](255) NULL,
+	[Aerial Copper Sheath Miles] [float] NULL,
+	[Buried Copper Sheath Miles] [float] NULL,
+	[Underground Copper Sheath Miles] [float] NULL,
+	[Total Copper Sheath Miles] [float] NULL,
+	[Aerial Copper Percent] [float] NULL,
+	[Buried Copper Percent] [float] NULL,
+	[Underground Copper Percent] [float] NULL,
+	[Aerial Fiber Sheath Miles] [float] NULL,
+	[Buried Fiber Sheath Miles] [float] NULL,
+	[Underground Fiber Sheath Miles] [float] NULL,
+	[Total Fiber Sheath Miles] [float] NULL,
+	[Aerial Fiber Percent] [float] NULL,
+	[Buried Fiber Percent] [float] NULL,
+	[Underground Fiber Percent] [float] NULL,
+	[Copper Route Miles] [float] NULL,
+	[Fiber Route Miles] [float] NULL,
+	[Frontier Owned Poles] [float] NULL,
+	[Joint Owned Poles] [float] NULL,
+	[Foreign Owned Poles] [float] NULL,
+	[Total Poles] [float] NULL
+)

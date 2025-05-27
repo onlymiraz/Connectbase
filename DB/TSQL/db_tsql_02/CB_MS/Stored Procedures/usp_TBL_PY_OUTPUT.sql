@@ -1,0 +1,51 @@
+﻿CREATE PROCEDURE CB_MS.usp_TBL_PY_OUTPUT
+/*
+	-- Add any parameters for the stored procedure here
+	@var1 int,
+	@var2 int
+*/
+AS
+	SET XACT_ABORT, NOCOUNT ON;
+BEGIN TRY
+
+	DECLARE @EVENTID INT;
+
+	INSERT INTO [LOG].tbl_StoreProc
+    (
+		[EVENTNAME],
+		[EVENTSTART],
+		[EVENTTYPE],
+		[EVENTDESCRIPTION]
+	)
+	VALUES
+	(
+		'CB_MS.usp_TBL_TBL_PY_OUTPUT',
+		CAST(GETDATE() AS DATETIME),
+		'STORE PROC',
+		'SINGLE_INGESTION'
+	)
+
+	SET @EVENTID = SCOPE_IDENTITY();
+
+	BEGIN TRANSACTION
+
+	insert into CB_MS.TBL_PY_OUTPUT
+
+	select a.*
+	,cast(getdate() as date) as UPDATED_DT
+
+	FROM LZ.TBL_PY_OUTPUT A
+	
+	COMMIT TRANSACTION
+
+	UPDATE L
+    SET L.EVENTEND = CAST(GETDATE() AS DATETIME)
+    FROM LOG.tbl_StoreProc L
+    WHERE L.EVENTID = @EventID;
+
+END TRY
+BEGIN CATCH
+	IF @@trancount > 0 ROLLBACK TRANSACTION
+	EXEC usp_error_handler
+	RETURN 55555
+END CATCH

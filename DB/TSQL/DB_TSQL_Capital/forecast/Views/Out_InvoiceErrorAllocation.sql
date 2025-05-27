@@ -1,0 +1,6 @@
+﻿CREATE VIEW forecast.[Out_InvoiceErrorAllocation]
+	AS SELECT [ProjectNumber]
+      ,[SubprojectNumber]
+	  ,[GrossAddsTotal]
+      ,[PriorYearsSpendTotal]
+      ,[GrossAddsTotal]+[PriorYearsSpendTotal] PriorYearPlusGrossAdds FROM [forecast].[ForecastExport]

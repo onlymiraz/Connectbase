@@ -1,0 +1,1695 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/6/2022 4:24:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{C73FFB42-1947-482E-A112-EAEF249A9C44}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{36E28F08-150F-4963-A75A-DD98CBE98122}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AC80EA50-25E8-4A90-B71D-6FF5C28EA076}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalForecast">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalForecast;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{170E51CF-D45D-4211-B79C-834E81AE691A}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalManagementProduction">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalManagementProduction;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{04BCE661-FB04-41AB-9832-61F059A846DB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\new_details"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="new_details"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdatesLatestDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\new_details.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[SubmittedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SubmittedBy"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[SubmittedBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Username (Frontier CORP ID)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Username (Frontier CORP ID)"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Username (Frontier CORP ID)]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Project Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Number"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Project Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Project Sub Number(s)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Sub Number(s)"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Spending Not Needed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Spending Not Needed"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Spending Not Needed]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Spending Not Needed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Future Spending]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Future Spending"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Future Spending]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Future Spending]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Current Project Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Current Project Status"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Current Project Status]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Current Project Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[Analyst Notes]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Analyst Notes"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Analyst Notes]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Analyst Notes]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].Columns[LatestDateTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LatestDateTime"
+                      externalMetadataColumnId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[LatestDateTime]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[LatestDateTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Username (Frontier CORP ID)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Spending Not Needed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Future Spending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Project Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Analyst Notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input].ExternalColumns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      name="LatestDateTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\new_details.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new_details.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new_details.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\new_details.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new_details.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\new_history"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="new_history"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdatesHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\new_history.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[SubmittedBy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SubmittedBy"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[SubmittedBy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[SubmitttedDtm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SubmitttedDtm"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[SubmitttedDtm]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[SubmitttedDtm]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Username (Frontier CORP ID)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Username (Frontier CORP ID)"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Username (Frontier CORP ID)]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Project Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Number"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Project Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Project Sub Number(s)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Sub Number(s)"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Spending Not Needed]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Spending Not Needed"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Spending Not Needed]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Spending Not Needed]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Future Spending]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Future Spending"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Future Spending]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Future Spending]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Current Project Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Current Project Status"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Current Project Status]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Current Project Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].Columns[Analyst Notes]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Analyst Notes"
+                      externalMetadataColumnId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Analyst Notes]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Analyst Notes]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmitttedDtm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Username (Frontier CORP ID)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Spending Not Needed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Future Spending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Project Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input].ExternalColumns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Analyst Notes" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\new_history.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new_history.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new_history.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\new_history.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new_history.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\new_latest"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="new_latest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdatesLatest]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\new_latest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].Columns[Project Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Number"
+                      externalMetadataColumnId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[Project Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].Columns[Project Sub Number(s)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Project Sub Number(s)"
+                      externalMetadataColumnId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].Columns[LatestDateTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LatestDateTime"
+                      externalMetadataColumnId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].ExternalColumns[LatestDateTime]"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[LatestDateTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input].ExternalColumns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      name="LatestDateTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\new_latest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new_latest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new_latest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\new_latest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new_latest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\old_details"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="old_details"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdatesLatestDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\old_details.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      name="SubmittedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Username (Frontier CORP ID)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]"
+                      name="Username (Frontier CORP ID)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      name="Project Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Spending Not Needed]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Spending Not Needed]"
+                      name="Spending Not Needed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Future Spending]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Future Spending]"
+                      name="Future Spending"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Current Project Status]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Current Project Status]"
+                      name="Current Project Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Analyst Notes]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[Analyst Notes]"
+                      name="Analyst Notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[LatestDateTime]"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].Columns[LatestDateTime]"
+                      name="LatestDateTime"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Username (Frontier CORP ID)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Spending Not Needed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Future Spending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Project Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Analyst Notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output].ExternalColumns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      name="LatestDateTime" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      name="SubmittedBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[LatestDateTime]"
+                      name="LatestDateTime" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Username (Frontier CORP ID)]"
+                      name="Username (Frontier CORP ID)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      name="Project Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Spending Not Needed]"
+                      name="Spending Not Needed" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Future Spending]"
+                      name="Future Spending" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Current Project Status]"
+                      name="Current Project Status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[Analyst Notes]"
+                      name="Analyst Notes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\old_history"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="old_history"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdatesHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\old_history.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[SubmittedBy]"
+                      name="SubmittedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[SubmitttedDtm]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[SubmitttedDtm]"
+                      name="SubmitttedDtm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Username (Frontier CORP ID)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Username (Frontier CORP ID)]"
+                      name="Username (Frontier CORP ID)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      name="Project Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Spending Not Needed]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Spending Not Needed]"
+                      name="Spending Not Needed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Future Spending]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Future Spending]"
+                      name="Future Spending"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Current Project Status]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Current Project Status]"
+                      name="Current Project Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Analyst Notes]"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].Columns[Analyst Notes]"
+                      name="Analyst Notes"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmittedBy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SubmitttedDtm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Username (Frontier CORP ID)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Spending Not Needed" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Future Spending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Current Project Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output].ExternalColumns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Analyst Notes" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[SubmittedBy]"
+                      name="SubmittedBy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[SubmitttedDtm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[SubmitttedDtm]"
+                      name="SubmitttedDtm" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Username (Frontier CORP ID)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Username (Frontier CORP ID)]"
+                      name="Username (Frontier CORP ID)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      name="Project Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Spending Not Needed]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Spending Not Needed]"
+                      name="Spending Not Needed" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Future Spending]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Future Spending]"
+                      name="Future Spending" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Current Project Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Current Project Status]"
+                      name="Current Project Status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Analyst Notes]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[Analyst Notes]"
+                      name="Analyst Notes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\old_latest"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="old_latest"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[webapp].[MSFormsAnalystUpdatesLatest]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\old_latest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalManagementProduction]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[Project Number]"
+                      name="Project Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].ExternalColumns[LatestDateTime]"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].Columns[LatestDateTime]"
+                      name="LatestDateTime"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].ExternalColumns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].ExternalColumns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Project Sub Number(s)" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output].ExternalColumns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      name="LatestDateTime" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[Project Number]"
+                      name="Project Number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[Project Sub Number(s)]"
+                      name="Project Sub Number(s)" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[LatestDateTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[LatestDateTime]"
+                      name="LatestDateTime" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\new_history.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\old_history.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\new_latest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\old_latest.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+              endId="Package\Data Flow Task\new_details.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\old_details.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="378,63" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Data Flow Task\old_history"
+          TopLeft="349,63" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Data Flow Task\new_history"
+          TopLeft="612,60" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="481,82.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131,0"
+              Start="0,0"
+              End="123.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="123.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Data Flow Task\old_latest"
+          TopLeft="352,112" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Data Flow Task\new_latest"
+          TopLeft="619,106" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="478,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="141,0"
+              Start="0,0"
+              End="133.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="133.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Data Flow Task\old_details"
+          TopLeft="349,187" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Data Flow Task\new_details"
+          TopLeft="612,184" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="481,206.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131,0"
+              Start="0,0"
+              End="123.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="123.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\old_history">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\new_history">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\old_latest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\new_latest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\old_details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\new_details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

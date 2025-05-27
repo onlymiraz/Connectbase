@@ -1,0 +1,41 @@
+--ILEC LINES 
+
+SEL DISTINCT TRIM(SUB_MTRC_NO) SUB_MTRC_NO, '100' DCY_ID, TRIM(dw_st_cd) state, yr_mth_no, ILEC_DNMNTR_VAL LINES 
+FROM C2C_CPODS_VWMC.C2C_RPT_FCT_SUB_MTRC
+WHERE YR_MTH_NO = 202312
+AND DW_ST_CD in ('CA','FL')
+and clec_cd = 'ALL'
+AND SUB_MTRC_NO in (
+'MR-2-01-3221','MR-2-01-3223','MR-2-01-3561','MR-2-01-3562',
+'MR-2-01-3563','MR-2-01-3605','MR-2-01-3606')
+order by 3,2,1;
+
+
+
+--CLEC LINES  
+SELECT DISTINCT TRIM(SUB_MTRC_NO) SUB_MTRC_NO, 
+case when clec_cd = 'ALL' then '229'
+     else clec_cd end clec_cd,
+TRIM(dw_st_cd) state, yr_mth_no, CLEC_DNMNTR_VAL LINES
+FROM C2C_CPODS_VWMC.C2C_RPT_FCT_SUB_MTRC
+WHERE YR_MTH_NO = 202312
+AND DW_ST_CD in ('CA','FL')
+--and clec_cd = 'ALL'
+and CLEC_DNMNTR_VAL > 0
+AND SUB_MTRC_NO in (
+'MR-2-01-3221','MR-2-01-3223','MR-2-01-3561','MR-2-01-3562',
+'MR-2-01-3563','MR-2-01-3605','MR-2-01-3606')
+order by 3,2,1;
+
+
+
+select distinct DW_ST_CD, CLEC_CD, CLEC_GRP_CD, YR_MTH_NO, DW_PRD_ID, CRT_DT, ORD_CMPLT_DT, PON, JEP_CATEGORY,			
+ACT_CMPLT_DT, DESIRED_DUE_DATE_LAST, DESIRED_DUE_DATE			
+from C2C_CPODS_VWMC.C2C_FCT_PR_SVCORD_BASE			
+where dw_st_cd = 'FL'			
+and JEP_CATEGORY_IND1 = 1			
+and YR_MTH_NO = 202312		
+and CLEC_GRP_CD = 229			
+and dw_prd_id in ('FTR60','B1','FTR18','BUS')			
+order by 2,8,5;			
+

@@ -1,0 +1,11 @@
+darts
+dask
+matplotlib
+numpy
+pandas
+plotly
+pyodbc
+scipy
+sktime
+sqlalchemy
+u8darts[notorch]

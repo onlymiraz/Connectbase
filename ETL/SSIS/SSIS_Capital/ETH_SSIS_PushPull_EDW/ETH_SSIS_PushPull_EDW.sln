@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "ETH_SSIS_PushPull_EDW", "ETH_SSIS_PushPull_EDW.dtproj", "{4EEC286D-C8F6-4E2B-B755-E7811020A89D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EEC286D-C8F6-4E2B-B755-E7811020A89D}.Debug|Default.ActiveCfg = Debug
+		{4EEC286D-C8F6-4E2B-B755-E7811020A89D}.Debug|Default.Build.0 = Debug
+		{4EEC286D-C8F6-4E2B-B755-E7811020A89D}.Development|Default.ActiveCfg = Development
+		{4EEC286D-C8F6-4E2B-B755-E7811020A89D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {617BB744-EE82-4BD0-99B3-B2ED8C9C41E5}
+	EndGlobalSection
+EndGlobal

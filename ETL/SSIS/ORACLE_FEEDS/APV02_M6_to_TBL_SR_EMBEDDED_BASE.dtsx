@@ -1,0 +1,808 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/29/2024 9:08:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG3052BR6"
+  DTS:CreatorName="CORP\crr173"
+  DTS:DTSID="{E7ED7F73-C117-48D2-A6EA-ABB4B89AA38E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="APV02_M6_to_TBL_SR_EMBEDDED_BASE"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{720F6CC5-AC75-4A2E-BB03-B5CAF671AF63}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EE7B7CC9-BD14-4274-AC12-2EB6A17651A9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LZ].[TBL_SR_EMBEDDED_BASE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{B2AD75CD-7BF6-49FB-9186-1D253E0F046B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WADINFWWAPV02.WAD_PRD_02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CKT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="53"
+                      cachedName="CKT"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CKT_ID]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[CKT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CLEC_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="CLEC_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLEC_ID]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[CLEC_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SERVICE_TYPE_CATEGORY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SERVICE_TYPE_CATEGORY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SERVICE_TYPE_CAT]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SERVICE_TYPE_CATEGORY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[STATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="STATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE_CD]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[STATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SVC_CD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SVC_CD"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SVC_CD]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SVC_CD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PRODUCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="PRODUCT"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[PRODUCT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="BDW"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BDW]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[BDW]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="STATUS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[STATUS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SI_STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="SI_STATUS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SI_STATUS]"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SI_STATUS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CKT_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CKT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CLEC_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CLEC_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SERVICE_TYPE_CAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SERVICE_TYPE_CAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="STATE_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SVC_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="SVC_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="BDW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SI_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SI_STATUS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Oracle Source"
+              componentClassID="Microsoft.SSISOracleSrc"
+              contactInfo="Oracle Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Oracle Source"
+              name="Oracle Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT CKT, CLEC_ID, SERVICE_TYPE_CATEGORY,
+       CASE WHEN STATE1 IS NOT NULL AND STATE1 &lt;&gt; 'EF' THEN STATE1
+            WHEN STATE2 IS NOT NULL AND STATE2 &lt;&gt; 'EF' THEN STATE2
+            WHEN ICSC = 'SN01' THEN 'CT'
+            WHEN ICSC = 'RT01' THEN 'NY'
+            ELSE STATE3 END STATE, 
+       SVC_CD,
+       --CASE WHEN CLEC_ID IN ('ATX','TPM','AAV','SBB','SBZ','SUV') THEN 'ABS' ELSE 'MOB' END COMPANY,
+       CASE WHEN UNI_OR_NNI = 'NNI' THEN 'Ethernet-NNI'
+            WHEN UNI_OR_NNI = 'UNI' THEN 'Ethernet-UNI'
+            WHEN PRODUCT IN ('DS1','DS3','OC3','OC12','OC48','OC192') THEN 'TDM'
+            ELSE PRODUCT END PRODUCT,    
+       BDW, STATUS, SI_STATUS                
+FROM (
+SELECT CKT, ICSC, RATE, TYPE, ECCKT_TYPE, SERVICE_TYPE_CATEGORY,
+       CASE WHEN CCNAD1 IS NOT NULL THEN CCNAD1
+            WHEN ACNAD1 IS NOT NULL THEN ACNAD1
+            WHEN CCNAD2 IS NOT NULL THEN CCNAD2
+            WHEN ACNAD2 IS NOT NULL THEN ACNAD2
+            WHEN CCNA1 IS NOT NULL THEN CCNA1
+            WHEN ACNA1 IS NOT NULL THEN ACNA1
+            WHEN CCNA2 IS NOT NULL THEN CCNA2
+            ELSE ACNA2 END CLEC_ID,
+       STATE1, STATE2, STATE3, OCN, SVC_CD, STATUS, SI_STATUS, 
+       CASE WHEN SUBSTR(SVC_CD,1,2) IN ('HC','HX','T1') THEN 'DS1'
+            WHEN SUBSTR(SVC_CD,1,2) IN ('HF','T3') THEN 'DS3'
+            WHEN SUBSTR(SVC_CD,1,2) IN ('SX','KG','KS','KJ') THEN 'Ethernet-NNI'
+            WHEN SUBSTR(SVC_CD,1,1) IN ('K') THEN 'Ethernet-UNI'
+            WHEN SUBSTR(SVC_CD,1,2) IN ('XL') THEN 'DS3'
+            WHEN SVC_CD IN ('OB','OC3','OC03','OC03P','OC03N') THEN 'OC3'
+            WHEN SVC_CD IN ('OD','OC12','OC12N','OC12P','OC12C','O12P') THEN 'OC12'
+            WHEN SVC_CD IN ('OF','OC48','OC48P') THEN 'OC48'
+            WHEN SVC_CD IN ('OG','OC192') THEN 'OC192'
+            ELSE NULL END PRODUCT,
+       CASE WHEN SVC_CD IN ('KD','KP') THEN '10M'  
+            WHEN SVC_CD IN ('KE','KQ') THEN '100M'                
+            WHEN SVC_CD IN ('KF','KR') THEN '1G'
+            WHEN SVC_CD IN ('KG','KS') THEN '10G'
+            WHEN SVC_CD IN ('KJ') THEN '100G'
+            ELSE '' END BDW, 
+       CASE WHEN UNI_OR_NNI = '436' THEN 'NNI'
+            WHEN UNI_OR_NNI = '435' THEN 'UNI'
+            ELSE '' END UNI_OR_NNI        
+FROM (
+SELECT EXCHANGE_CARRIER_CIRCUIT_ID CKT,
+       MAX(D.EC_COMPANY_CODE) KEEP (DENSE_RANK FIRST ORDER BY D.LAST_MODIFIED_DATE) ICSC, 
+       MAX(RATE_CODE) KEEP (DENSE_RANK LAST ORDER BY C.LAST_MODIFIED_DATE) RATE, 
+       MAX(C.TYPE) KEEP (DENSE_RANK LAST ORDER BY C.LAST_MODIFIED_DATE) TYPE, 
+       MAX(D.CCNA) KEEP (DENSE_RANK LAST ORDER BY D.LAST_MODIFIED_DATE) CCNA1, 
+       MAX(D.CCNA) KEEP (DENSE_RANK FIRST ORDER BY D.CCNA) CCNA2, 
+       MAX(D.ACNA) KEEP (DENSE_RANK LAST ORDER BY D.LAST_MODIFIED_DATE) ACNA1, 
+       MAX(D.ACNA) KEEP (DENSE_RANK FIRST ORDER BY D.CCNA) ACNA2,
+       MAX(D2.CCNA) KEEP (DENSE_RANK LAST ORDER BY D.LAST_MODIFIED_DATE) CCNAD1, 
+       MAX(D2.CCNA) KEEP (DENSE_RANK FIRST ORDER BY D.CCNA) CCNAD2, 
+       MAX(D2.ACNA) KEEP (DENSE_RANK LAST ORDER BY D.LAST_MODIFIED_DATE) ACNAD1, 
+       MAX(D2.ACNA) KEEP (DENSE_RANK FIRST ORDER BY D.CCNA) ACNAD2,
+       MAX(SUBSTR(NL1.CLLI_CODE,5,2)) KEEP (DENSE_RANK LAST ORDER BY NL1.LAST_MODIFIED_DATE) STATE1,
+       MAX(SUBSTR(NL2.CLLI_CODE,5,2)) KEEP (DENSE_RANK LAST ORDER BY NL2.LAST_MODIFIED_DATE) STATE2,
+       NULL STATE3, 
+       MAX(NL1.OPERATING_COMPANY_NUMBER) KEEP (DENSE_RANK LAST ORDER BY NL1.LAST_MODIFIED_DATE) OCN,
+       MAX(C.SERVICE_TYPE_CODE) KEEP (DENSE_RANK LAST ORDER BY C.LAST_MODIFIED_DATE) SVC_CD,
+       MAX(C.STATUS) KEEP (DENSE_RANK LAST ORDER BY C.LAST_MODIFIED_DATE) STATUS,
+       MAX(C.ECCKT_TYPE) KEEP (DENSE_RANK LAST ORDER BY C.LAST_MODIFIED_DATE) ECCKT_TYPE,
+       MAX(C.SERVICE_TYPE_CATEGORY) KEEP (DENSE_RANK LAST ORDER BY C.LAST_MODIFIED_DATE) SERVICE_TYPE_CATEGORY,
+       CUD.UNI_OR_NNI,
+       SI.STATUS SI_STATUS
+FROM CIRCUIT C, DESIGN_LAYOUT_REPORT D, NETWORK_LOCATION NL1, NETWORK_LOCATION NL2, 
+     CIRCUIT_USER_DATA CUD, SERV_ITEM SI, DESIGN_LAYOUT_REPORT D2
+WHERE C.EXCHANGE_CARRIER_CIRCUIT_ID = D.ECCKT (+)
+AND C.CIRCUIT_DESIGN_ID = D2.CIRCUIT_DESIGN_ID (+)
+AND C.CIRCUIT_DESIGN_ID = SI.CIRCUIT_DESIGN_ID (+)
+AND C.LOCATION_ID = NL1.LOCATION_ID(+)
+AND C.LOCATION_ID_2 = NL2.LOCATION_ID(+)
+AND C.CIRCUIT_DESIGN_ID = CUD.CIRCUIT_DESIGN_ID (+)
+AND C.TYPE &lt;&gt; 'T'
+AND (SUBSTR(SERVICE_TYPE_CODE,1,2) IN ('HC','HF','HX','KP','KD','KE','KF','KG','KQ','KR','KS','KJ','T1','T3','SX')
+    OR SUBSTR(SERVICE_TYPE_CODE,1,1) IN ('X','O'))
+AND SERVICE_TYPE_CODE &lt;&gt; 'OS'
+--AND (D.CCNA IN ('WCG','MQS','MJC','OPT','ABW','APT','ICJ','PSO','PWR','SJV','TZV','AEY','AVF','CAY','CXJ','CQC','DCC','DCX','EIP','HZC','HZL','IGW','IIP','LPL','NLZ','NPM','NXT','ONM','ROW','SPV','SWQ','SZC','UBQ','WEL','WOW','WSO','ZMJ','ZLD')
+--OR D.ACNA IN ('WCG','MQS','MJC','OPT','ABW','APT','ICJ','PSO','PWR','SJV','TZV','AEY','AVF','CAY','CXJ','CQC','DCC','DCX','EIP','HZC','HZL','IGW','IIP','LPL','NLZ','NPM','NXT','ONM','ROW','SPV','SWQ','SZC','UBQ','WEL','WOW','WSO','ZMJ','ZLD')
+--OR D2.ACNA IN ('WCG','MQS','MJC','OPT','ABW','APT','ICJ','PSO','PWR','SJV','TZV','AEY','AVF','CAY','CXJ','CQC','DCC','DCX','EIP','HZC','HZL','IGW','IIP','LPL','NLZ','NPM','NXT','ONM','ROW','SPV','SWQ','SZC','UBQ','WEL','WOW','WSO','ZMJ','ZLD')
+--OR D2.CCNA IN ('WCG','MQS','MJC','OPT','ABW','APT','ICJ','PSO','PWR','SJV','TZV','AEY','AVF','CAY','CXJ','CQC','DCC','DCX','EIP','HZC','HZL','IGW','IIP','LPL','NLZ','NPM','NXT','ONM','ROW','SPV','SWQ','SZC','UBQ','WEL','WOW','WSO','ZMJ','ZLD')
+--)
+GROUP BY EXCHANGE_CARRIER_CIRCUIT_ID, CUD.UNI_OR_NNI, SI.STATUS
+))
+WHERE SUBSTR(CKT,7,1) &lt;&gt; 'U'
+AND SI_STATUS = '6' AND STATUS &lt;&gt; '8'
+AND PRODUCT IS NOT NULL
+AND SUBSTR(SERVICE_TYPE_CATEGORY,1,7) = 'CLCI-SS'
+AND ECCKT_TYPE = 'CLS'
+ORDER BY 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Number of pre-fetched rows."
+                  expressionType="Notify"
+                  name="PrefetchCount">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Oracle Source.Connections[ORACLEConnection]"
+                  connectionManagerID="{FC4C61B7-F5FF-40E1-A51C-7359C0835583}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[M6 - ASAPPRDSTDBY]"
+                  description="The ORACLE runtime connection used to access the database."
+                  name="ORACLEConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="Oracle Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[CKT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[CKT]"
+                      length="53"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[CKT]"
+                      name="CKT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[CLEC_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[CLEC_ID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[CLEC_ID]"
+                      name="CLEC_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SERVICE_TYPE_CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SERVICE_TYPE_CATEGORY]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SERVICE_TYPE_CATEGORY]"
+                      name="SERVICE_TYPE_CATEGORY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[STATE]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[STATE]"
+                      name="STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SVC_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SVC_CD]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SVC_CD]"
+                      name="SVC_CD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[PRODUCT]"
+                      length="12"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[PRODUCT]"
+                      name="PRODUCT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[BDW]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[BDW]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[BDW]"
+                      name="BDW" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[STATUS]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[STATUS]"
+                      name="STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SI_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SI_STATUS]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].Columns[SI_STATUS]"
+                      name="SI_STATUS" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[CKT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="53"
+                      name="CKT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[CLEC_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CLEC_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SERVICE_TYPE_CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SERVICE_TYPE_CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SVC_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SVC_CD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="PRODUCT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[BDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="BDW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SI_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SI_STATUS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output]"
+                  isErrorOut="true"
+                  name="Oracle Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[CKT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[CKT]"
+                      length="53"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[CKT]"
+                      name="CKT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[CLEC_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[CLEC_ID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[CLEC_ID]"
+                      name="CLEC_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[SERVICE_TYPE_CATEGORY]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SERVICE_TYPE_CATEGORY]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[SERVICE_TYPE_CATEGORY]"
+                      name="SERVICE_TYPE_CATEGORY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[STATE]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[STATE]"
+                      name="STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[SVC_CD]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SVC_CD]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[SVC_CD]"
+                      name="SVC_CD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[PRODUCT]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[PRODUCT]"
+                      length="12"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[PRODUCT]"
+                      name="PRODUCT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[BDW]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[BDW]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[BDW]"
+                      name="BDW" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[STATUS]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[STATUS]"
+                      name="STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[SI_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      externalMetadataColumnId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[SI_STATUS]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[SI_STATUS]"
+                      name="SI_STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Oracle Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Oracle Source Output"
+              startId="Package\Data Flow Task\Oracle Source.Outputs[Oracle Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1CF72029-F585-4C4F-A715-2F65E09A8DEB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B2AD75CD-7BF6-49FB-9186-1D253E0F046B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [LZ].[TBL_SR_EMBEDDED_BASE]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{411A272C-DCEE-4BBC-94F0-3FF3E5F9D936}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.666666666667,42"
+          Id="Package\Data Flow Task"
+          TopLeft="453,233" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="410,129" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="495,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.5,62"
+              Start="0,0"
+              End="35.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="31.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.5,31"
+                    Point2="35.5,31"
+                    Point3="35.5,35" />
+                  <mssgle:LineSegment
+                    End="35.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Data Flow Task\Oracle Source"
+          TopLeft="458,284" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="483.5,490.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Oracle Source Output]"
+          TopLeft="532.5,326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.5,164.5"
+              Start="0,0"
+              End="39.5,157">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,78.25"
+                    Point2="0,82.25"
+                    Point3="4,82.25" />
+                  <mssgle:LineSegment
+                    End="35.5,82.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.5,82.25"
+                    Point2="39.5,82.25"
+                    Point3="39.5,86.25" />
+                  <mssgle:LineSegment
+                    End="39.5,157" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Oracle Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL_SSIS_GA_RetroFix", "ETL_SSIS_GA_RetroFix.dtproj", "{9C70A171-1E0D-4014-A097-2A6270EEF5C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C70A171-1E0D-4014-A097-2A6270EEF5C6}.Development|Default.ActiveCfg = Development
+		{9C70A171-1E0D-4014-A097-2A6270EEF5C6}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D05545CE-8819-4113-9C27-C0569A255CB0}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [NT SERVICE\PowerBIReportServer]
+    AUTHORIZATION [NT SERVICE\PowerBIReportServer];
+

@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB_TSQL_Capital</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{79b15254-752e-4e9d-a458-10affadef56d}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DB_TSQL_Capital</RootNamespace>
+    <AssemblyName>DB_TSQL_Capital</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Brownfield\" />
+    <Folder Include="Brownfield\Tables\" />
+    <Folder Include="ProjApproval\" />
+    <Folder Include="ProjApproval\Tables\" />
+    <Folder Include="forecast\" />
+    <Folder Include="forecast\Tables\" />
+    <Folder Include="LZ\" />
+    <Folder Include="LZ\Tables\" />
+    <Folder Include="webapp\" />
+    <Folder Include="webapp\Tables\" />
+    <Folder Include="history\" />
+    <Folder Include="history\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="PushPull\" />
+    <Folder Include="PushPull\Tables\" />
+    <Folder Include="report\" />
+    <Folder Include="report\Tables\" />
+    <Folder Include="LOG\" />
+    <Folder Include="LOG\Tables\" />
+    <Folder Include="m2m\" />
+    <Folder Include="m2m\Tables\" />
+    <Folder Include="forecast\Views\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Brownfield\Views\" />
+    <Folder Include="Storage\" />
+    <Folder Include="ProjApproval\Functions\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="webapp\Stored Procedures\" />
+    <Folder Include="forecast\Stored Procedures\" />
+    <Folder Include="PushPull\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Brownfield\Stored Procedures\" />
+    <Folder Include="ProjApproval\Stored Procedures\" />
+    <Folder Include="report\Stored Procedures\" />
+    <Folder Include="history\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Brownfield\Tables\LZ_JMJC5FLDSF.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_Facilities_Trimmed.sql" />
+    <Build Include="forecast\Tables\ForecastExport.sql" />
+    <Build Include="forecast\Tables\SubprojectPriorYear3.sql" />
+    <Build Include="forecast\Tables\CorrectFutureYearSpend.sql" />
+    <Build Include="LZ\Tables\financial_subproject_c.sql" />
+    <Build Include="webapp\Tables\MSFormsAnalystUpdatesLatest.sql" />
+    <Build Include="webapp\Tables\MSFormsAnalystUpdatesLatestDetails.sql" />
+    <Build Include="LZ\Tables\sitetracker_project_c.sql" />
+    <Build Include="history\Tables\GALisa.sql" />
+    <Build Include="dbo\Tables\ForecastImport.sql" />
+    <Build Include="PushPull\Tables\LZ_Varasset_Feeder_Distribution.sql" />
+    <Build Include="dbo\Tables\MULTIYEAREXCEPTION.sql" />
+    <Build Include="forecast\Tables\ProjectYear.sql" />
+    <Build Include="dbo\Tables\prioryearnew.sql" />
+    <Build Include="forecast\Tables\SummaryColumnGroup.sql" />
+    <Build Include="LZ\Tables\sitetracker_changerequest_c.sql" />
+    <Build Include="report\Tables\CapitalSummary2020InJustificationCode.sql" />
+    <Build Include="LZ\Tables\sitetracker_Invoice_Line_c.sql" />
+    <Build Include="dbo\Tables\prioryear.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_MDUSubdivision.sql" />
+    <Build Include="dbo\Tables\2020 Justification Code Document-Final 3.30.20.sql" />
+    <Build Include="forecast\Tables\SummaryColumn.sql" />
+    <Build Include="LZ\Tables\INFINIUM_PROJ_DTL.sql" />
+    <Build Include="LOG\Tables\Tracker.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_MDUSubdivision_Trimmed.sql" />
+    <Build Include="dbo\Tables\Forecast.JustificationCode03302020.sql" />
+    <Build Include="Brownfield\Tables\ForecastExportPriorYearsSpendUpdate.sql" />
+    <Build Include="forecast\Tables\infiniumprojectdata.sql" />
+    <Build Include="report\Tables\CapitalSummary2020Criteria.sql" />
+    <Build Include="forecast\Tables\JustificationCode030320.sql" />
+    <Build Include="webapp\Tables\AzureDevOpsPipelineTest.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Tables\AUTHDETAIL.sql" />
+    <Build Include="forecast\Tables\BudgetCategoryCorrection.sql" />
+    <Build Include="PushPull\Tables\LZ_abu_cls_with_cashflow.sql" />
+    <Build Include="dbo\Tables\ESTIMATE.sql" />
+    <Build Include="report\Tables\CapitalSummary2020InAccount.sql" />
+    <Build Include="dbo\Tables\APPROVED.sql" />
+    <Build Include="dbo\Tables\FinanceCategory.sql" />
+    <Build Include="forecast\Tables\FinanceCategory.sql" />
+    <Build Include="dbo\Tables\AUTHORIZED.sql" />
+    <Build Include="dbo\Tables\BUDGETLINE.sql" />
+    <Build Include="dbo\Tables\CIACFORFF.sql" />
+    <Build Include="report\Tables\CapitalSummary2020LinkCodeMap.sql" />
+    <Build Include="forecast\Tables\ProjectStatusCode.sql" />
+    <Build Include="dbo\Tables\VarassetStatus.sql" />
+    <Build Include="dbo\Tables\FFFIELDS.sql" />
+    <Build Include="forecast\Tables\SubprojectStatus.sql" />
+    <Build Include="history\Tables\ForecastExport.sql" />
+    <Build Include="forecast\Tables\Subproject.sql" />
+    <Build Include="ProjApproval\Tables\DepreciationSchedule.sql" />
+    <Build Include="dbo\Tables\FUTUREYEAR.sql" />
+    <Build Include="ProjApproval\Tables\IncomeTaxRate.sql" />
+    <Build Include="dbo\Tables\GA.sql" />
+    <Build Include="LZ\Tables\Account.sql" />
+    <Build Include="dbo\Tables\GANew.sql" />
+    <Build Include="dbo\Tables\NewProjects.sql" />
+    <Build Include="ProjApproval\Tables\AgendaSetup.sql" />
+    <Build Include="LZ\Tables\SF_Budget.sql" />
+    <Build Include="PushPull\Tables\LZ_StateCorpBudget.sql" />
+    <Build Include="m2m\Tables\GA.sql" />
+    <Build Include="forecast\Tables\CorrectNote.sql" />
+    <Build Include="dbo\Tables\SPREAD.sql" />
+    <Build Include="PushPull\Tables\LZ_WirelessSummarySection.sql" />
+    <Build Include="m2m\Tables\BudgetCategoryGroup.sql" />
+    <Build Include="m2m\Tables\CostCodeCategory.sql" />
+    <Build Include="forecast\Tables\SubBudgetCategory.sql" />
+    <Build Include="ProjApproval\Tables\Compare_BDT_History_LZ.sql" />
+    <Build Include="ProjApproval\Tables\EditScreen_PreSale_Compiled.sql" />
+    <Build Include="forecast\Tables\ForecastExportCopy.sql" />
+    <Build Include="forecast\Tables\BudgetLine.sql" />
+    <Build Include="forecast\Tables\Summary.sql" />
+    <Build Include="LZ\Tables\SF_Budget__c.sql" />
+    <Build Include="LZ\Tables\SF_Requisition__c.sql" />
+    <Build Include="LZ\Tables\SF_sitetracker_changerequest__c.sql" />
+    <Build Include="LZ\Tables\SF_sitetracker_Invoice_Line__c.sql" />
+    <Build Include="forecast\Tables\JournalEntry.sql" />
+    <Build Include="LZ\Tables\SF_sitetracker_project__c.sql" />
+    <Build Include="LZ\Tables\SF_Work_material__c.sql" />
+    <Build Include="LZ\Tables\infinium_project_budget.sql" />
+    <Build Include="LZ\Tables\VARASSET_PICKLISTITEM.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_Approval.sql" />
+    <Build Include="forecast\Tables\JustificationCode.sql" />
+    <Build Include="forecast\Tables\Project.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_Supplements.sql" />
+    <Build Include="LZ\Tables\VARASSET_PMDBRecords_NonFiltered.sql" />
+    <Build Include="forecast\Tables\Exchange.sql" />
+    <Build Include="ProjApproval\Tables\PreSale_Compiled.sql" />
+    <Build Include="LZ\Tables\VARASSET_SPECIFICATION.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_SupplementsEdit.sql" />
+    <Build Include="Brownfield\Tables\BrownfieldByMatrix.sql" />
+    <Build Include="LZ\Tables\VARASSET_WORKORDER.sql" />
+    <Build Include="PushPull\Tables\PushPull_Subproj_Gran.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_Grants.sql" />
+    <Build Include="Brownfield\Tables\LZ_JHFFTRDCBX.sql" />
+    <Build Include="PushPull\Tables\PushPull_Project_Gran.sql" />
+    <Build Include="LZ\Tables\LZ_PJAPIP003.sql" />
+    <Build Include="forecast\Tables\ErrorReport.sql" />
+    <Build Include="ProjApproval\Tables\PostSale_MDUSFU_History.sql" />
+    <Build Include="forecast\Tables\SpendingTrendData.sql" />
+    <Build Include="LZ\Tables\MaterialsUsed.sql" />
+    <Build Include="ProjApproval\Tables\Compute_PostSale_MDUSFU.sql" />
+    <Build Include="ProjApproval\Tables\Compare_MDUSFU_History_Trimmed.sql" />
+    <Build Include="forecast\Tables\SubProjectPriorYear2021.sql" />
+    <Build Include="PushPull\Tables\Binh_Closed.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_Projects_ExistingOpportunity.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_Projects_ExistingOpportunity_Trimmed.sql" />
+    <Build Include="report\Tables\InfrastructureBuild.sql" />
+    <Build Include="PushPull\Tables\OriginalBudget.sql" />
+    <Build Include="dbo\Tables\Varasset_FPStatus.sql" />
+    <Build Include="ProjApproval\Tables\FF.sql" />
+    <Build Include="LOG\Tables\CapitalGA.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="ProjApproval\Tables\Compute_PostSale_BDT.sql" />
+    <Build Include="forecast\Tables\BudgetCategory.sql" />
+    <Build Include="ProjApproval\Tables\PreSale_MDUSFU_History.sql" />
+    <Build Include="LZ\Tables\UnapprovedProjects.sql" />
+    <Build Include="forecast\Tables\SummaryTemp.sql" />
+    <Build Include="forecast\Tables\SubprojectAuthorized.sql" />
+    <Build Include="PushPull\Tables\LZ_ProjectSummarySection.sql" />
+    <Build Include="PushPull\Tables\LZ_materialtracking.sql" />
+    <Build Include="LZ\Tables\VARASSET_MATERIALTRACKING.sql" />
+    <Build Include="forecast\Tables\SubprojectCIAC.sql" />
+    <Build Include="forecast\Tables\GrossAddsIndirect.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_Grants_Trimmed.sql" />
+    <Build Include="webapp\Tables\MSFormsAnalystUpdates.sql" />
+    <Build Include="webapp\Tables\MSFormsAnalystUpdatesHistory.sql" />
+    <Build Include="forecast\Tables\SubprojectPriorYear.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_Supplements_Trimmed.sql" />
+    <Build Include="forecast\Tables\NoteFinal.sql" />
+    <Build Include="history\Tables\Note.sql" />
+    <Build Include="forecast\Tables\SubprojectFutureYear.sql" />
+    <Build Include="webapp\Tables\ManualAnalystUpdates.sql" />
+    <Build Include="PushPull\Tables\LZ_abu_cls_with_cashflow_new.sql" />
+    <Build Include="webapp\Tables\GA.sql" />
+    <Build Include="Brownfield\Tables\LZ_BulkReelUsage.sql" />
+    <Build Include="forecast\Tables\SubprojectFinancial.sql" />
+    <Build Include="LZ\Tables\Work_material_c.sql" />
+    <Build Include="dbo\Tables\Varasset_FPStatus_Original.sql" />
+    <Build Include="PushPull\Tables\LZ_PushPull.sql" />
+    <Build Include="Brownfield\Tables\LZ_BKSTIME20F.sql" />
+    <Build Include="Brownfield\Tables\LZ_BKSTIME00F.sql" />
+    <Build Include="forecast\Tables\GrossAddsDirect.sql" />
+    <Build Include="ProjApproval\Tables\PostSale_DSAT_History.sql" />
+    <Build Include="Brownfield\Tables\MasterGoldenReport.sql" />
+    <Build Include="forecast\Tables\CorrectAnalystNoteLatestDate.sql" />
+    <Build Include="Brownfield\Tables\Regions.sql" />
+    <Build Include="dbo\Tables\Regions.sql" />
+    <Build Include="ProjApproval\Tables\Compare_BDT_History_Trimmed.sql" />
+    <Build Include="forecast\Tables\SpendingTrend.sql" />
+    <Build Include="dbo\Tables\ProjectImport.sql" />
+    <Build Include="report\Tables\CapitalSummary2020Category.sql" />
+    <Build Include="PushPull\Tables\LZ_CorporateBudget.sql" />
+    <Build Include="LZ\Tables\Requisition_c.sql" />
+    <Build Include="PushPull\Tables\LZ_ImpactCorpBudgetSection.sql" />
+    <Build Include="PushPull\Tables\PPMasterTable.sql" />
+    <Build Include="PushPull\Tables\LZ_ListAvailProjects.sql" />
+    <Build Include="PushPull\Tables\LZ_RegionCorporateSummarySection.sql" />
+    <Build Include="PushPull\Tables\LZ_UnapprovedAvailProjSection.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_BDT.sql" />
+    <Build Include="PushPull\Tables\LZ_JIMProjectImpactSection.sql" />
+    <Build Include="Brownfield\Tables\LZ_JMAUTHDTLF.sql" />
+    <Build Include="ProjApproval\Tables\Compute_PreSale_BDT.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_BDT_Trimmed.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_CRC.sql" />
+    <Build Include="PushPull\Tables\LZ_JIMProjectImactSection.sql" />
+    <Build Include="dbo\Tables\LZ_JMJC5FLDSF.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_CRC_Trimmed.sql" />
+    <Build Include="ProjApproval\Tables\InputScreen_PreSale_Facilities.sql" />
+    <Build Include="forecast\Views\Out_InvoiceErrorAllocation.sql" />
+    <Build Include="dbo\Views\InvoiceStatus_Capital.sql" />
+    <Build Include="Brownfield\Views\BrownfieldMatrixEMC.sql" />
+    <Build Include="dbo\Views\BrownfieldByMatrix.sql" />
+    <Build Include="forecast\Views\JIM.sql" />
+    <Build Include="Storage\log_memoryoptimized.sql" />
+    <Build Include="ProjApproval\Functions\ufn1_IRR.sql" />
+    <Build Include="ProjApproval\Functions\ufn_IRR.sql" />
+    <Build Include="dbo\Functions\CalcXIRR.sql" />
+    <Build Include="dbo\Functions\CSVToTable.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetApprovedProjects.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetProjectHeaders.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdatePriorYearsSpent.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetProjectDetail.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_ProjectSummarySection.sql" />
+    <Build Include="forecast\Stored Procedures\usp_GA_reset.sql" />
+    <Build Include="dbo\Stored Procedures\usp_error_handler.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetProjectForAnalyst.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetProjectNotes.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetSubprojectStatusList.sql" />
+    <Build Include="PushPull\Stored Procedures\Parser_PushPull.sql" />
+    <Build Include="forecast\Stored Procedures\usp_ImportSubprojects_New.sql" />
+    <Build Include="forecast\Stored Procedures\usp_CorrectGrossAdds.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetSummaryColumnGroups.sql" />
+    <Build Include="Brownfield\Stored Procedures\LZ_Writer_Master_Golden.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetSummaryColumns.sql" />
+    <Build Include="forecast\Stored Procedures\infiniumproject_data.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateApproved.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateGrossAdds.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_cashflow.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateSpendingTrend.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateBudgetCategory.sql" />
+    <Build Include="webapp\Stored Procedures\usp_InsertUserRequest.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_ImpactCorpBudgetSection.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateAuthorized.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetUserInfo.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_ListAvailProjects.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateCIAC.sql" />
+    <Build Include="webapp\Stored Procedures\usp_ApproveUserRequest.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_UnapprovedAvailProjSection.sql" />
+    <Build Include="webapp\Stored Procedures\usp_InsertUser.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateSpread.sql" />
+    <Build Include="webapp\Stored Procedures\usp_UserLoggedIn.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetSubBudgetCategoryList.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateSubprojectStatus.sql" />
+    <Build Include="forecast\Stored Procedures\usp_GA_BenefitsLoad.sql" />
+    <Build Include="forecast\Stored Procedures\usp_CreateErrorReport.sql" />
+    <Build Include="forecast\Stored Procedures\usp_DeleteSubprojectsNoDetail.sql" />
+    <Build Include="forecast\Stored Procedures\usp_CreateForecastExport.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetProjectStatusCodeList.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetBudgetCategoryList.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateFFFIELDS.sql" />
+    <Build Include="forecast\Stored Procedures\usp_RunForecastUpdate.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_AgendaSetup.sql" />
+    <Build Include="Brownfield\Stored Procedures\ForecastExportPYSUpdate.sql" />
+    <Build Include="ProjApproval\Stored Procedures\Approve_Reject.sql" />
+    <Build Include="report\Stored Procedures\usp_Get2020CapitalSummaryData.sql" />
+    <Build Include="report\Stored Procedures\usp_Get2020CapitalSummaryCommercialData.sql" />
+    <Build Include="forecast\Stored Procedures\usp_CreateForecastSummary.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetJustificationCodeList.sql" />
+    <Build Include="PushPull\Stored Procedures\Parser_JIMProjectImpactSection.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_RegionCorporateSummarySection.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateMisc.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_StateCorpBudget.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_SupplementEdit.sql" />
+    <Build Include="forecast\Stored Procedures\usp_WebAnalystUpdates.sql" />
+    <Build Include="Brownfield\Stored Procedures\CreateBrownfieldByMatrix.sql" />
+    <Build Include="forecast\Stored Procedures\usp_ImportProjects.sql" />
+    <Build Include="forecast\Stored Procedures\usp_ImportSubprojects.sql" />
+    <Build Include="PushPull\Stored Procedures\Subproject_Granularity.sql" />
+    <Build Include="forecast\Stored Procedures\usp_ImportGrossAdds.sql" />
+    <Build Include="forecast\Stored Procedures\usp_RunForecastFileImport.sql" />
+    <Build Include="Brownfield\Stored Procedures\Parser_JHFFTRDCBX.sql" />
+    <Build Include="PushPull\Stored Procedures\Project_Granularity.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateVarassetStatus.sql" />
+    <Build Include="forecast\Stored Procedures\Parser_PJAPIP003.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateBudgetLineProjects.sql" />
+    <Build Include="forecast\Stored Procedures\usp_CleanTables.sql" />
+    <Build Include="forecast\Stored Procedures\usp_PriorYearNew.sql" />
+    <Build Include="PushPull\Stored Procedures\Writer_Original_Budget.sql" />
+    <Build Include="forecast\Stored Procedures\usp_ManualAnalystUpdates.sql" />
+    <Build Include="ProjApproval\Stored Procedures\NewProjIntoExistingOppID.sql" />
+    <Build Include="ProjApproval\Stored Procedures\Edit_PreSale_Compiled.sql" />
+    <Build Include="dbo\Stored Procedures\createtemptable.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_PreSale_MDUSubdivision_Trim.sql" />
+    <Build Include="ProjApproval\Stored Procedures\usp_Compute_PreSale_BDT.sql" />
+    <Build Include="ProjApproval\Stored Procedures\usp_Compute_PostSale_BDT.sql" />
+    <Build Include="webapp\Stored Procedures\usp_GetUserRequest.sql" />
+    <Build Include="forecast\Stored Procedures\usp_BulkInsertQueries.sql" />
+    <Build Include="ProjApproval\Stored Procedures\usp_Compute_PostSale_MDUSFU.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_PreSale_Grants_Trim.sql" />
+    <Build Include="forecast\Stored Procedures\usp_FixImports.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_PreSale_CRC_Trim.sql" />
+    <Build Include="forecast\Stored Procedures\usp_GA_PythonCorrection.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_Supplement_Trim.sql" />
+    <Build Include="PushPull\Stored Procedures\parser_cashflow_new.sql" />
+    <Build Include="history\Stored Procedures\usp_GA.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_PreSale_BDT_Trim.sql" />
+    <Build Include="ProjApproval\Stored Procedures\InputScreen_PreSale_Facilities_Trim.sql" />
+    <Build Include="Brownfield\Stored Procedures\Parser_BKSTIME00F.sql" />
+    <Build Include="Brownfield\Stored Procedures\Parser_BKSTIME20F.sql" />
+    <Build Include="forecast\Stored Procedures\usp_ImportProjectsFromTable.sql" />
+    <Build Include="ProjApproval\Stored Procedures\CleanScreens.sql" />
+    <Build Include="Brownfield\Stored Procedures\Parser_JMAUTHDTLF.sql" />
+    <Build Include="forecast\Stored Procedures\usp_UpdateFutureYear.sql" />
+    <Build Include="Brownfield\Stored Procedures\Parser_JMJC5FLDSF.sql" />
+    <Build Include="ProjApproval\Stored Procedures\usp_ComputeNPV.sql" />
+    <Build Include="dbo\User Defined Types\project_fields_tbltype.sql" />
+    <Build Include="dbo\User Defined Types\XIRRTable.sql" />
+    <Build Include="forecast\schema.sql" />
+    <Build Include="Brownfield\schema.sql" />
+    <Build Include="history\schema.sql" />
+    <Build Include="LOG\schema.sql" />
+    <Build Include="LZ\schema.sql" />
+    <Build Include="m2m\schema.sql" />
+    <Build Include="ProjApproval\schema.sql" />
+    <Build Include="PushPull\schema.sql" />
+    <Build Include="report\schema.sql" />
+    <Build Include="webapp\schema.sql" />
+  </ItemGroup>
+</Project>

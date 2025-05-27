@@ -1,0 +1,58 @@
+﻿
+CREATE PROCEDURE LZ.usp_TBL_LZ_DSAT_MATRIX_UPLOAD
+/*
+	-- Add any parameters for the stored procedure here
+	@var1 int,
+	@var2 int
+*/
+AS
+	SET XACT_ABORT, NOCOUNT ON;
+BEGIN TRY
+	BEGIN TRANSACTION
+	DROP TABLE IF EXISTS #t
+INSERT INTO [LOG].tbl_storeproc
+    ([EVENTNAME]
+    ,[EVENTSTART]
+    ,[EVENTTYPE]
+    ,[EVENTDESCRIPTION])
+
+--enter values below
+
+VALUES
+('LZ.TBL_LZ_DSAT_MAXTRIX_UPLOAD'
+    ,CAST(GETDATE() AS DATETIME)
+    ,'STORE PROC'
+    ,'SINGLE_INGESTION')
+
+
+
+SELECT MAX(EVENTID) AS LATESTID  INTO #t
+FROM [LOG].tbl_storeproc
+
+
+truncate table LZ.TBL_LZ_DSAT_MATRIX_UPLOAD --Cannot truncate system versioned table
+
+insert INTO LZ.TBL_LZ_DSAT_MATRIX_UPLOAD 
+SELECT * 
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 
+   'Excel 12.0;Database=D:\LZ\DSAT_MATRIX\DSAT_UPLOAD.XLSX;HDR=YES', 
+   'SELECT * FROM [EXPORT$]')
+
+	
+	
+UPDATE L
+SET L.EVENTEND=CAST(GETDATE() AS DATETIME)
+FROM LOG.tbl_storeproc L
+INNER JOIN #t
+ON L.EVENTID = #t.LATESTID
+DROP TABLE IF EXISTS #t
+
+
+	
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	IF @@trancount > 0 ROLLBACK TRANSACTION
+	EXEC usp_error_handler
+	RETURN 55555
+END CATCH

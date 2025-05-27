@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[CABS_BILLING_2024_01] (
+    [RESULTS_THROUGH]      DATE           NULL,
+    [BILL_MONTH_DT]        DATE           NULL,
+    [WIRELESS]             NVARCHAR (255) NULL,
+    [TOP_CUST]             NVARCHAR (255) NULL,
+    [PRIMARY_CARRIER_NAME] NVARCHAR (255) NULL,
+    [PRODUCT]              NVARCHAR (255) NULL,
+    [STATE]                NVARCHAR (255) NULL,
+    [SVC_GROUP]            NVARCHAR (255) NULL,
+    [MRC_ALL_BILLED]       FLOAT (53)     NULL,
+    [COUNT_ALL_BILLED]     FLOAT (53)     NULL,
+    [ARPU_ALL_BILLED]      FLOAT (53)     NULL,
+    [MRC_FIRST_BILL]       NVARCHAR (255) NULL,
+    [COUNT_FIRST_BILL]     NVARCHAR (255) NULL,
+    [ARPU_FIRST_BILL]      NVARCHAR (255) NULL,
+    [MRC_LAST_BILL]        FLOAT (53)     NULL,
+    [COUNT_LAST_BILL]      FLOAT (53)     NULL,
+    [ARPU_LAST_BILL]       FLOAT (53)     NULL,
+    [PROD_GRP]             NVARCHAR (255) NULL
+);
+

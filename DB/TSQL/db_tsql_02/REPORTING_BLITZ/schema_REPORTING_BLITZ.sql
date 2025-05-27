@@ -1,0 +1,1 @@
+create schema REPORTING_BLITZ;

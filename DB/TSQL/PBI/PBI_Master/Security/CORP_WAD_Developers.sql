@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [CORP\WAD_Developers]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [us_english];
+

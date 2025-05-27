@@ -1,0 +1,1422 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2024 11:37:46 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{8BA2EB6D-9449-44F2-8A91-14EEF432C906}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package_stg"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{3119A9C1-8EF4-47BA-B96A-3E82ED6064BF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EDW s_WAD3.s_WAD3 1]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{20A5DADE-D923-446A-8D59-D9B957D25DFE}"
+      DTS:ObjectName="EDW s_WAD3.s_WAD3 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=s_WAD3;Dsn=EDW s_WAD3;dbcname=10.209.129.144;enablepwd=0;enablewallet=1;useintegratedsecurity=0;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EDW Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C70BA6B5-B8D8-4CB5-9A8E-49995A6B6627}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EDW Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\EDW Container\ETL_Teradata_stg 1"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{f8d0c0d6-2cc8-4954-a52a-17cc36bee282}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_Teradata_stg 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Inputs[Data Conversion Input].Columns[STN]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="STN"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].Columns[STN]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Output].Columns[STN_converted]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Output].Columns[STN_converted]"
+                          name="STN_converted"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].Columns[STN]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source"
+                  componentClassID="Microsoft.SSISODBCSrc"
+                  contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="ODBC Source"
+                  name="ODBC Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct stn from USER_WORK.CM_LSPBANM</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                      expressionType="Notify"
+                      name="ExposeCharColumnsAsUnicode">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                      expressionType="Notify"
+                      name="StatementTimeout">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The method used for fetching data."
+                      expressionType="Notify"
+                      name="FetchMethod">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The ODBC C data type for binding numeric data."
+                      expressionType="Notify"
+                      name="BindNumericAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                      expressionType="Notify"
+                      name="BindCharColumnsAs">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The mode used to access the database."
+                      expressionType="Notify"
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Connections[ODBCConnection]"
+                      connectionManagerID="{3AA7F894-CDFB-448F-A4D0-D018C48DDB45}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDW s_WAD3.s_WAD3]"
+                      description="The ODBC runtime connection used to access the database."
+                      name="ODBCConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output]"
+                      errorRowDisposition="FailComponent"
+                      name="ODBC Source Output"
+                      truncationRowDisposition="FailComponent">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].Columns[STN]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[STN]"
+                          length="10"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].Columns[STN]"
+                          name="STN" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[STN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="STN" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output]"
+                      isErrorOut="true"
+                      name="ODBC Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output].Columns[STN]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[STN]"
+                          length="10"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output].Columns[STN]"
+                          name="STN" />
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="TSQL"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[LZ].[TBL_MCL]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Connections[OleDbConnection]"
+                      connectionManagerID="{AD7F1914-1D76-4CE4-A442-28C5D2E6F511}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WADINFWWAPV02.WAD_STG_02]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].Columns[STN_converted]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="STN_converted"
+                          externalMetadataColumnId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_CARRIER_NM]"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Output].Columns[STN_converted]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_ID_SRC]"
+                          dataType="wstr"
+                          length="25"
+                          name="PRIMARY_ID_SRC" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_ID]"
+                          dataType="wstr"
+                          length="15"
+                          name="PRIMARY_ID" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_CARRIER_NM]"
+                          dataType="wstr"
+                          length="150"
+                          name="PRIMARY_CARRIER_NM" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[PRIMARY_FOCUS]"
+                          dataType="wstr"
+                          length="30"
+                          name="PRIMARY_FOCUS" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[SECONDARY_ID_SRC]"
+                          dataType="wstr"
+                          length="25"
+                          name="SECONDARY_ID_SRC" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[SECONDARY_ID]"
+                          dataType="wstr"
+                          length="15"
+                          name="SECONDARY_ID" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[SECONARY_CARRIER_NM]"
+                          dataType="wstr"
+                          length="150"
+                          name="SECONARY_CARRIER_NM" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[ID_TYPE]"
+                          dataType="wstr"
+                          length="20"
+                          name="ID_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[VP]"
+                          dataType="wstr"
+                          length="50"
+                          name="VP" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[SLS_DIRECTOR]"
+                          dataType="wstr"
+                          length="50"
+                          name="SLS_DIRECTOR" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[AE_SR]"
+                          dataType="wstr"
+                          length="50"
+                          name="AE_SR" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[AE]"
+                          dataType="wstr"
+                          length="50"
+                          name="AE" />
+                        <externalMetadataColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input].ExternalColumns[SLS_ENGR]"
+                          dataType="wstr"
+                          length="50"
+                          name="SLS_ENGR" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\EDW Container\ETL_Teradata_stg 1.Paths[Data Conversion Output]"
+                  endId="Package\EDW Container\ETL_Teradata_stg 1\TSQL.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\EDW Container\ETL_Teradata_stg 1.Paths[ODBC Source Output]"
+                  endId="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="ODBC Source Output"
+                  startId="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source.Outputs[ODBC Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\EDW Container\truncate target table_stg 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="clear data in the target table"
+          DTS:DTSID="{02f1b2fd-5869-42db-802c-03fe6aa52b08}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate target table_stg 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AD7F1914-1D76-4CE4-A442-28C5D2E6F511}"
+              SQLTask:SqlStatementSource="truncate table [LZ].[TBL_MCL]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\EDW Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{bb366e7f-ac41-4328-95ab-f73417a1cadc}"
+          DTS:From="Package\EDW Container\truncate target table_stg 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\EDW Container\ETL_Teradata_stg 1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\M6 Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BD7890E2-B34E-4E81-8B62-394122A431B7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="M6 Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\M6 Container\ETL_Oracle_M6_stg"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2FA43E64-E015-4D9F-BC15-603EB6FD3CB1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_Oracle_M6_stg"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input].Columns[DOC_NUMBER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="DOC_NUMBER"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[DOC_NUMBER]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input].Columns[NOTES_ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="NOTES_ID"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTES_ID]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input].Columns[NOTE_TEXT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="NOTE_TEXT"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTE_TEXT]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input].Columns[USER_ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="USER_ID"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[USER_ID]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input].Columns[LAST_MODIFIED_DATE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="LAST_MODIFIED_DATE"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[LAST_MODIFIED_DATE]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DOC_NUMBER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DOC_NUMBER]"
+                          name="Copy of DOC_NUMBER"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[DOC_NUMBER]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOTES_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOTES_ID]"
+                          name="Copy of NOTES_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTES_ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOTE_TEXT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="500"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOTE_TEXT]"
+                          name="Copy of NOTE_TEXT"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTE_TEXT]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of USER_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of USER_ID]"
+                          name="Copy of USER_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[USER_ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_MODIFIED_DATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="8"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_MODIFIED_DATE]"
+                          name="Copy of LAST_MODIFIED_DATE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[LAST_MODIFIED_DATE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source"
+                  componentClassID="Microsoft.SSISOracleSrc"
+                  contactInfo="Oracle Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Oracle Source"
+                  name="Oracle Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The name of the table to be fetched."
+                      expressionType="Notify"
+                      name="TableName"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+CAST(DOCUMENT_NUMBER AS VARCHAR(15)) AS DOC_NUMBER
+,CAST(NOTES_ID AS VARCHAR(15)) AS NOTES_ID
+,CAST(NOTE_TEXT AS VARCHAR(500)) AS NOTE_TEXT
+,CAST(USER_ID AS VARCHAR(15)) AS USER_ID
+,CAST(TO_CHAR(LAST_MODIFIED_DATE,'YYYYMMDD') AS VARCHAR(8) ) AS LAST_MODIFIED_DATE
+ 
+FROM ASAP.NOTES
+ 
+WHERE EXTRACT(YEAR FROM DATE_ENTERED)&gt;=2024</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows fetched per batch."
+                      expressionType="Notify"
+                      name="BatchSize">1000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Determines the chunk size allocation for LOB columns"
+                      expressionType="Notify"
+                      name="LobChunkSize">32768</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The code page to use when code page information is unavailable from the data source."
+                      expressionType="Notify"
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Number of pre-fetched rows."
+                      expressionType="Notify"
+                      name="PrefetchCount">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Connections[ORACLEConnection]"
+                      connectionManagerID="{30D037E8-98B6-4BE2-A2DF-1E0C85C3D0D5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Oracle Connection Manager - test 2]"
+                      description="The ORACLE runtime connection used to access the database."
+                      name="ORACLEConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output]"
+                      errorRowDisposition="FailComponent"
+                      name="Oracle Source Output"
+                      truncationRowDisposition="FailComponent">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[DOC_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[DOC_NUMBER]"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[DOC_NUMBER]"
+                          name="DOC_NUMBER" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTES_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[NOTES_ID]"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTES_ID]"
+                          name="NOTES_ID" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTE_TEXT]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[NOTE_TEXT]"
+                          length="500"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[NOTE_TEXT]"
+                          name="NOTE_TEXT" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[USER_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[USER_ID]"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[USER_ID]"
+                          name="USER_ID" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[LAST_MODIFIED_DATE]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[LAST_MODIFIED_DATE]"
+                          length="8"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].Columns[LAST_MODIFIED_DATE]"
+                          name="LAST_MODIFIED_DATE" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[DOC_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="DOC_NUMBER" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[NOTES_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="NOTES_ID" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[NOTE_TEXT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="NOTE_TEXT" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[USER_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="USER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[LAST_MODIFIED_DATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="LAST_MODIFIED_DATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output]"
+                      isErrorOut="true"
+                      name="Oracle Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[DOC_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[DOC_NUMBER]"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[DOC_NUMBER]"
+                          name="DOC_NUMBER" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[NOTES_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[NOTES_ID]"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[NOTES_ID]"
+                          name="NOTES_ID" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[NOTE_TEXT]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[NOTE_TEXT]"
+                          length="500"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[NOTE_TEXT]"
+                          name="NOTE_TEXT" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[USER_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[USER_ID]"
+                          length="15"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[USER_ID]"
+                          name="USER_ID" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[LAST_MODIFIED_DATE]"
+                          codePage="1252"
+                          dataType="str"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output].ExternalColumns[LAST_MODIFIED_DATE]"
+                          length="8"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[LAST_MODIFIED_DATE]"
+                          name="LAST_MODIFIED_DATE" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="target_tsql_stg"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[LZ].[TBL_NOTES]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Connections[OleDbConnection]"
+                      connectionManagerID="{AD7F1914-1D76-4CE4-A442-28C5D2E6F511}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WADINFWWAPV02.WAD_STG_02]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].Columns[Copy of DOC_NUMBER]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Copy of DOC_NUMBER"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[DOC_NUM]"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DOC_NUMBER]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].Columns[Copy of NOTES_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Copy of NOTES_ID"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[NOTES_ID]"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOTES_ID]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].Columns[Copy of NOTE_TEXT]"
+                          cachedDataType="wstr"
+                          cachedLength="500"
+                          cachedName="Copy of NOTE_TEXT"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[NOTE_TEXT]"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOTE_TEXT]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].Columns[Copy of USER_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Copy of USER_ID"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[USER_ID]"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of USER_ID]" />
+                        <inputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].Columns[Copy of LAST_MODIFIED_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Copy of LAST_MODIFIED_DATE"
+                          externalMetadataColumnId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[LAST_MODIFIED_DATE]"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LAST_MODIFIED_DATE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[DOC_NUM]"
+                          dataType="wstr"
+                          length="15"
+                          name="DOC_NUM" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[NOTES_ID]"
+                          dataType="wstr"
+                          length="15"
+                          name="NOTES_ID" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[NOTE_TEXT]"
+                          dataType="wstr"
+                          length="500"
+                          name="NOTE_TEXT" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[USER_ID]"
+                          dataType="wstr"
+                          length="15"
+                          name="USER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input].ExternalColumns[LAST_MODIFIED_DATE]"
+                          dataType="wstr"
+                          length="8"
+                          name="LAST_MODIFIED_DATE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\M6 Container\ETL_Oracle_M6_stg.Paths[Data Conversion Output]"
+                  endId="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\M6 Container\ETL_Oracle_M6_stg.Paths[Oracle Source Output]"
+                  endId="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Oracle Source Output"
+                  startId="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source.Outputs[Oracle Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\M6 Container\truncate target table_stg 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="clear data in the target table"
+          DTS:DTSID="{541bc35f-97d0-4d08-91c4-a46466f9b5ed}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="truncate target table_stg 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AD7F1914-1D76-4CE4-A442-28C5D2E6F511}"
+              SQLTask:SqlStatementSource="truncate table [LZ].[TBL_NOTES]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\M6 Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{99552ADF-642B-49F8-953C-BF598F5EC01F}"
+          DTS:From="Package\M6 Container\truncate target table_stg 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\M6 Container\ETL_Oracle_M6_stg" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\EDW Container\ETL_Teradata_stg 1"
+          TopLeft="122.599991804362,241.466663496627" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\EDW Container\truncate target table_stg 1"
+          TopLeft="87.5999918043617,97.4666634966268" />
+        <EdgeLayout
+          Id="Package\EDW Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="186.099991804362,139.466663496627">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,102"
+              Start="0,0"
+              End="21.5,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="4,51" />
+                  <mssgle:LineSegment
+                    End="17.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,51"
+                    Point2="21.5,51"
+                    Point3="21.5,55" />
+                  <mssgle:LineSegment
+                    End="21.5,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="484.8,451.2"
+          Size="484.8,494.4"
+          Id="Package\EDW Container"
+          TopLeft="130.833326184916,97.0666659916772" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\M6 Container\ETL_Oracle_M6_stg"
+          TopLeft="51.3333334243961,324.999998101592" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\M6 Container\truncate target table_stg 1"
+          TopLeft="58.5000050539769,208.333332399196" />
+        <EdgeLayout
+          Id="Package\M6 Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="156.900005053977,249.933332399196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5666716295808,75.066665702396"
+              Start="0,0"
+              End="-15.5666716295808,67.566665702396">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.533332851198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.533332851198"
+                    Point2="0,37.533332851198"
+                    Point3="-4,37.533332851198" />
+                  <mssgle:LineSegment
+                    End="-11.5666716295808,37.533332851198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5666716295808,37.533332851198"
+                    Point2="-15.5666716295808,37.533332851198"
+                    Point3="-15.5666716295808,41.533332851198" />
+                  <mssgle:LineSegment
+                    End="-15.5666716295808,67.566665702396" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="444.8,536.8"
+          Size="444.8,580"
+          Id="Package\M6 Container"
+          TopLeft="794.999985247851,113.133334695366" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\EDW Container\ETL_Teradata_stg 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source"
+          TopLeft="326.99999512732,48.9999992698431" />
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\EDW Container\ETL_Teradata_stg 1\TSQL"
+          TopLeft="357,286" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\EDW Container\ETL_Teradata_stg 1\Data Conversion"
+          TopLeft="313,173" />
+        <EdgeLayout
+          Id="Package\EDW Container\ETL_Teradata_stg 1.Paths[ODBC Source Output]"
+          TopLeft="396.19999756366,90.5999992698431">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82.4000007301569"
+              Start="0,0"
+              End="0,74.9000007301569">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.9000007301569" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EDW Container\ETL_Teradata_stg 1.Paths[Data Conversion Output]"
+          TopLeft="393.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,71"
+              Start="0,0"
+              End="17.5,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="13.5,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,35.5"
+                    Point2="17.5,35.5"
+                    Point3="17.5,39.5" />
+                  <mssgle:LineSegment
+                    End="17.5,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\EDW Container\ETL_Teradata_stg 1\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\M6 Container\ETL_Oracle_M6_stg">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg"
+          TopLeft="241,359" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\M6 Container\ETL_Oracle_M6_stg\Data Conversion"
+          TopLeft="272,211" />
+        <EdgeLayout
+          Id="Package\M6 Container\ETL_Oracle_M6_stg.Paths[Data Conversion Output]"
+          TopLeft="352.5,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-36,106"
+              Start="0,0"
+              End="-36,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="-4,53" />
+                  <mssgle:LineSegment
+                    End="-32,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32,53"
+                    Point2="-36,53"
+                    Point3="-36,57" />
+                  <mssgle:LineSegment
+                    End="-36,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source"
+          TopLeft="412.999993845821,91.9999986290932" />
+        <EdgeLayout
+          Id="Package\M6 Container\ETL_Oracle_M6_stg.Paths[Oracle Source Output]"
+          TopLeft="485.399993845821,133.599998629093">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-132.999993845821,77.4000013709068"
+              Start="0,0"
+              End="-132.999993845821,69.9000013709068">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7000006854534" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.7000006854534"
+                    Point2="0,38.7000006854534"
+                    Point3="-4,38.7000006854534" />
+                  <mssgle:LineSegment
+                    End="-128.999993845821,38.7000006854534" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-128.999993845821,38.7000006854534"
+                    Point2="-132.999993845821,38.7000006854534"
+                    Point3="-132.999993845821,42.7000006854534" />
+                  <mssgle:LineSegment
+                    End="-132.999993845821,69.9000013709068" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\M6 Container\ETL_Oracle_M6_stg\target_tsql_stg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\M6 Container\ETL_Oracle_M6_stg\Oracle Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

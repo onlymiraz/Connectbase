@@ -1,0 +1,25 @@
+﻿CREATE TABLE QBR.[TBL_FOC_ON_TIME]
+(   
+[ISCCODE] nvarchar(50),
+    [CCNA] nvarchar(50),
+    [PON] nvarchar(25),
+    [VERSION] nvarchar(10),
+    [STATUS] varchar(9),
+    [REQUEST_DATE] datetime,
+    [RESPONSE_DATE] datetime,
+    [REQTYPE] nvarchar(20),
+    [ACT] nvarchar(1),
+    [DOCUMENT_NUMBER] float,
+    [STATE] nvarchar(50),
+    [REGION] varchar(7),
+    [AREA] varchar(6),
+    [PROD] varchar(14),
+    [NC] nvarchar(10),
+    [RPON] nvarchar(20),
+    [ACNA] nvarchar(3),
+    [CKT] nvarchar(53),
+    [SPEC] nvarchar(7),
+    [ASC_EC] nvarchar(4),
+    [MTPT_CTRL] varchar(5),
+	UPDATE_DT DATETIME2
+)

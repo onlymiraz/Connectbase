@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[FFFIELDS] (
+    [ProjectNumber]         INT            NULL,
+    [SubprojectNumber]      SMALLINT       NULL,
+    [ClassOfPlant]          VARCHAR (2)    NULL,
+    [LinkCode]              VARCHAR (25)   NULL,
+    [JustificationCode]     TINYINT        NULL,
+    [FunctionalGroup]       VARCHAR (1)    NULL,
+    [ProjectDescription]    NVARCHAR (200) NULL,
+    [ProjectStatusCode]     VARCHAR (2)    NULL,
+    [ApprovalCode]          VARCHAR (2)    NULL,
+    [ProjectType]           VARCHAR (1)    NULL,
+    [Billable]              VARCHAR (1)    NULL,
+    [Company]               SMALLINT       NULL,
+    [ExchangeNumber]        INT            NULL,
+    [OperatingArea]         SMALLINT       NULL,
+    [State]                 VARCHAR (2)    NULL,
+    [Engineer]              NVARCHAR (50)  NULL,
+    [ProjectOwner]          NVARCHAR (50)  NULL,
+    [ApprovalDate]          INT            NULL,
+    [EstimatedStartDate]    INT            NULL,
+    [EstimatedCompleteDate] INT            NULL,
+    [ActualStartDate]       INT            NULL,
+    [ReadyForServiceDate]   INT            NULL,
+    [TentativeCloseDate]    INT            NULL,
+    [CloseDate]             INT            NULL
+);
+

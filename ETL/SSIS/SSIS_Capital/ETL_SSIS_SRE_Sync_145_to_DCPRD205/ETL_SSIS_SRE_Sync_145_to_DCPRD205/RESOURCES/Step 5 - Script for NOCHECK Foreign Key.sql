@@ -1,0 +1,13 @@
+USE CapitalManagementStaging
+GO
+
+EXEC(
+	'ALTER TABLE CapitalManagementDevelopment.forecast.GrossAddsDirect NOCHECK CONSTRAINT FK_GrossAddsDirect_Project
+	ALTER TABLE CapitalManagementDevelopment.forecast.GrossAddsDirect NOCHECK CONSTRAINT FK_GrossAddsDirect_Subproject
+	ALTER TABLE CapitalManagementDevelopment.forecast.GrossAddsIndirect NOCHECK CONSTRAINT FK_GrossAddsIndirect_Project
+	ALTER TABLE CapitalManagementDevelopment.forecast.GrossAddsIndirect NOCHECK CONSTRAINT FK_GrossAddsIndirect_Subproject
+	ALTER TABLE CapitalManagementDevelopment.forecast.SubprojectAuthorized NOCHECK CONSTRAINT FK_SubprojectAuthorized_Subproject
+	ALTER TABLE CapitalManagementDevelopment.forecast.SubprojectCIAC NOCHECK CONSTRAINT FK_SubprojectCIAC_Subproject
+	ALTER TABLE CapitalManagementDevelopment.forecast.SubprojectFinancial NOCHECK CONSTRAINT FK_SubprojectFinancial_Subproject
+	ALTER TABLE CapitalManagementDevelopment.forecast.SubprojectFutureYear NOCHECK CONSTRAINT FK_SubprojectFutureYear_Subproject'
+) AT [DBFarm205]

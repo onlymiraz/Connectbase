@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ENDDR.s_WAD3"
+  DTS:DTSID="{AF218814-02ED-44D0-972A-C3502A4A0D2F}"
+  DTS:CreationName="ODBC">
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::ENDDR_PW]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=s_WAD3;Dsn=ENDDR;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKCT2bJ+6F0aUBH516a4jCQAAAAACAAAAAAAQZgAAAAEAACAAAAA6oaJO1a4cwm/fNvUmeKnR8CwOQPVgUfLe3b0F9HhQwgAAAAAOgAAAAAIAACAAAADVIWebLEY2OfYqoOqHiAlsUSZwasnjwYTN/Sv+RtH4OYAAAADMl1M/YKGJlsb0TMet3SxELTHCffC7HdY2NrKKAyVAF3NGhVRRffP7sMyJcvmmqG05t5ttURife0yicj6dsgYrEo9+MbnGlsQO7bDVcQc5cFdjCA5EzV27Ug4bjlX6IMZ40DzhlFjkvfPh9qL3KDLiMfNXAzrGur1czaHwo+EYskAAAACRpgtpUDWDsWZuJTFPPKqUG2bZ03KhIp9JJf9NTrrNSvx7GBqYVGXS6oYdcvuGJvl2fI7HPTKa7FgwQzhb6ezz</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

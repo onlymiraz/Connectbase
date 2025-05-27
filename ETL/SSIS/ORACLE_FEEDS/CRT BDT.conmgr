@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CRT BDT"
+  DTS:DTSID="{7DA775DC-4B73-4119-81A5-81C8D1249E13}"
+  DTS:CreationName="ORACLE">
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::CRT_BDT_Password]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager>
+      <OraConnectionString>SERVER=
+ORCINFWSDPL03.CORP.PVT:1521/CITIZPRD;USERNAME=CarrierMetrics;WINAUTH=0;</OraConnectionString>
+      <OraPassword
+        Sensitive="1"></OraPassword>
+      <OraRetain>False</OraRetain>
+      <OraInitialCatalog></OraInitialCatalog>
+      <OraServerName>
+ORCINFWSDPL03.CORP.PVT:1521/CITIZPRD</OraServerName>
+      <OraUserName>CarrierMetrics</OraUserName>
+      <OraOracleHome></OraOracleHome>
+      <OraOracleHome64></OraOracleHome64>
+      <OraWinAuthentication>False</OraWinAuthentication>
+      <OraEnableDetailedTracing>False</OraEnableDetailedTracing>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

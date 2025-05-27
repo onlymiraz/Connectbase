@@ -1,0 +1,6 @@
+﻿CREATE TABLE LZ.[TBL_TRBL_FOUND_REMEDY]
+(
+    [TRBL_FOUND_NUMBER] varchar(255),
+    [TRBL_FOUND_DESC] varchar(255),
+    [DISP] varchar(255)
+)

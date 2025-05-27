@@ -1,0 +1,44 @@
+﻿
+CREATE PROCEDURE [dbo].[usp_TBL_WIRELINE_SLS_DISCONNECTS]
+AS
+    SET XACT_ABORT, NOCOUNT ON;
+BEGIN TRY
+
+    DECLARE @EVENTID INT;
+
+    -- Log the execution of the stored procedure
+    INSERT INTO [LOG].tbl_StoreProc
+    (
+        [EVENTNAME],
+        [EVENTSTART],
+        [EVENTTYPE],
+        [EVENTDESCRIPTION]
+    )
+    VALUES
+    (
+        'dbo.TBL_WIRELINE_SLS_DISCONNECTS',
+        CAST(GETDATE() AS DATETIME),
+        'STORE PROC',
+        'SINGLE_INGESTION'
+    );
+
+    SET @EVENTID = SCOPE_IDENTITY();
+
+    BEGIN TRANSACTION
+
+        DELETE FROM dbo.TBL_WIRELINE_SLS_DISCONNECTS;
+
+        INSERT INTO dbo.TBL_WIRELINE_SLS_DISCONNECTS
+        SELECT * FROM LZ.TBL_WIRELINE_SLS_DISCONNECTS;
+
+    COMMIT TRANSACTION
+
+END TRY
+BEGIN CATCH
+    IF @@trancount > 0 ROLLBACK TRANSACTION
+    EXEC usp_error_handler
+    RETURN 55555
+END CATCH
+GO
+
+

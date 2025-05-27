@@ -1,0 +1,28 @@
+﻿CREATE TABLE [Brownfield].[LZ_JMJC5FLDSF] (
+    [Proj#]              NVARCHAR (50)  NULL,
+    [Sub#]               NVARCHAR (50)  NULL,
+    [JC]                 NVARCHAR (50)  NULL,
+    [COP]                NVARCHAR (50)  NULL,
+    [LinkCd]             NVARCHAR (50)  NULL,
+    [FG]                 NVARCHAR (50)  NULL,
+    [ProjectDescription] NVARCHAR (200) NULL,
+    [Sts]                NVARCHAR (50)  NULL,
+    [AP]                 NVARCHAR (50)  NULL,
+    [Co#]                NVARCHAR (50)  NULL,
+    [Exch#]              NVARCHAR (50)  NULL,
+    [OA]                 NVARCHAR (50)  NULL,
+    [St]                 NVARCHAR (50)  NULL,
+    [Engineer]           NVARCHAR (50)  NULL,
+    [OrigBdgt$]          NVARCHAR (50)  NULL,
+    [RevBdgt$1]          NVARCHAR (50)  NULL,
+    [RevBdgt$2]          NVARCHAR (50)  NULL,
+    [Spent$]             NVARCHAR (50)  NULL,
+    [APDate]             NVARCHAR (50)  NULL,
+    [EstStrtDte]         NVARCHAR (50)  NULL,
+    [EstCompDte]         NVARCHAR (50)  NULL,
+    [ActStartDte]        NVARCHAR (50)  NULL,
+    [RFSDate]            NVARCHAR (50)  NULL,
+    [TntvCLDte]          NVARCHAR (50)  NULL,
+    [ProjCLDate]         NVARCHAR (50)  NULL
+);
+

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Oracle_M6"
+  DTS:DTSID="{42A69033-3562-46C1-8B72-B44DD29CF598}"
+  DTS:CreationName="ORACLE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager>
+      <OraConnectionString>SERVER=asapprdstdby.corp.pvt:1521/asapprd;USERNAME=ASAP;WINAUTH=0;</OraConnectionString>
+      <OraPassword
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKPWuWqLJeUWgTnpscZy2eAAAAAACAAAAAAADZgAAwAAAABAAAAAgXOIQN5ARzUCZjgzMZLGTAAAAAASAAACgAAAAEAAAAD3FM4/WVXiZPF7BSoz4goQwAAAAD60M0XBOTthfDm+ajnV/EVwr9ytUuC82VMkUp3cLBplmja0raqf7BGAHKzTw3UvQFAAAAFNztjIIM55+4wA9VHCEIyHORk3U</OraPassword>
+      <OraRetain>False</OraRetain>
+      <OraInitialCatalog></OraInitialCatalog>
+      <OraServerName>asapprdstdby.corp.pvt:1521/asapprd</OraServerName>
+      <OraUserName>ASAP</OraUserName>
+      <OraOracleHome></OraOracleHome>
+      <OraOracleHome64></OraOracleHome64>
+      <OraWinAuthentication>False</OraWinAuthentication>
+      <OraEnableDetailedTracing>False</OraEnableDetailedTracing>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

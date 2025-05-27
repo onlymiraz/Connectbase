@@ -1,0 +1,671 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/24/2023 10:06:41 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG22857X5"
+  DTS:CreatorName="CORP\jrr6359"
+  DTS:DTSID="{10219406-8AC8-4A54-B4E8-F9E846689754}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E4ED7D69-091A-4A71-A756-5BB7579226B2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1B5DE2AF-115A-4BD1-83D9-CDE5FB885992}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalForecast">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalForecast;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVP100.FOPS_GENERAL]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CBEC1364-6275-4D92-82A1-EE65E976DC03}"
+      DTS:ObjectName="SQLINFWWDVP100.FOPS_GENERAL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SQLINFWWDVP100;Initial Catalog=FOPS_GENERAL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{CBEC1364-6275-4D92-82A1-EE65E976DC03}SQLINFWWDVP100.FOPS_GENERAL;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQLINFWWDVP100.FOPS_GENERAL 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{25554FB4-386A-4D72-8173-00D90D74394F}"
+      DTS:ObjectName="SQLINFWWDVP100.FOPS_GENERAL 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=SQLINFWWDVP100;Initial Catalog=FOPS_GENERAL;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{32AFC990-F379-4BBB-B1E0-43C1A4C67ACB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\ConstructionProjectData"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ConstructionProjectData"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[construction].[project_data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\ConstructionProjectData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQLINFWWDVP100.FOPS_GENERAL 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQLINFWWDVP100.FOPS_GENERAL 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[Justification_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Justification_code"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[justification_code]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[Justification_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[project_number]"
+                      cachedDataType="i4"
+                      cachedName="project_number"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[project_number]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[project_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[sub_project_number]"
+                      cachedDataType="i4"
+                      cachedName="sub_project_number"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[sub_project_number]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[sub_project_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[authorized_direct]"
+                      cachedDataType="numeric"
+                      cachedName="authorized_direct"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[authorized_direct]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[authorized_direct]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[spent]"
+                      cachedDataType="numeric"
+                      cachedName="spent"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[spent]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[spent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[project_status_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="project_status_code"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[project_status_code]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[project_status_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].Columns[create_dtm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="create_dtm"
+                      externalMetadataColumnId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[create_dtm]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[create_dtm]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[justification_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="justification_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[project_number]"
+                      dataType="i4"
+                      name="project_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[sub_project_number]"
+                      dataType="i4"
+                      name="sub_project_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[authorized_direct]"
+                      dataType="numeric"
+                      name="authorized_direct"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[spent]"
+                      dataType="numeric"
+                      name="spent"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[project_status_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="project_status_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input].ExternalColumns[create_dtm]"
+                      dataType="dbTimeStamp"
+                      name="create_dtm" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\ConstructionProjectData.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ConstructionProjectData.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ConstructionProjectData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ConstructionProjectData.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\InfiniumProjectData"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="InfiniumProjectData"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[forecast].[infiniumprojectdata]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\InfiniumProjectData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[Justification_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[Justification_code]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[Justification_code]"
+                      name="Justification_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[project_number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[project_number]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[project_number]"
+                      name="project_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[sub_project_number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[sub_project_number]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[sub_project_number]"
+                      name="sub_project_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[authorized_direct]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[authorized_direct]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[authorized_direct]"
+                      name="authorized_direct"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[spent]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[spent]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[spent]"
+                      name="spent"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[project_status_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[project_status_code]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[project_status_code]"
+                      name="project_status_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[create_dtm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[create_dtm]"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].Columns[create_dtm]"
+                      name="create_dtm"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[Justification_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Justification_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[project_number]"
+                      dataType="i4"
+                      name="project_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[sub_project_number]"
+                      dataType="i4"
+                      name="sub_project_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[authorized_direct]"
+                      dataType="numeric"
+                      name="authorized_direct"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[spent]"
+                      dataType="numeric"
+                      name="spent"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[project_status_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="project_status_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output].ExternalColumns[create_dtm]"
+                      dataType="dbTimeStamp"
+                      name="create_dtm" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[Justification_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[Justification_code]"
+                      name="Justification_code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[project_number]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[project_number]"
+                      name="project_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[sub_project_number]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[sub_project_number]"
+                      name="sub_project_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[authorized_direct]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[authorized_direct]"
+                      name="authorized_direct"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[spent]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[spent]"
+                      name="spent"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[project_status_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[project_status_code]"
+                      name="project_status_code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[create_dtm]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[create_dtm]"
+                      name="create_dtm" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\ConstructionProjectData.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\InfiniumProjectData.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Dest"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{22DE3B9F-E6D4-4326-95E7-F9C12F232142}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Dest"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CBEC1364-6275-4D92-82A1-EE65E976DC03}"
+          SQLTask:SqlStatementSource="truncate table construction.project_data" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D21429B6-9D09-45F1-9C15-3B78963AF377}"
+      DTS:From="Package\Truncate Dest"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Truncate Dest"
+          TopLeft="118.749998230487,30.789474263746" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task"
+          TopLeft="159.999997615814,179.263161268921" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="192.083331563821,73.4561409304127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.5833327186604,105.807020338508"
+              Start="0,0"
+              End="44.5833327186604,98.3070203385085">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.9035101692542" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.9035101692542"
+                    Point2="0,52.9035101692542"
+                    Point3="4,52.9035101692542" />
+                  <mssgle:LineSegment
+                    End="40.5833327186604,52.9035101692542" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.5833327186604,52.9035101692542"
+                    Point2="44.5833327186604,52.9035101692542"
+                    Point3="44.5833327186604,56.9035101692542" />
+                  <mssgle:LineSegment
+                    End="44.5833327186604,98.3070203385085" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task\InfiniumProjectData"
+          TopLeft="221.249996703118,114.947370584652" />
+        <NodeLayout
+          Size="196,42.6666666666667"
+          Id="Package\Data Flow Task\ConstructionProjectData"
+          TopLeft="763.124988628552,128.631581368539" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="394.583330036451,136.280703917985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="368.5416585921,13.6842107838872"
+              Start="0,0"
+              End="361.0416585921,13.6842107838872">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="180.27082929605,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="180.27082929605,0"
+                    Point2="184.27082929605,0"
+                    Point3="184.27082929605,4" />
+                  <mssgle:LineSegment
+                    End="184.27082929605,9.68421078388715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="184.27082929605,9.68421078388715"
+                    Point2="184.27082929605,13.6842107838872"
+                    Point3="188.27082929605,13.6842107838872" />
+                  <mssgle:LineSegment
+                    End="361.0416585921,13.6842107838872" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\InfiniumProjectData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\ConstructionProjectData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

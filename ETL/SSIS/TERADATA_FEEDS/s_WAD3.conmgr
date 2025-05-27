@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="s_WAD3"
+  DTS:DTSID="{C6E32F02-0A8C-4690-84CF-C532E6C25399}"
+  DTS:CreationName="TERADATA">
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::TeraPassword]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager>
+      <TeraConnectionString>DBCNAME=10.209.129.144;UID=s_WAD3;CHARSET=UTF8;DRIVER={Teradata Database ODBC Driver 16.20};LOGINTIMEOUT=0;</TeraConnectionString>
+      <TeraPassword
+        Sensitive="1"></TeraPassword>
+      <TeraRetain>False</TeraRetain>
+      <TeraInitialCatalog></TeraInitialCatalog>
+      <TeraServerName>10.209.129.144</TeraServerName>
+      <TeraUserName>s_WAD3</TeraUserName>
+      <TeraDatabase></TeraDatabase>
+      <TeraAccount></TeraAccount>
+      <TeraAuthentication></TeraAuthentication>
+      <TeraWinAuthentication>False</TeraWinAuthentication>
+      <TeraUseUTF8CharSet>False</TeraUseUTF8CharSet>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

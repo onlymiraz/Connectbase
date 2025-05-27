@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Sheet</title>
+</head>
+<body>
+<h1>Select a Sheet to Map</h1>
+<form action="/app_AddressBilling/mapping" method="post">
+    <select name="sheet_name" required>
+        {% for sheet in sheet_names %}
+        <option value="{{ sheet }}">{{ sheet }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Continue">
+</form>
+</body>
+</html>

@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/31/2023 11:07:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="5CG0157MKW"
+  DTS:CreatorName="CORP\mmm722"
+  DTS:DTSID="{D12099BE-7AC6-4DD0-9CBD-27B7773B8495}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{A29524FC-E691-4BCF-BEFD-0F046E90AE0D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0D9B13B2-1AA4-4A38-9460-4AE403066635}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalForecast">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalForecast;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F54A6AC1-48CC-4BC4-A24B-9E3E69A07B9A}"
+      DTS:ObjectName="CAPINFWWAPV01.CapitalForecast 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWAPV01;Initial Catalog=CapitalForecast;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWWPV01.ExpenseForecastStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EC3F032F-3D83-4054-8E64-840859FB90DB}"
+      DTS:ObjectName="CAPINFWWWPV01.ExpenseForecastStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWWPV01;Initial Catalog=ExpenseForecastStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CAPINFWWWPV01.NetOpsInvoiceStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9982C1F7-0624-4A5E-B8FD-5D17381B0A78}"
+      DTS:ObjectName="CAPINFWWWPV01.NetOpsInvoiceStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CAPINFWWWPV01;Initial Catalog=NetOpsInvoiceStaging;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Flow"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6A99A07F-B171-4684-8DC7-430058D5A69D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Flow"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Flow\Invoice_LZ_Capital"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Invoice_LZ_Capital"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LZ].[InvoiceStatus]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flow\Invoice_LZ_Capital.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWWPV01.NetOpsInvoiceStaging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWWPV01.NetOpsInvoiceStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].Columns[GAVEND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="GAVEND"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[GAVEND]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAVEND]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].Columns[GAINV#]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="GAINV#"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[GAINV#]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAINV#]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].Columns[GAVOUC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="GAVOUC"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[GAVOUC]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAVOUC]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].Columns[buks_LIN]"
+                      cachedDataType="r8"
+                      cachedName="buks_LIN"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[buks_LIN]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[buks_LIN]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].Columns[buks_RPT]"
+                      cachedDataType="r8"
+                      cachedName="buks_RPT"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[buks_RPT]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[buks_RPT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVEND" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GAINV#" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVOUC" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[buks_LIN]"
+                      dataType="r8"
+                      name="buks_LIN" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input].ExternalColumns[buks_RPT]"
+                      dataType="r8"
+                      name="buks_RPT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Flow\Invoice_LZ_Capital.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flow\Invoice_LZ_Capital.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flow\Invoice_LZ_Capital.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flow\Invoice_LZ_Capital.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Flow\Invoice_LZ_Expense"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Invoice_LZ_Expense"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LZ].[InvoiceStatus]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flow\Invoice_LZ_Expense.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWWPV01.NetOpsInvoiceStaging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWWPV01.NetOpsInvoiceStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].Columns[GAVEND]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="GAVEND"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[GAVEND]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAVEND]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].Columns[GAINV#]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="GAINV#"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[GAINV#]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAINV#]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].Columns[GAVOUC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="GAVOUC"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[GAVOUC]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAVOUC]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].Columns[buks_LIN]"
+                      cachedDataType="r8"
+                      cachedName="buks_LIN"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[buks_LIN]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[buks_LIN]" />
+                    <inputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].Columns[buks_RPT]"
+                      cachedDataType="r8"
+                      cachedName="buks_RPT"
+                      externalMetadataColumnId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[buks_RPT]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[buks_RPT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVEND" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GAINV#" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVOUC" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[buks_LIN]"
+                      dataType="r8"
+                      name="buks_LIN" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input].ExternalColumns[buks_RPT]"
+                      dataType="r8"
+                      name="buks_RPT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Flow\Invoice_LZ_Expense.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flow\Invoice_LZ_Expense.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flow\Invoice_LZ_Expense.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flow\Invoice_LZ_Expense.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Flow\src_Capital"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="src_Capital"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[InvoiceStatus_Capital]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flow\src_Capital.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWAPV01.CapitalForecast 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[GAVEND]"
+                      length="25"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAVEND]"
+                      name="GAVEND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[GAINV#]"
+                      length="255"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAINV#]"
+                      name="GAINV#"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[GAVOUC]"
+                      length="25"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[GAVOUC]"
+                      name="GAVOUC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[buks_LIN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[buks_LIN]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[buks_LIN]"
+                      name="buks_LIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[buks_RPT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[buks_RPT]"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].Columns[buks_RPT]"
+                      name="buks_RPT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVEND" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GAINV#" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVOUC" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[buks_LIN]"
+                      dataType="r8"
+                      name="buks_LIN" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Output].ExternalColumns[buks_RPT]"
+                      dataType="r8"
+                      name="buks_RPT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[GAVEND]"
+                      name="GAVEND" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[GAINV#]"
+                      name="GAINV#" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[GAVOUC]"
+                      name="GAVOUC" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[buks_LIN]"
+                      dataType="r8"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[buks_LIN]"
+                      name="buks_LIN" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[buks_RPT]"
+                      dataType="r8"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[buks_RPT]"
+                      name="buks_RPT" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flow\src_Capital.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Flow\src_Expense"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="src_Expense"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[InvoiceStatus_Expense]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flow\src_Expense.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CAPINFWWWPV01.ExpenseForecastStaging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CAPINFWWWPV01.ExpenseForecastStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[GAVEND]"
+                      length="25"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAVEND]"
+                      name="GAVEND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[GAINV#]"
+                      length="255"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAINV#]"
+                      name="GAINV#"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[GAVOUC]"
+                      length="25"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[GAVOUC]"
+                      name="GAVOUC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[buks_LIN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[buks_LIN]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[buks_LIN]"
+                      name="buks_LIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[buks_RPT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[buks_RPT]"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].Columns[buks_RPT]"
+                      name="buks_RPT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVEND" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="GAINV#" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="GAVOUC" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[buks_LIN]"
+                      dataType="r8"
+                      name="buks_LIN" />
+                    <externalMetadataColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Output].ExternalColumns[buks_RPT]"
+                      dataType="r8"
+                      name="buks_RPT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[GAVEND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[GAVEND]"
+                      name="GAVEND" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[GAINV#]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[GAINV#]"
+                      name="GAINV#" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[GAVOUC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[GAVOUC]"
+                      name="GAVOUC" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[buks_LIN]"
+                      dataType="r8"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[buks_LIN]"
+                      name="buks_LIN" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[buks_RPT]"
+                      dataType="r8"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[buks_RPT]"
+                      name="buks_RPT" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Flow\src_Expense.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Flow.Paths[OLE DB Source Output]"
+              endId="Package\Flow\Invoice_LZ_Capital.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Flow\src_Capital.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Flow.Paths[OLE DB Source Output1]"
+              endId="Package\Flow\Invoice_LZ_Expense.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Flow\src_Expense.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Destination"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{947CF467-364F-432F-B60F-D9E85088563F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Destination"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9982C1F7-0624-4A5E-B8FD-5D17381B0A78}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE LZ.[InvoiceStatus]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C3F61604-40EE-4211-9C10-2DB06962D069}"
+      DTS:From="Package\Truncate Destination"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Flow" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Flow"
+          TopLeft="526,101" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Truncate Destination"
+          TopLeft="156,103" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="336,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="190,0"
+              Start="0,0"
+              End="182.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="182.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Flow\src_Expense"
+          TopLeft="48,184" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Flow\Invoice_LZ_Capital"
+          TopLeft="352,59" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Flow\Invoice_LZ_Expense"
+          TopLeft="340,188" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Flow\src_Capital"
+          TopLeft="57,65" />
+        <EdgeLayout
+          Id="Package\Flow.Paths[OLE DB Source Output1]"
+          TopLeft="191,207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="149,0"
+              Start="0,0"
+              End="141.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="141.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flow.Paths[OLE DB Source Output]"
+          TopLeft="191,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="161,0"
+              Start="0,0"
+              End="153.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="153.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flow\src_Expense">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flow\Invoice_LZ_Capital">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flow\Invoice_LZ_Expense">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flow\src_Capital">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

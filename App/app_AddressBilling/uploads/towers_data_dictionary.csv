@@ -1,0 +1,59 @@
+﻿No,Data Tab,Source,Definition
+1,Master Tower ID,,Unique ID field
+2,In Footprint,Altman / FROGS,In footprint indicator based on whether SWC is null
+3,Frontier Fiber Fed,Altman Fiber Tracker,"Fiber fed indicator, does not necessarily mean active customer"
+4,AT&T Tenant,Carrier MNO RFPs,ATT tenant indicator based on towers rfp list provided by carrier
+5,Verizon Tenant,Carrier MNO RFPs,VZW tenant indicator based on towers rfp list provided by carrier
+6,T-Mobile Tenant,Carrier MNO RFPs,TMO tenant indicator based on towers rfp list provided by carrier
+7,Other Tenant,Carrier MNO RFPs,All other carriers
+10,SWC,Altman / FROGS,SWC CLLI8 from FROGS
+13,Tower State,Altman / Intelligence,State of tower
+16,Tower Structure,Altman / Intelligence,Type of Structure
+17,Tower Owner,Altman / Intelligence,Owner of the tower
+27,AT&T Billed,Jim Sharp Engineering Report,Frontier UNI billing circuit ID. Labelled as “UNI CIRCUIT” in Jim Sharp Report
+28,Verizon Billed,Jim Sharp Engineering Report,See above
+29,T-Mobile Billed,Jim Sharp Engineering Report,See above
+30,Other Billed,Jim Sharp Engineering Report,See above
+35,LATA,DSAT Service Matrix,Associated LATA Code for tower
+36,Maximum Speed,DSAT Service Matrix,Maximum speed we can provide from this site
+40,HBE Status,HBE PowerBI,High-bandwidth status of site
+41,HBE Year,HBE PowerBI,
+44,Fiber Competitors within 2K Feet,Geotel / Arlindo,No. of competitors with fiber splice point within 2k feet of tower 
+46,Fiber Competitors within 4K Feet,Geotel / Arlindo,No. of competitors with fiber splice point within 4k feet of tower 
+11,Census Block Code 2019,Altman / Intelligence,
+12,Census Block Code 2020,Altman / Intelligence,
+14,Tower Address,Altman / Intelligence,
+15,Tower City,Altman / Intelligence,
+17,Tower Structure 2,Altman / Intelligence,Type of Structure - Additional Site Info
+18,Tower Height,Altman / Intelligence,
+19,Tower Elevation,Altman / Intelligence,
+20,Macro or Small Cell,Altman / Intelligence,All listed as macro currently. Some Small Cell may be listed as Macro. Small tower types like on roof tops and billboards will come over as Macro. Altman views Small Cells as Telephone poles
+21,Morphology,Altman / Intelligence,Urban vs rural indicator
+22,Distance to Frontier Fiber in Feet,Altman Fiber Tracker,Straight-line distance from the tower’s latitude/longitude to nearest fiber splice point
+23,AT&T Site ID,Carrier MNO RFPs,"Circuit ID (aka FA Code). Populated by customer on field CKR - Customer Circuit Reference in ASR. Labelled as ""CELL SITE NAME” in Jim Sharp Report"
+24,Verizon Site ID,Carrier MNO RFPs,See above
+25,T-Mobile Site ID,Carrier MNO RFPs,See above
+26,Other Site ID,Carrier MNO RFPs,See above
+31,Active or Disconnected,,"Field requested by Jacque, empty placeholder"
+32,Latitude,Altman / Intelligence,
+33,Longitude,Altman / Intelligence,
+34,Import File IDs of Sites on Tower,,
+37,Maximum Quality of Service,DSAT Service Matrix,
+38,Future HBE WC Speed,DSAT Service Matrix,
+42,HBE Quarter,HBE PowerBI,
+43,HBE Deployment Locked,,
+45,Fiber Competitor Carriers within 2K Feet,Geotel / Arlindo,"Name of carriers for field above, sorted by increasing distance"
+47,Fiber Competitor Carriers within 4K Feet,Geotel / Arlindo,"Name of carriers for field above, sorted by increasing distance"
+48,Total New Fiber OSP Costs,BSA,
+49,Splicing Cost,BSA,
+50,Guardrail Cost,BSA,
+51,NID/SFP Costs 1G & below,BSA,
+52,NID/SFP Costs >1G & up to 10G,BSA,
+53,NID/SFP Costs >10G,BSA,
+54,TR Costs 1G & Below,BSA,Transport cost less than equal to 1 GB set at fixed rate of $0 as per Engineering/Brian Bright on 4/21/2023
+55,TR Costs >1G & up to 10G,BSA,Transport cost GB less than equal to 10GB set at fixed rate of $0 as per Engineering/Brian Bright on 4/21/2023
+56,TR Costs > 10G,BSA,Transport cost greater than 10 GB set at fixed rate of $0 as per Engineering/Brian Bright on 4/21/2023
+57,Servable,BSA,If the site routed and if it doesn't have a guardrail exception it is servable
+58,Review Status,BSA,Whether or not the site needs to be reviewed manually. For the trial period all sites will be reviewed manually
+59,Review Reason,BSA,"If site requires manual review, this lists the reason for it"
+60,Route Notes,BSA,This lists other things the route goes across that are not guardrails
