@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # macOS system files
 .DS_Store
 .AppleDouble
@@ -39,3 +40,8 @@ ENV/
 
 # Jupyter Notebook
 .ipynb_checkpoints 
+=======
+.DS_Store
+__pycache__/
+*.pyc
+>>>>>>> clean
