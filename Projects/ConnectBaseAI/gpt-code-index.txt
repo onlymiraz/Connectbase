@@ -1,0 +1,74 @@
+
+
+===== ./requirements.txt =====
+
+fastapi
+langchain
+openai
+faiss-cpu
+uvicorn
+python-dotenv
+
+===== ./README.md =====
+
+# Connectbase Agentic AI Platform
+
+Demo project with FastAPI, LangChain, RAG, and mock APIs.
+
+===== ./gpt-code-index.txt =====
+
+
+
+===== ./tools/flatten_code.py =====
+
+import os
+
+with open("gpt-code-index.txt", "w") as out:
+    for root, dirs, files in os.walk("."):
+        for file in files:
+            if file.endswith((".py", ".md", ".txt")) and "venv" not in root:
+                path = os.path.join(root, file)
+                out.write(f"\n\n===== {path} =====\n\n")
+                with open(path, "r", errors="ignore") as f:
+                    out.write(f.read())
+
+
+===== ./tests/test_api.py =====
+
+def test_health():
+    assert True
+
+===== ./backend/app.py =====
+
+from fastapi import FastAPI
+from api import connectbase_mock
+app = FastAPI()
+app.include_router(connectbase_mock.router)
+@app.get('/')
+def read_root():
+    return {'message': 'Agentic Connectbase API'}
+
+===== ./backend/agent/rag_agent.py =====
+
+# Placeholder for RAG pipeline using LangChain
+
+from langchain.chains import RetrievalQA
+
+def dummy_rag():
+    return 'This would query your vector store.'
+
+===== ./backend/api/connectbase_mock.py =====
+
+from fastapi import APIRouter
+router = APIRouter(prefix='/cb')
+
+@router.get('/locations')
+def locations():
+    return {'locations': ['123 Main St', '456 Elm St']}
+@router.get("/products")
+def get_products():
+    return {"products": ["Fiber 1G", "Ethernet 10G", "Wave"]}
+
+@router.post("/quote")
+def create_quote(request: dict):
+    return {"quote_id": "Q123", "status": "generated"}
