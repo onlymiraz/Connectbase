@@ -6,3 +6,4 @@ faiss-cpu
 uvicorn
 python-dotenv
 pyodbc
+httpx
