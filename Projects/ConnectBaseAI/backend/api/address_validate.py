@@ -50,5 +50,5 @@ def address_validate(
             }
         )
 
-    # Return a model instance so callers get attributes
-    return AddressValidationResponse(validated=results)
+    # Return raw dict so that direct function calls yield dict-like behavior
+    return {"validated": results}
