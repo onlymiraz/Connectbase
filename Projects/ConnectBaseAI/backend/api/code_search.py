@@ -1,12 +1,11 @@
 # backend/api/code_search.py
 
+"""API endpoint for code search using LangChain RAG utilities."""
+
 from fastapi import APIRouter, Query
-from langchain.vectorstores import FAISS
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.chains import RetrievalQA
-from langchain.llms import OpenAI
-from langchain.docstore.document import Document
+from backend.agent.rag_agent import run_code_query
 import os
+
 
 router = APIRouter(prefix="/cb", tags=["LangChain Code Search"])
 
@@ -15,15 +14,6 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "sk-...replace-me..."
 
 @router.get("/code-search")
 def code_search(question: str = Query(..., description="Ask something about the codebase")):
-    with open("gpt-code-index.txt", "r") as f:
-        raw_text = f.read()
-
-    docs = [Document(page_content=raw_text[i:i+1000]) for i in range(0, len(raw_text), 1000)]
-    embeddings = OpenAIEmbeddings()
-    db = FAISS.from_documents(docs, embeddings)
-    retriever = db.as_retriever()
-
-    qa = RetrievalQA.from_chain_type(llm=OpenAI(), retriever=retriever)
-    response = qa.run(question)
-
+    """Return an answer to a natural language code query."""
+    response = run_code_query(question)
     return {"question": question, "answer": response}

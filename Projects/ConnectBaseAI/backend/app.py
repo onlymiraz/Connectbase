@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from backend.api import connectbase_mock, code_search, address_validate
+import pathlib
 
 app = FastAPI(
     title="Connectbase Agentic AI Platform",
@@ -12,7 +13,9 @@ app = FastAPI(
 )
 
 # Mount the entire `static/` directory under `/static`
-app.mount("/static", StaticFiles(directory="static"), name="static")
+BASE_DIR = pathlib.Path(__file__).resolve().parents[1]
+STATIC_DIR = BASE_DIR / "static"
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 # Redirect `/ui` → `/static/ui.html`
 @app.get("/ui", include_in_schema=False)
