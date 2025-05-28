@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter, Query
 from pydantic import BaseModel
-from typing import List
+from typing import List, Union
 
 router = APIRouter(prefix="/cb", tags=["Address Validation"])
 
@@ -16,21 +16,39 @@ class AddressItem(BaseModel):
 class AddressValidationResponse(BaseModel):
     validated: List[AddressItem]
 
+
 @router.get(
     "/address-validate",
     summary="Validate one or more raw addresses",
     response_model=AddressValidationResponse,
 )
 def address_validate(
-    raw: List[str] = Query(..., description="Semicolon-separated list of raw addresses", alias="raw")
-) -> AddressValidationResponse:
-    """Mock address validation that normalizes and flags addresses as valid."""
-    results: List[AddressItem] = []
-    for addr in raw:
-        addr = addr.strip()
-        if not addr:
-            continue
+    raw: Union[str, List[str]] = Query(
+        ...,
+        description="Either a semicolon-separated string of addresses or a list of raw addresses",
+        alias="raw"
+    )
+):
+    """
+    Mock address validation: accepts either a semicolon-separated string or a list of addresses,
+    returns each with a fake status.
+    """
+    # Determine list of addresses to validate
+    if isinstance(raw, list):
+        raw_list = raw
+    else:
+        raw_list = [addr.strip() for addr in raw.split(";") if addr.strip()]
+
+    results = []
+    for addr in raw_list:
+        normalized = addr.title()
         results.append(
-            AddressItem(input=addr, normalized=addr.title(), valid=True)
+            {
+                "input": addr,
+                "normalized": normalized,
+                "valid": True,
+            }
         )
-    return AddressValidationResponse(validated=results)
+
+    # Return raw dict so that direct function calls yield dict-like behavior
+    return {"validated": results}
