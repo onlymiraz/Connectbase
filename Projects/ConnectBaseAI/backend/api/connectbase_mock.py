@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from backend.agent.rag_agent import dummy_rag
 
 router = APIRouter(prefix='/cb')
 
@@ -16,6 +17,5 @@ def create_quote(request: dict):
 
 @router.get('/rag-test')
 def rag_test():
-    from backend.agent.rag_agent import dummy_rag
     result = dummy_rag()
     return {'rag_output': result}
