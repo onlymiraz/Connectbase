@@ -1,6 +1,9 @@
+"""Unit tests for the Connectbase API functions."""
+
 import pathlib
 import sys
 
+# ensure project root is on the path
 PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -19,7 +22,15 @@ def test_locations():
     assert isinstance(data["locations"], list)
 
 
-def test_address_validate():
-    resp = address_validate(raw=["123 main st", "456 elm st"])
-    assert len(resp.validated) == 2
-    assert resp.validated[0].normalized == "123 Main St"
+def test_address_validate_semicolon():
+    data = address_validate(raw="123 Main St;456 Elm St")
+    results = data["validated"]
+    assert results[0]["normalized"] == "123 Main St"
+    assert len(results) == 2
+
+
+def test_address_validate_list():
+    data = address_validate(raw=["123 main st", "456 elm st"])
+    results = data["validated"]
+    assert len(results) == 2
+    assert results[0]["normalized"] == "123 Main St"
