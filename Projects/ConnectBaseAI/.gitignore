@@ -1,16 +1,25 @@
-<<<<<<< HEAD
 # macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
 
-# Python
+# Python bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+venv_CB_AI/
+backend/venv_CB_AI/
+
+# Build and distribution artifacts
 build/
 develop-eggs/
 dist/
@@ -27,9 +36,6 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-.env
-venv/
-ENV/
 
 # IDEs and editors
 .idea/
@@ -38,15 +44,12 @@ ENV/
 *.swo
 *~
 
-# Jupyter Notebook
-.ipynb_checkpoints 
-=======
-.DS_Store
-__pycache__/
-*.pyc
->>>>>>> clean
-.DS_Store
-__pycache__/
-*.pyc
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Misc project files
 tools/*.txt
-tools/*.txt
+
+# Environment files (be careful!)
+.env
+.env.*

@@ -1,9 +1,32 @@
+# =====================================================================
+# full path: requirements.txt
+# =====================================================================
+
 fastapi
-langchain
+uvicorn
+pydantic
+python-dotenv
+pytest
+python-multipart
+
+# ────────────  Hugging Face / PyTorch stack ────────────
+transformers==4.52.3
+torch               # CPU build is fine for demo
+sentencepiece       # needed by small summariser models
+accelerate          # lightweight helper for HF pipelines
+
+# ────────────  LangChain / OpenAI RAG stack ────────────
+langchain           # meta-pkg, pulls langchain-core etc.
 langchain-community
 openai
-faiss-cpu
-uvicorn
-python-dotenv
-pyodbc
-httpx
+faiss-cpu           # in-memory FAISS for code / rules indices
+
+# ────────────  Misc infra drivers ────────────
+python-pptx         # stays for future slide gen
+pyodbc              # CTI compat – harmless if unused
+redis
+elasticsearch
+httpx               # used by LangChain
+huggingface-hub
+torch
+tiktoken

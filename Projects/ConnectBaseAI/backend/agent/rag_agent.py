@@ -1,3 +1,7 @@
+# =====================================================================
+# full path: backend/agent/rag_agent.py
+# =====================================================================
+
 """Utilities for retrieval-augmented generation using LangChain."""
 
 from __future__ import annotations
@@ -8,9 +12,9 @@ from typing import Optional
 try:  # Optional import so tests run without langchain installed
     from langchain.chains import RetrievalQA
     from langchain.docstore.document import Document
-    from langchain.embeddings.openai import OpenAIEmbeddings
-    from langchain.llms import OpenAI
-    from langchain.vectorstores import FAISS
+    from langchain_community.embeddings import OpenAIEmbeddings
+    from langchain_community.llms import OpenAI
+    from langchain_community.vectorstores import FAISS
 except Exception:  # pragma: no cover - library may be missing
     RetrievalQA = None
     Document = None
@@ -23,10 +27,9 @@ BASE_DIR = pathlib.Path(__file__).resolve().parents[2]
 INDEX_DIR = BASE_DIR / "faiss_index"
 CODE_FILE = BASE_DIR / "gpt-code-index.txt"
 
-_chain: Optional[RetrievalQA] = None
+_chain: Optional['RetrievalQA'] = None
 
-
-def _build_vectorstore() -> FAISS:
+def _build_vectorstore() -> 'FAISS':
     """Create or load the FAISS vector store for the code index."""
     if FAISS is None:
         raise RuntimeError("LangChain is required for code search")
@@ -42,8 +45,7 @@ def _build_vectorstore() -> FAISS:
     store.save_local(str(index_file))
     return store
 
-
-def get_code_search_chain() -> RetrievalQA:
+def get_code_search_chain() -> 'RetrievalQA':
     """Return a RetrievalQA chain for searching the codebase."""
     global _chain
     if _chain is None:
@@ -53,12 +55,10 @@ def get_code_search_chain() -> RetrievalQA:
         _chain = RetrievalQA.from_chain_type(llm=OpenAI(), retriever=store.as_retriever())
     return _chain
 
-
 def run_code_query(question: str) -> str:
     """Execute a natural language query against the codebase."""
     chain = get_code_search_chain()
     return chain.run(question)
-
 
 def dummy_rag() -> str:
     """Example query used by the `/rag-test` endpoint."""
