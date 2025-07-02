@@ -1,1 +1,0 @@
-Step 5 - History Tables SSIS Data Flow Task
