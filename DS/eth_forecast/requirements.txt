@@ -1,7 +1,0 @@
-darts
-matplotlib
-numpy
-pandas
-plotly
-sktime
-u8darts[notorch]
