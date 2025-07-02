@@ -1,3 +1,0 @@
-﻿CREATE SCHEMA [CORP\s_wad]
-    AUTHORIZATION [CORP\s_wad];
-

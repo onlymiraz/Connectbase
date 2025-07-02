@@ -1,1 +1,0 @@
-﻿create schema STG_DPI_VW

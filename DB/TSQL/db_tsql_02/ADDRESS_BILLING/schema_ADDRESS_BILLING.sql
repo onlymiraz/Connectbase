@@ -1,1 +1,0 @@
-create schema ADDRESS_BILLING

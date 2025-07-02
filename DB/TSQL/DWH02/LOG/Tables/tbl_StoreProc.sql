@@ -1,9 +1,0 @@
-﻿CREATE TABLE [LOG].[tbl_StoreProc] (
-    [EVENTID]          INT           IDENTITY (1, 1) NOT NULL,
-    [EVENTNAME]        VARCHAR (200) NULL,
-    [EVENTSTART]       DATETIME      NULL,
-    [EVENTEND]         DATETIME      NULL,
-    [EVENTTYPE]        VARCHAR (100) NULL,
-    [EVENTDESCRIPTION] VARCHAR (500) NULL
-);
-

@@ -1,1 +1,0 @@
-Oracle/PLSQL DB diretory

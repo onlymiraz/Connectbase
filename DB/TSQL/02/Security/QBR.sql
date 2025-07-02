@@ -1,3 +1,0 @@
-﻿CREATE SCHEMA [QBR]
-    AUTHORIZATION [dbo];
-

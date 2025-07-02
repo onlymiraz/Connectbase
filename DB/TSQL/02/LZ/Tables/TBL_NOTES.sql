@@ -1,8 +1,0 @@
-﻿CREATE TABLE [LZ].[TBL_NOTES] (
-    [DOC_NUM]            NVARCHAR (15)  NULL,
-    [NOTES_ID]           NVARCHAR (15)  NULL,
-    [NOTE_TEXT]          NVARCHAR (500) NULL,
-    [USER_ID]            NVARCHAR (15)  NULL,
-    [LAST_MODIFIED_DATE] NVARCHAR (8)   NULL
-);
-

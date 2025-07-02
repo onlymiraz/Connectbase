@@ -1,1 +1,0 @@
-Teradata Directory

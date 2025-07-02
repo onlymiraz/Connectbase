@@ -1,3 +1,0 @@
-﻿CREATE SCHEMA [EDW_VWMC]
-    AUTHORIZATION [dbo];
-

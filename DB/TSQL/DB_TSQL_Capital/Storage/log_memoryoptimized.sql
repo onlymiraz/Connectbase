@@ -1,3 +1,0 @@
-﻿ALTER DATABASE [$(DatabaseName)]
-    ADD FILEGROUP [log_memoryoptimized] CONTAINS MEMORY_OPTIMIZED_DATA;
-

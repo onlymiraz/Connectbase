@@ -1,1 +1,0 @@
-TSQL/SQL Server Directory

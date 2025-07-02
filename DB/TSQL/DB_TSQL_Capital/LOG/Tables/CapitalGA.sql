@@ -1,9 +1,0 @@
-﻿CREATE TABLE [LOG].[CapitalGA] (
-    [Id]          INT      IDENTITY (1, 1) NOT NULL,
-    [SysDateTime] DATETIME NOT NULL,
-    [GAStart]     INT      NOT NULL,
-    [GAEnd]       INT      NOT NULL,
-    PRIMARY KEY NONCLUSTERED HASH ([Id]) WITH (BUCKET_COUNT = 131072)
-)
-WITH (MEMORY_OPTIMIZED = ON);
-

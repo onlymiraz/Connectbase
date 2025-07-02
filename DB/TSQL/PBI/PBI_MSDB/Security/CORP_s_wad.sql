@@ -1,3 +1,0 @@
-﻿CREATE USER [CORP\s_wad] FOR LOGIN [CORP\s_WAD]
-    WITH DEFAULT_SCHEMA = [CORP\s_wad];
-

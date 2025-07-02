@@ -1,6 +1,0 @@
-﻿CREATE VIEW [dbo].[CABS_MRC_ARPU_V] AS
-select * from LZ.TBL_CABS_MRC_ARPU_EVC_UNI
-
-union
-
-select * from LZ.TBL_CABS_MRC_ARPU_NNI_TDM

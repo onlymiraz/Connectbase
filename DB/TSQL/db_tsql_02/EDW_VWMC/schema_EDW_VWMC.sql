@@ -1,1 +1,0 @@
-﻿create schema EDW_VWMC

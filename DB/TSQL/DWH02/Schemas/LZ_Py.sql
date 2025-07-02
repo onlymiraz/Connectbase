@@ -1,3 +1,0 @@
-﻿CREATE SCHEMA [LZ_Py]
-    AUTHORIZATION [dbo];
-
